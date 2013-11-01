@@ -5,12 +5,15 @@ class IndexController extends MM_Web_Controller
 
     public function init()
     {
-        /* Initialize action controller here */
+        parent::init();
     }
 
     public function indexAction()
     {
         // action body
+        $this->view->title = "Welcome to ModelMates";
+        
+        $this->addScript('scripts/welcome.js');
     }
 
 

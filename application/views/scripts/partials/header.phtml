@@ -1,7 +1,31 @@
-<?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title><?= $this->title ?></title>
+    <?php $this->getStyles() ?>
+</head>
+<body>
+<div id="top">
+    <div class="in clearfix">
+        <a href="<?= $this->lurl() ?>" id="logo-wrap">
+            <span id="logo"></span>
+            <span id="logo-text">Meet Successful Men &amp; Beautiful Women</span>
+        </a>
+        <div id="login-area" class="ib-list">
+            <a href="<?= $this->lurl('signup') ?>">Join Now</a>
+            <a href="<?= $this->lurl('login') ?>" class="btn btn-blue">Login</a>
+        </div> <!-- #login-area -->
+        <div id="live-support">
+            <p>Live Help 24/7</p>
+            <a href="#" class="btn btn-green">Chat Now</a>
+        </div> <!-- #live-support -->
+    </div> <!-- .in -->
+</div> <!-- #top -->
+<div id="nav">
+    <div class="nav-shadow top"></div>
+    <div class="nav-shadow bottom"></div>
+    <div class="in">
+        <?php $this->getMenu() ?>
+    </div> <!-- .in -->
+</div> <!-- #nav -->

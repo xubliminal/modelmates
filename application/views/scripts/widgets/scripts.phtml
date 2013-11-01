@@ -1,0 +1,8 @@
+<?php foreach($this->scripts['noie'] as $script): ?>
+<script type="text/javascript" src="<?= $script->src ?>"></script>
+<?php endforeach; ?>
+<!--[if IE]>
+<?php foreach($this->scripts['ie'] as $script): ?>
+<script type="text/javascript" src="<?= $script->src ?>"></script>
+<?php endforeach; ?>
+<![endif]-->

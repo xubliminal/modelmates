@@ -419,5 +419,13 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         
     }
     
+    public function _initHelpers() {
+        $scripts = new MM_Helpers_Js();
+        $styles  = new MM_Helpers_Css();
+        
+        Zend_Registry::set('scripts', $scripts);
+        Zend_Registry::set('styles', $styles);
+    }
+    
 }
 

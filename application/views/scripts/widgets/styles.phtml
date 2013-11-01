@@ -1,0 +1,8 @@
+<?php foreach($this->styles['noie'] as $style): ?>
+<link rel="stylesheet" type="text/css" media="<?= $style->media ?>" href="<?= $style->href ?>" />
+<?php endforeach; ?>
+<!--[if IE]>
+<?php foreach($this->styles['ie'] as $style): ?>
+<link rel="stylesheet" type="text/css" media="<?= $style->media ?>" href="<?= $style->href ?>" />
+<?php endforeach; ?>
+<![endif]-->
