@@ -10,13 +10,15 @@ class MM_Helpers_Css {
     }
     
     public function add($href, $ie = false, $external = false, $media = 'all') {
-        $css = new stdClass();
-        $css->href = $href;
-        $css->ie = $ie;
-        $css->external = $external;
-        $css->media = $media;
-        
-        $this->css[] = $css;
+        if(!isset($this->css[$href])) {
+            $css = new stdClass();
+            $css->href = $href;
+            $css->ie = $ie;
+            $css->external = $external;
+            $css->media = $media;
+
+            $this->css[$href] = $css;
+        }
     }
     
     public function getAll() {

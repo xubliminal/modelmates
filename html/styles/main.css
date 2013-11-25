@@ -99,6 +99,7 @@ a.rev:hover{ text-decoration:underline; }
 	box-shadow:0 1px 1px rgba(0,0,0,.5);
 	font-weight: bold;
 	color: #fff;
+        border: 0 none;
 }
 .btn.block{text-align: center;}
 .btn-blue{

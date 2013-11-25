@@ -1,7 +1,177 @@
-<?php
+<?php $this->getHeader($this->title, 'page-white', 0) ?>
+<div class="dashboard-sub-wrap">
+    <div class="in">
+        <div id="members-content-wrap">
+            <div id="dashboard-top">
+                <div class="clearfix">
+                    <h1 class="ttl-sub-1 ld">my dashboard</h1>
+                    <div class="rd">
+                        <?= $this->partial('partials/dashmenu.phtml', array('active' => 4)) ?>
+                    </div> <!-- .rd -->
+                </div> <!-- .clearfix -->
+            </div> <!-- #dashboard-top -->
+            <div class="clearfix">
+                <div id="dashboard-content">
+                    <div class="dashboard-settings-block">
+                        <h1 class="ttl-primary">join today</h1>
+                    </div> <!-- .dashboard-settings-block -->
+                    <div class="dashboard-settings-block">
+                        <h2>Exclusive Members Only Benefits</h2>
+                        <div class="ib-list jl-features">
+                            <div class="ib-block">
+                                <div class="clearfix">
+                                    <div class="jl-feature-icon jlfi-1"></div>
+                                    <div class="jl-feature-text">+1,000's of Qualified<br />Members</div>
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <div class="clearfix">
+                                    <div class="jl-feature-icon jlfi-2"></div>
+                                    <div class="jl-feature-text">Live Support<br />24/7</div>
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <div class="clearfix">
+                                    <div class="jl-feature-icon jlfi-5"></div>
+                                    <div class="jl-feature-text">Verified<br />Photos</div>
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <div class="clearfix">
+                                    <div class="jl-feature-icon jlfi-6"></div>
+                                    <div class="jl-feature-text">Private &amp;<br />Secure Website</div>
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <div class="clearfix">
+                                    <div class="jl-feature-icon jlfi-3"></div>
+                                    <div class="jl-feature-text">Background<br />Check</div>
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <div class="clearfix">
+                                    <div class="jl-feature-icon jlfi-4"></div>
+                                    <div class="jl-feature-text">High Definition Video</div>
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <div class="clearfix">
+                                    <div class="jl-feature-icon jlfi-7"></div>
+                                    <div class="jl-feature-text">Parties &amp;<br />Events</div>
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <div class="clearfix">
+                                    <div class="jl-feature-icon jlfi-8"></div>
+                                    <div class="jl-feature-text">Money Back Guarantee</div>
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                        </div> <!-- .jl-features -->
+                    </div> <!-- .dashboard-settings-block -->
+                    <div class="dashboard-settings-block">
+                        <h2>Subscription Type</h2>
+                        <div class="radios-wrap">
+                            <label class="radios-row clearfix ib-list middle">
+                                <div class="radios-row-1 ib-block"><input type="radio" name="membership" /></div>
+                                <div class="radios-row-2 ib-block">
+                                    <strong>6 Month Membership</strong>
+                                    <br />Full Access - Most Popular Plan
+                                </div>
+                                <div class="radios-row-3 ib-block"><strong>$59.99 / month</strong></div>
+                            </label> <!-- .radios-row -->
+                            <label class="radios-row clearfix ib-list middle">
+                                <div class="radios-row-1 ib-block"><input type="radio" name="membership" /></div>
+                                <div class="radios-row-2 ib-block">
+                                    <strong>3 Month Membership</strong>
+                                    <br />Full Access - Most Popular Plan
+                                </div>
+                                <div class="radios-row-3 ib-block"><strong>$79.99 / month</strong></div>
+                            </label> <!-- .radios-row -->
+                            <label class="radios-row clearfix ib-list middle">
+                                <div class="radios-row-1 ib-block"><input type="radio" name="membership" /></div>
+                                <div class="radios-row-2 ib-block">
+                                    <strong>1 Month Membership</strong>
+                                    <br />Full Access - Most Popular Plan
+                                </div>
+                                <div class="radios-row-3 ib-block"><strong>$99.99 / month</strong></div>
+                            </label> <!-- .radios-row -->
+                        </div> <!-- .radios-wrap -->
+                    </div> <!-- .dashboard-settings-block -->
+                    <div class="dashboard-settings-block">
+                        <div class="clearfix">
+                            <div class="db-set-form-col ld">
+                                <h2>Payment Method</h2>
+                                <div class="clearfix db-set-cards">
+                                    <div class="jr-payment-card active"><img src="<?= $this->baseUrl() ?>/images/clipart/card-1.png" alt="" /></div>
+                                    <div class="jr-payment-card"><img src="<?= $this->baseUrl() ?>/images/clipart/card-2.png" alt="" /></div>
+                                    <div class="jr-payment-card"><img src="<?= $this->baseUrl() ?>/images/clipart/card-3.png" alt="" /></div>
+                                    <div class="jr-payment-card"><img src="<?= $this->baseUrl() ?>/images/clipart/card-4.png" alt="" /></div>
+                                    <div class="jr-payment-card"><img src="<?= $this->baseUrl() ?>/images/clipart/card-5.png" alt="" /></div>
+                                    <div class="jr-payment-card"><img src="<?= $this->baseUrl() ?>/images/clipart/card-6.png" alt="" /></div>
+                                </div> <!-- .db-set-cards -->
+                                <div class="form-row">
+                                    <label for="fld-14">Credit Card Number</label>
+                                    <div class="form-field"><input type="text" class="text" id="fld-14" /></div>
+                                </div> <!-- .form-row -->
+                                <div class="form-row">
+                                    <label for="fld-15">Cardholder Name</label>
+                                    <div class="form-field"><input type="text" class="text" id="fld-15" /></div>
+                                </div> <!-- .form-row -->
+                                <div class="form-row">
+                                    <label for="fld-16-1">Expiration Date</label>
+                                    <div class="form-field">
+                                        <div class="clearfix">
+                                            <div class="card-expiry-fld">
+                                                <select id="fld-16-1">
+                                                    <option>Month</option>
+                                                    <option>01</option>
+                                                    <option>02</option>
+                                                </select>
+                                            </div>
+                                            <div class="card-expiry-fld">
+                                                <select id="fld-16-2">
+                                                    <option>Year</option>
+                                                    <option>2014</option>
+                                                    <option>2015</option>
+                                                    <option>2016</option>
+                                                </select>
+                                            </div>
+                                        </div> <!-- .clearfix -->
+                                    </div>
+                                </div> <!-- .form-row -->
+                                <div class="form-row">
+                                    <label for="fld-17">Security Code <a href="#">What&rsquo;s this?</a></label>
+                                    <div class="form-field"><input type="text" class="text text-narrow" id="fld-17" /></div>
+                                </div> <!-- .form-row -->
+                                <div class="form-row jr-cb-row">
+                                    <input type="checkbox" id="fld-18" />
+                                    <label for="fld-18">I agreee with <a href="#">Terms and Conditions</a></label>
+                                </div> <!-- .form-row -->
+                                <div class="form-row">
+                                    <a href="#" class="btn btn-blue db-set-submit-2">Purchase Now</a>
+                                </div> <!-- .form-row -->
+                            </div> <!-- .db-set-form-col -->
+                            <div class="db-set-form-col rd">
+                                <div class="db-set-vid">
+                                    <a href="#" class="link-video">
+                                        <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-video.jpg" alt="" />
+                                        <span class="play-icon-2">
+                                            <span class="pi2-1">Model Mates</span>
+                                            <span class="pi2-2">New Commercial</span>
+                                        </span>
+                                    </a>
+                                </div> <!-- .db-set-vid -->
+                            </div> <!-- .db-set-form-col -->
+                        </div> <!-- .clearfix -->
+                    </div> <!-- .dashboard-settings-block -->
+                </div> <!-- #dashboard-content -->
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+                <div id="members-sidebar" class="dashboard-sidebar">
+                    <?= $this->partial('partials/dashsettings.phtml', array('active' => 4)) ?>
+                    <?= $this->partial('partials/dashsidebar.phtml') ?>
+                </div> <!-- #members-sidebar.dashboard-sidebar -->
+            </div>
+        </div> <!-- #members-content-wrap -->
+    </div> <!-- .white-box-1 -->
+</div> <!-- .sub-wrap -->
+<?php $this->getFooter() ?>

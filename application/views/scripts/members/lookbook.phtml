@@ -1,7 +1,116 @@
-<?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+<?php $this->getHeader($this->title, '', 1) ?>
+<div class="sp-wrap">
+    <div class="in">
+        <div class="subpage-content">
+            <?php $this->getTopSidebar() ?>
+            <div id="members-content-wrap">
+                <?php $this->getUsersNav() ?>
+                <div class="clearfix">
+                    <div id="members-content">
+                        <div class="members-list-head clearfix">
+                            <div class="ld"><h1>Tell me more</h1></div>
+                            <div class="rd">
+                                <ul class="member-head-tabs clearfix">
+                                    <li><a href="<?= $this->lurl('girl/about') ?>">About Me<span class="mht-tip"></span></a></li>
+                                    <li class="active"><a href="<?= $this->lurl('girl/lookbook') ?>">My Lookbook<span class="mht-tip"></span></a></li>
+                                </ul>
+                            </div>
+                        </div> <!-- .members-list-head -->
+                        <div class="pagination clearfix pagination-after-subnav">
+                            <div class="ld">Showing <strong>1&ndash;8</strong> of <strong>30</strong> Results</div>
+                            <div class="ib-list rd">
+                                <a href="#" class="page active">1</a>
+                                <a href="#" class="page">2</a>
+                                <a href="#" class="page">3</a>
+                            </div>
+                        </div> <!-- .pagination -->
+                        <div class="member-lookbook clearfix">
+                            <div class="member-lookbook-item">
+                                <a href="#" class="link-video">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-1.jpg" alt="" class="block" />
+                                    <span class="play-icon-1">Play Video</span>
+                                </a>
+                            </div>
+                            <div class="member-lookbook-item">
+                                <a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-2.jpg" alt="" class="block" /></a>
+                            </div>
+                            <div class="member-lookbook-item">
+                                <a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-3.jpg" alt="" class="block" /></a>
+                            </div>
+                            <div class="member-lookbook-item">
+                                <a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-4.jpg" alt="" class="block" /></a>
+                            </div>
+                            <div class="member-lookbook-item">
+                                <a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-5.jpg" alt="" class="block" /></a>
+                            </div>
+                            <div class="member-lookbook-item">
+                                <a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-6.jpg" alt="" class="block" /></a>
+                            </div>
+                            <div class="member-lookbook-item">
+                                <a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-7.jpg" alt="" class="block" /></a>
+                            </div>
+                            <div class="member-lookbook-item rd">
+                                <a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-8.jpg" alt="" class="block" /></a>
+                            </div>
+                            <div class="member-lookbook-item">
+                                <a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-9.jpg" alt="" class="block" /></a>
+                            </div>
+                            <div class="member-lookbook-item">
+                                <a href="#" class="link-video">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-10.jpg" alt="" class="block" />
+                                    <span class="play-icon-1">Play Video</span>
+                                </a>
+                            </div>
+                            <div class="member-lookbook-item">
+                                <a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-11.jpg" alt="" class="block" /></a>
+                            </div>
+                            <div class="member-lookbook-item">
+                                <a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-12.jpg" alt="" class="block" /></a>
+                            </div>
+                            <div class="member-lookbook-item">
+                                <a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-13.jpg" alt="" class="block" /></a>
+                            </div>
+                            <div class="member-lookbook-item">
+                                <a href="#" class="link-video">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/lookbook-14.jpg" alt="" class="block" />
+                                    <span class="play-icon-1">Play Video</span>
+                                </a>
+                            </div>
+                        </div> <!-- .member-lookbook -->
+                        <div class="pagination clearfix no-border">
+                            <div class="ld">Showing <strong>1&ndash;8</strong> of <strong>30</strong> Results</div>
+                            <div class="ib-list rd">
+                                <a href="#" class="page active">1</a>
+                                <a href="#" class="page">2</a>
+                                <a href="#" class="page">3</a>
+                            </div>
+                        </div> <!-- .pagination -->
+                        <div class="member-icons ib-list ib-middle mi-on-lookbook">
+                            <a href="#" class="m-link-message">Message</a>
+                            <span class="member-icons-sep">&bull;</span>
+                            <a href="#" class="m-link-hotlist">Favorite</a>
+                            <!--
+                            <span class="member-icons-sep">&bull;</span>
+                            <a href="#" class="m-link-bookmark">Bookmark</a>
+                            -->
+                            <span class="member-icons-sep">&bull;</span>
+                            <a href="#" class="m-link-chat">Chat</a>
+                            <span class="member-icons-sep">&bull;</span>
+                            <a href="#" class="m-link-vote">Vote</a>
+                            <!--
+                            <span class="member-icons-sep">&bull;</span>
+                            <a href="#" class="m-link-surprise">Surprise</a>
+                            -->
+                        </div> <!-- .member-icons -->
+                        <div class="member-abuse-actions">
+                            <a href="#">Block</a>
+                            <a href="#">Report</a>
+                        </div>
+                    </div> <!-- #members-content -->
+                    <?php $this->getSidebar(array('search', 'account', 'favorites')) ?>
+                </div> <!-- .clearfix -->
+            </div> <!-- #members-content -->
+        </div> <!-- .subpage-content -->
+    </div> <!-- .in -->
+</div> <!-- .sp-wrap -->
+<?php $this->getFooter() ?>

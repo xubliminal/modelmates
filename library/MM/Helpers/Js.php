@@ -10,12 +10,14 @@ class MM_Helpers_Js {
     }
     
     public function add($src, $ie = false, $external = false) {
-        $js = new stdClass();
-        $js->src = $src;
-        $js->ie = $ie;
-        $js->external = $external;
-        
-        $this->js[] = $js;
+        if(!isset($this->js[$src])) {
+            $js = new stdClass();
+            $js->src = $src;
+            $js->ie = $ie;
+            $js->external = $external;
+
+            $this->js[$src] = $js;
+        }
     }
     
     public function getAll() {

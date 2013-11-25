@@ -1,0 +1,354 @@
+<?php $this->getHeader($this->title, 'page-video', 1) ?>
+<div class="sub-wrap">
+    <div class="in white-box-1">
+        <div class="advanced-search-content">
+            <div class="advanced-search-top">
+                <div class="clearfix">
+                    <h1 class="ttl-primary ld">advanced search</h1>
+                    <div class="rd">
+                        <ul class="ib-list search-tabs">
+                            <li class="ib-block <?= $this->for == 'women' ? 'active' : '' ?>"><a href="<?= $this->lurl('search?for=women') ?>">Women</a></li>
+                            <li class="ib-block <?= $this->for == 'men' ? 'active' : '' ?>"><a href="<?= $this->lurl('search?for=men') ?>">Men</a></li>
+                        </ul>
+                    </div> <!-- .rd -->
+                </div> <!-- .clearfix -->
+            </div> <!-- .advanced-search-top -->
+            <div class="advanced-search-main">
+                <form action="<?= $this->lurl('search') ?>">
+                    <div class="asm-row clearfix">
+                        <div class="asmr-1-gp asm-row-1-gp-1">
+                            <label for="fld-1">Country</label>
+                            <div class="form-field">
+                                <select id="fld-1">
+                                    <option>United States</option>
+                                    <option>Costa Rica</option>
+                                </select>
+                            </div>
+                        </div> <!-- .asm-row-1-gp-1 -->
+                        <div class="asmr-1-gp asm-row-1-gp-1">
+                            <label for="fld-2">State</label>
+                            <div class="form-field">
+                                <select id="fld-2">
+                                    <option>United States</option>
+                                    <option>Costa Rica</option>
+                                </select>
+                            </div>
+                        </div> <!-- .asm-row-1-gp-1 -->
+                        <div class="asmr-1-gp asm-row-1-gp-1">
+                            <label for="fld-3">City</label>
+                            <div class="form-field">
+                                <select id="fld-3">
+                                    <option>United States</option>
+                                    <option>Costa Rica</option>
+                                </select>
+                            </div>
+                        </div> <!-- .asm-row-1-gp-1 -->
+                        <div class="asmr-1-gp asm-row-1-gp-2">
+                            <label for="fld-4">City</label>
+                            <div class="form-field"><input type="text" class="text" id="fld-4" /></div>
+                        </div> <!-- .asm-row-1-gp-2 -->
+                        <div class="asmr-1-gp asm-row-1-gp-1">
+                            <label for="fld-5">Located within</label>
+                            <div class="form-field">
+                                <select id="fld-5">
+                                    <option>United States</option>
+                                    <option>Costa Rica</option>
+                                </select>
+                            </div>
+                        </div> <!-- .asm-row-1-gp-1 -->
+                        <div class="asmr-1-gp asm-row-1-gp-2">
+                            <label for="fld-6">Age Range</label>
+                            <div class="form-field">
+                                <select id="fld-6">
+                                    <option>21 - 25 years</option>
+                                    <option>21 - 25 years</option>
+                                </select>
+                            </div>
+                        </div> <!-- .asm-row-1-gp-2 -->
+                    </div> <!-- .asm-row -->
+                    <div class="asm-row clearfix">
+                        <div class="asm-row-libley">Appearance</div>
+                        <div class="asm-row-righty">
+                            <div class="ib-list">
+                                <div class="ib-block asm-col-1">
+                                    <div class="asm-rin"><strong>Eyes</strong></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Blue
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Brown
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Dark Brown
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Green
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Grey
+                                        </label></div>
+                                </div> <!-- .ib-block -->
+                                <div class="ib-block asm-col-1">
+                                    <div class="asm-rin"><strong>Hair</strong></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Blonde
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Brown
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Black
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Red
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Grey / White
+                                        </label></div>
+                                </div> <!-- .ib-block -->
+                                <div class="ib-block asm-col-1">
+                                    <div class="asm-rin">
+                                        <label for="app-height"><strong>Height</strong></label>
+                                        <div class="asm-select">
+                                            <select id="app-height">
+                                                <option>6'0</option>
+                                                <option>6'1</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="asm-rin">
+                                        <label for="app-height"><strong>Birth Month</strong></label>
+                                        <div class="asm-select">
+                                            <select id="app-height">
+                                                <option>April</option>
+                                                <option>May</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div> <!-- .ib-block -->
+                                <div class="ib-block asm-col-1">
+                                    <div class="asm-rin"><strong>Body Art</strong></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Small Tattoo
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Tattoos
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Piercings
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Piercings + Tattoos
+                                        </label></div>
+                                </div> <!-- .ib-block -->
+                            </div> <!-- .ib-block -->
+                            <div class="asm-sep"></div>
+                            <div class="ib-list">
+                                <div class="ib-block asm-col-1">
+                                    <div class="asm-rin"><strong>Race</strong></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            White
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Latin / Hispanic
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            East Indian
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Native American
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Mixed Race
+                                        </label></div>
+                                </div> <!-- .ib-block -->
+                                <div class="ib-block asm-col-1">
+                                    <div class="asm-rin"><strong>&nbsp;</strong></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Black
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Asian
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Middle Eastern
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Islander
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Other
+                                        </label></div>
+                                </div> <!-- .ib-block -->
+                                <div class="ib-block asm-col-1">
+                                    <div class="asm-rin"><strong>Body Type</strong></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Slim
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Athletic / Fit
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Average
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Big &amp; Tall (over 6'2")
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            A Little Extra
+                                        </label></div>
+                                </div> <!-- .ib-block -->
+                                <div class="ib-block asm-col-1">
+                                    <div class="asm-rin"><strong>Bust</strong></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Small
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Medium
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Large
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            OMG!
+                                        </label></div>
+                                </div> <!-- .ib-block -->
+                            </div> <!-- .ib-block -->
+                        </div> <!-- .asm-row-righty -->
+                    </div> <!-- .asm-row -->
+                    <div class="asm-row clearfix">
+                        <div class="asm-row-libley">Personality<br />&amp;&nbsp;Habits</div>
+                        <div class="asm-row-righty">
+                            <div class="ib-list">
+                                <div class="ib-block asm-col-2">
+                                    <div class="asm-rin"><strong>Personality</strong></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Outgoing / High Energy
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Happy-Go-Lucky / Temperate Energy
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Reserved / Quiet Energy
+                                        </label></div>
+                                </div> <!-- .ib-block -->
+                                <div class="ib-block asm-col-3">
+                                    <div class="asm-rin"><strong>Smoking</strong></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Never
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Occasional
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Frequent
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Heavy
+                                        </label></div>
+                                </div> <!-- .ib-block -->
+                                <div class="ib-block asm-col-3">
+                                    <div class="asm-rin"><strong>Drinking</strong></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Never
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Occasional
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Frequent
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Like a Fish
+                                        </label></div>
+                                </div> <!-- .ib-block -->
+                                <div class="ib-block asm-col-3">
+                                    <div class="asm-rin"><strong>Drug Use</strong></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Never
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Occasional
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Frequent
+                                        </label></div>
+                                    <div class="asm-rin"><label>
+                                            <input type="checkbox" />
+                                            Always Stoned
+                                        </label></div>
+                                </div> <!-- .ib-block -->
+                            </div> <!-- .ib-block -->
+                        </div> <!-- .asm-row-righty -->
+                    </div> <!-- .asm-row -->
+                    <div class="asm-row clearfix">
+                        <div class="asm-row-libley">Member Search</div>
+                        <div class="asm-row-righty">
+                            <div class="clearfix">
+                                <div class="asm-bot-gp">
+                                    <label for="asm-username"><strong>Member Username</strong></label>
+                                    <div class="form-field"><input type="text" class="text" id="asm-username" /></div>
+                                </div>
+                                <div class="asm-bot-gp">
+                                    <label for="asm-profile-id"><strong>Profile ID</strong></label>
+                                    <div class="form-field"><input type="text" class="text" id="asm-profile-id" /></div>
+                                </div>
+                                <button type="submit" class="btn btn-blue rd">Search Now</button>
+                            </div> <!-- .clearfix -->
+                        </div> <!-- .asm-row-righty -->
+                    </div> <!-- .asm-row -->
+                    <input type="hidden" name="type" value="advance" />
+                    <input type="hidden" name="for" value="<?= $this->for ?>" />
+                </form>
+            </div> <!-- .advanced-search-main-->
+        </div> <!-- .advanced-search-content -->
+    </div> <!-- .white-box-1 -->
+</div> <!-- .sub-wrap -->
+<?php $this->getFooter() ?>

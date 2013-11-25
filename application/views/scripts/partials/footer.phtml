@@ -1,3 +1,35 @@
+<?php if($this->scope != 'welcome'): ?>
+<div id="footer">
+    <div class="in">
+        <a href="#" class="logo-footer"></a>
+        <div id="footer-top" class="clearfix">
+            <div class="ld">&copy; 2011&ndash;<?= date('Y') ?> Copyright Model Mates. All rights reserved.</div>
+            <div class="rd">
+                <a href="<?= $this->lurl('about') ?>">About Us</a>
+                <span class="footer-sep">&bull;</span>
+                <a href="<?= $this->lurl('faqs') ?>">FAQs</a>
+                <span class="footer-sep">&bull;</span>
+                <a href="<?= $this->lurl('contact') ?>">Contact</a>
+            </div>
+        </div> <!-- #footer-top -->
+        <div id="footer-bottom">
+            <a href="#">Invite a Friend</a>
+            <span class="footer-sep">&bull;</span>
+            <a href="<?= $this->lurl('about') ?>">About Us</a>
+            <span class="footer-sep">&bull;</span>
+            <a href="<?= $this->lurl('faqs') ?>">FAQs</a>
+            <span class="footer-sep">&bull;</span>
+            <a href="<?= $this->lurl('terms') ?>">Terms</a>
+            <span class="footer-sep">&bull;</span>
+            <a href="<?= $this->lurl('privacy') ?>">Privacy</a>
+            <!--<span class="footer-sep">&bull;</span>
+            <a href="<?= $this->lurl('videos') ?>">Satisfied Members</a>
+            <span class="footer-sep">&bull;</span>
+            <a href="<?= $this->lurl('videos') ?>">Visit Model Mates</a>-->
+        </div> <!-- #footer-bottom -->
+    </div> <!-- .in -->
+</div> <!-- #footer -->
+<?php endif ?>
 <?php $this->getScripts() ?>
 </body>
 </html>

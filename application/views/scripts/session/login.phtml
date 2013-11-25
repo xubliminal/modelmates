@@ -1,7 +1,106 @@
-<?php
+<?php $this->getHeader($this->title, 'page-white') ?>
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+<div class="join-wrap">
+    <div class="in">
+        <div class="join-content">
+            <div class="clearfix">
+                <div class="join-right">
+                    <div class="jr-main">
+                        <form method="post" action="<?= $this->lurl('login') ?>">
+                            <div class="jr-main-gp">
+                                <h2 class="ttl-sub-1"><span class="jr-ttl-no">1</span>Login</h2>
+                                <div class="jr-ttl-line"><div class="jr-ttl-line-1"><div class="jr-ttl-line-2"></div></div></div>
+                                <div class="clearfix">
+                                    <div class="jr-form-col ld">
+                                        <div class="form-row">
+                                            <label for="fld-1">Username:</label>
+                                            <div class="form-field"><input type="text" name="username" class="text" id="fld-1" /></div>
+                                        </div> <!-- .form-row -->
+                                        <div class="form-row">
+                                            <label for="fld-2">Password:</label>
+                                            <div class="form-field"><input type="password" name="password" class="text" id="fld-2" /></div>
+                                        </div> <!-- .form-row -->
+                                        <div class="form-row">
+                                            <a href="#forgot" class="lb">Forgot your password?</a>
+                                        </div>
+                                    </div> <!-- .jr-form-col -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .jr-main-gp -->
+                            <div class="jr-submit">
+                                <button type="submit" class="btn btn-blue">Login</button>
+                                <a href="<?= $this->lurl('signup') ?>" class="btn btn-green">Create an Account</a>
+                            </div> <!-- .jr-submit -->
+                        </form>
+                    </div> <!-- .jr-main -->
+                    <div class="jl-vid">
+                        <a href="#" class="link-video">
+                            <img src="images/clipart/video-join.jpg" width="100%" alt="" />
+                            <span class="play-icon-2">
+                                <span class="pi2-1">Model Mates</span>
+                                <span class="pi2-2">New Commercial</span>
+                            </span>
+                        </a>
+                    </div> <!-- .jl-vid -->
+                </div> <!-- .join-right -->
+                <div class="join-left">
+                    <div class="join-left-head">
+                        <div class="line-hotshot jl-line-1"></div>
+                        <h1>Exclusive members<br />only benefits</h1>
+                        <div class="line-hotshot jl-line-2"></div>
+                    </div> <!-- .jl-head -->
+                    <div class="ib-list jl-features">
+                        <div class="ib-block">
+                            <div class="clearfix">
+                                <div class="jl-feature-icon jlfi-1"></div>
+                                <div class="jl-feature-text">+1,000's of Qualified Members</div>
+                            </div> <!-- .clearfix -->
+                        </div> <!-- .ib-block -->
+                        <div class="ib-block">
+                            <div class="clearfix">
+                                <div class="jl-feature-icon jlfi-2"></div>
+                                <div class="jl-feature-text">Live Support<br />24/7</div>
+                            </div> <!-- .clearfix -->
+                        </div> <!-- .ib-block -->
+                        <div class="ib-block">
+                            <div class="clearfix">
+                                <div class="jl-feature-icon jlfi-3"></div>
+                                <div class="jl-feature-text">Background Check</div>
+                            </div> <!-- .clearfix -->
+                        </div> <!-- .ib-block -->
+                        <div class="ib-block">
+                            <div class="clearfix">
+                                <div class="jl-feature-icon jlfi-4"></div>
+                                <div class="jl-feature-text">High Definition Video</div>
+                            </div> <!-- .clearfix -->
+                        </div> <!-- .ib-block -->
+                        <div class="ib-block">
+                            <div class="clearfix">
+                                <div class="jl-feature-icon jlfi-5"></div>
+                                <div class="jl-feature-text">Verified<br />Photos</div>
+                            </div> <!-- .clearfix -->
+                        </div> <!-- .ib-block -->
+                        <div class="ib-block">
+                            <div class="clearfix">
+                                <div class="jl-feature-icon jlfi-6"></div>
+                                <div class="jl-feature-text">Private &amp;<br />Secure Website</div>
+                            </div> <!-- .clearfix -->
+                        </div> <!-- .ib-block -->
+                        <div class="ib-block">
+                            <div class="clearfix">
+                                <div class="jl-feature-icon jlfi-7"></div>
+                                <div class="jl-feature-text">Parties &amp;<br />Events</div>
+                            </div> <!-- .clearfix -->
+                        </div> <!-- .ib-block -->
+                        <div class="ib-block">
+                            <div class="clearfix">
+                                <div class="jl-feature-icon jlfi-8"></div>
+                                <div class="jl-feature-text">Money Back Guarantee</div>
+                            </div> <!-- .clearfix -->
+                        </div> <!-- .ib-block -->
+                    </div> <!-- .jl-features -->
+                </div> <!-- .join-left -->
+            </div> <!-- .clearfix -->
+        </div> <!-- .join-content -->
+    </div> <!-- .in -->
+</div> <!-- .join-wrap -->
+<?php $this->getFooter() ?>

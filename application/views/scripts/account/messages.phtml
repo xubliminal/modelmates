@@ -1,7 +1,210 @@
-<?php
+<?php $this->getHeader($this->title, 'page-white', 0) ?>
+<div class="dashboard-sub-wrap">
+    <div class="in">
+        <div id="members-content-wrap">
+            <div id="dashboard-top">
+                <div class="clearfix">
+                    <h1 class="ttl-sub-1 ld">my dashboard</h1>
+                    <div class="rd">
+                        <?= $this->partial('partials/dashmenu.phtml', array('active' => 1)) ?>
+                    </div> <!-- .rd -->
+                </div> <!-- .clearfix -->
+            </div> <!-- #dashboard-top -->
+            <div class="clearfix">
+                <div id="dashboard-content">
+                    <div id="dashboard-messages-top">
+                        <form>
+                            <div class="filter-group dmt-fg-select">
+                                <label for="filter-select">Select</label>
+                                <div class="fg-field">
+                                    <select id="filter-select">
+                                        <option>None</option>
+                                        <option>All</option>
+                                    </select>
+                                </div> <!-- .fg-field -->
+                            </div> <!-- .filter-group -->
+                            <div class="filter-group dmt-btns-wrap">
+                                <label class="vam">Actions</label>
+                                <a href="#" class="btn btn-grey">Mark as Read</a>
+                                <a href="#" class="btn btn-grey">Mark as Unread</a>
+                                <a href="#" class="btn btn-grey">Delete</a>
+                            </div> <!-- .filter-group -->
+                            <div class="filter-group dmt-fg-view">
+                                <label for="filter-view">View</label>
+                                <div class="fg-field">
+                                    <select id="filter-state">
+                                        <option>All</option>
+                                        <option>None</option>
+                                    </select>
+                                </div> <!-- .fg-field -->
+                            </div> <!-- .filter-group -->
+                        </form>
+                    </div> <!-- #dashboard-messages-top -->
+                    <?php if(!isset($_GET['m'])): ?>
+                    <div id="dashboard-messages-online-now">
+                        <div id="dmon-in">
+                            <h2>Online Now</h2>
+                            <a href="#" class="dmon-nav arrow-prev"></a>
+                            <a href="#" class="dmon-nav arrow-next"></a>
+                            <div class="slider-in">
+                                <div class="slider-in-2 clearfix">
+                                    <a href="#">
+                                        <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-online-1.jpg" alt="" class="block" />
+                                        melissa_1233
+                                    </a>
+                                    <a href="#">
+                                        <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-online-2.jpg" alt="" class="block" />
+                                        melissa_1233
+                                    </a>
+                                    <a href="#">
+                                        <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-online-3.jpg" alt="" class="block" />
+                                        melissa_1233
+                                    </a>
+                                    <a href="#">
+                                        <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-online-4.jpg" alt="" class="block" />
+                                        melissa_1233
+                                    </a>
+                                    <a href="#">
+                                        <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-online-5.jpg" alt="" class="block" />
+                                        melissa_1233
+                                    </a>
+                                    <a href="#">
+                                        <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-online-6.jpg" alt="" class="block" />
+                                        melissa_1233
+                                    </a>
+                                </div>
+                            </div>
+                        </div> <!-- #dmon-in -->
+                    </div> <!-- #dashboard-messages-online-now -->
+                    <?php endif ?>
+                    <div id="dashboard-messages-list">
+                        <div class="dashboard-message ib-list middle db-msg-new">
+                            <div class="ib-block db-msg-col-1"><input type="checkbox" /></div>
+                            <div class="ib-block db-msg-col-2"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-message.jpg" alt="" class="block" /></a></div>
+                            <div class="ib-block db-msg-col-3">
+                                <p><strong>sweetlady71389</strong></p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum quam est, et consequat nulla consequat in. Vivamus elementum neque sem. Nullam...</p>
+                                <p class="db-msg-date">3 hours ago</p>
+                            </div>
+                            <div class="ib-block db-msg-col-4"><a href="#" class="db-msg-star active"></a></div>
+                        </div> <!-- .dashboard-message -->
+                        <div class="dashboard-message ib-list middle db-msg-new">
+                            <div class="ib-block db-msg-col-1"><input type="checkbox" /></div>
+                            <div class="ib-block db-msg-col-2"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-message.jpg" alt="" class="block" /></a></div>
+                            <div class="ib-block db-msg-col-3">
+                                <p><strong>sweetlady71389</strong></p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum quam est, et consequat nulla consequat in. Vivamus elementum neque sem. Nullam...</p>
+                                <p class="db-msg-date">3 hours ago</p>
+                            </div>
+                            <div class="ib-block db-msg-col-4"><a href="#" class="db-msg-star"></a></div>
+                        </div> <!-- .dashboard-message -->
+                        <div class="dashboard-message ib-list middle">
+                            <div class="ib-block db-msg-col-1"><input type="checkbox" /></div>
+                            <div class="ib-block db-msg-col-2"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-message.jpg" alt="" class="block" /></a></div>
+                            <div class="ib-block db-msg-col-3">
+                                <p><strong>sweetlady71389</strong></p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum quam est, et consequat nulla consequat in. Vivamus elementum neque sem. Nullam...</p>
+                                <p class="db-msg-date">3 hours ago</p>
+                            </div>
+                            <div class="ib-block db-msg-col-4"><a href="#" class="db-msg-star"></a></div>
+                        </div> <!-- .dashboard-message -->
+                        <div class="dashboard-message ib-list middle">
+                            <div class="ib-block db-msg-col-1"><input type="checkbox" /></div>
+                            <div class="ib-block db-msg-col-2"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-message.jpg" alt="" class="block" /></a></div>
+                            <div class="ib-block db-msg-col-3">
+                                <p><strong>sweetlady71389</strong></p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum quam est, et consequat nulla consequat in. Vivamus elementum neque sem. Nullam...</p>
+                                <p class="db-msg-date">3 hours ago</p>
+                            </div>
+                            <div class="ib-block db-msg-col-4"><a href="#" class="db-msg-star"></a></div>
+                        </div> <!-- .dashboard-message -->
+                        <div class="dashboard-message ib-list middle">
+                            <div class="ib-block db-msg-col-1"><input type="checkbox" /></div>
+                            <div class="ib-block db-msg-col-2"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-message.jpg" alt="" class="block" /></a></div>
+                            <div class="ib-block db-msg-col-3">
+                                <p><strong>sweetlady71389</strong></p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum quam est, et consequat nulla consequat in. Vivamus elementum neque sem. Nullam...</p>
+                                <p class="db-msg-date">3 hours ago</p>
+                            </div>
+                            <div class="ib-block db-msg-col-4"><a href="#" class="db-msg-star"></a></div>
+                        </div> <!-- .dashboard-message -->
+                        <div class="dashboard-message ib-list middle">
+                            <div class="ib-block db-msg-col-1"><input type="checkbox" /></div>
+                            <div class="ib-block db-msg-col-2"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-message.jpg" alt="" class="block" /></a></div>
+                            <div class="ib-block db-msg-col-3">
+                                <p><strong>sweetlady71389</strong></p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum quam est, et consequat nulla consequat in. Vivamus elementum neque sem. Nullam...</p>
+                                <p class="db-msg-date">3 hours ago</p>
+                            </div>
+                            <div class="ib-block db-msg-col-4"><a href="#" class="db-msg-star"></a></div>
+                        </div> <!-- .dashboard-message -->
+                        <div class="dashboard-message ib-list middle">
+                            <div class="ib-block db-msg-col-1"><input type="checkbox" /></div>
+                            <div class="ib-block db-msg-col-2"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-message.jpg" alt="" class="block" /></a></div>
+                            <div class="ib-block db-msg-col-3">
+                                <p><strong>sweetlady71389</strong></p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum quam est, et consequat nulla consequat in. Vivamus elementum neque sem. Nullam...</p>
+                                <p class="db-msg-date">3 hours ago</p>
+                            </div>
+                            <div class="ib-block db-msg-col-4"><a href="#" class="db-msg-star"></a></div>
+                        </div> <!-- .dashboard-message -->
+                        <div class="dashboard-message ib-list middle">
+                            <div class="ib-block db-msg-col-1"><input type="checkbox" /></div>
+                            <div class="ib-block db-msg-col-2"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-message.jpg" alt="" class="block" /></a></div>
+                            <div class="ib-block db-msg-col-3">
+                                <p><strong>sweetlady71389</strong></p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum quam est, et consequat nulla consequat in. Vivamus elementum neque sem. Nullam...</p>
+                                <p class="db-msg-date">3 hours ago</p>
+                            </div>
+                            <div class="ib-block db-msg-col-4"><a href="#" class="db-msg-star"></a></div>
+                        </div> <!-- .dashboard-message -->
+                        <div class="dashboard-message ib-list middle">
+                            <div class="ib-block db-msg-col-1"><input type="checkbox" /></div>
+                            <div class="ib-block db-msg-col-2"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-message.jpg" alt="" class="block" /></a></div>
+                            <div class="ib-block db-msg-col-3">
+                                <p><strong>sweetlady71389</strong></p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum quam est, et consequat nulla consequat in. Vivamus elementum neque sem. Nullam...</p>
+                                <p class="db-msg-date">3 hours ago</p>
+                            </div>
+                            <div class="ib-block db-msg-col-4"><a href="#" class="db-msg-star"></a></div>
+                        </div> <!-- .dashboard-message -->
+                        <div class="dashboard-message ib-list middle">
+                            <div class="ib-block db-msg-col-1"><input type="checkbox" /></div>
+                            <div class="ib-block db-msg-col-2"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-message.jpg" alt="" class="block" /></a></div>
+                            <div class="ib-block db-msg-col-3">
+                                <p><strong>sweetlady71389</strong></p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum quam est, et consequat nulla consequat in. Vivamus elementum neque sem. Nullam...</p>
+                                <p class="db-msg-date">3 hours ago</p>
+                            </div>
+                            <div class="ib-block db-msg-col-4"><a href="#" class="db-msg-star"></a></div>
+                        </div> <!-- .dashboard-message -->
+                    </div> <!-- #dashboard-messages-list -->
+                    <div class="dashboard-messages-pagination-wrap">
+                        <div class="pagination clearfix">
+                            <div class="ld">Showing 1-10 of 48 Messages</div>
+                            <div class="ib-list rd">
+                                <a href="#" class="page active">1</a>
+                                <a href="#" class="page">2</a>
+                                <a href="#" class="page">3</a>
+                            </div>
+                        </div> <!-- .pagination -->
+                    </div> <!-- .dashboard-messages-pagination-wrap -->
+                </div> <!-- #dashboard-content -->
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+                <div id="members-sidebar" class="dashboard-sidebar">
+                    <div id="ds-widget-messages">
+                        <h2>My Messages</h2>
+                        <ul>
+                            <li class="<?= (!isset($_GET['m'])) ? 'active' : '' ?> ds-msg-link-inbox"><a href="<?= $this->lurl('account/messages') ?>"><span class="rd ds-msg-count">13</span>Inbox</a></li>
+                            <li class="<?= (isset($_GET['m']) && $_GET['m'] == 'stared') ? 'active' : '' ?> ds-msg-link-starred"><a href="<?= $this->lurl('account/messages?m=stared') ?>">Starred</a></li>
+                            <li class="<?= (isset($_GET['m']) && $_GET['m'] == 'sent') ? 'active' : '' ?> ds-msg-link-sent"><a href="<?= $this->lurl('account/messages?m=sent') ?>">Sent</a></li>
+                            <li class="<?= (isset($_GET['m']) && $_GET['m'] == 'trash') ? 'active' : '' ?> ds-msg-link-trash"><a href="<?= $this->lurl('account/messages?m=trash') ?>">Trash</a></li>
+                        </ul>
+                    </div> <!-- #ds-widget-messages -->
+                    <?= $this->partial('partials/dashsidebar.phtml', array('extended' => 1)) ?>
+                </div> <!-- #members-sidebar.dashboard-sidebar -->
+            </div>
+        </div> <!-- #members-content-wrap -->
+    </div> <!-- .white-box-1 -->
+</div> <!-- .sub-wrap -->
+<?php $this->getFooter() ?>

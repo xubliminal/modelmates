@@ -1,7 +1,312 @@
-<?php
+<?php $this->getHeader($this->title, 'page-white', 0) ?>
+<div class="dashboard-sub-wrap">
+    <div class="in">
+        <div id="members-content-wrap">
+            <div id="dashboard-top">
+                <div class="clearfix">
+                    <h1 class="ttl-sub-1 ld">my dashboard</h1>
+                    <div class="rd">
+                        <?= $this->partial('partials/dashmenu.phtml', array('active' => 4)) ?>
+                    </div> <!-- .rd -->
+                </div> <!-- .clearfix -->
+            </div> <!-- #dashboard-top -->
+            <div class="clearfix">
+                <div id="dashboard-content">
+                    <form>
+                        <div class="dashboard-settings-block">
+                            <h2>Account Information</h2>
+                            <div class="clearfix">
+                                <div class="db-set-form-col ld">
+                                    <div class="form-row">
+                                        <label for="f1">First Name</label>
+                                        <div class="form-field"><input type="text" class="text" id="f1" /></div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f2">Nickname</label>
+                                        <div class="form-field"><input type="text" class="text" id="f2" /></div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f3">Gender</label>
+                                        <div class="form-field">
+                                            <select id="f3">
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                            </select>
+                                        </div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f4">City</label>
+                                        <div class="form-field"><input type="text" class="text" id="f4" /></div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f5">Zip Code</label>
+                                        <div class="form-field"><input type="text" class="text" id="f5" /></div>
+                                    </div> <!-- .form-row -->
+                                </div> <!-- .db-set-form-col -->
+                                <div class="db-set-form-col rd">
+                                    <div class="form-row">
+                                        <label for="f6">Last Name</label>
+                                        <div class="form-field"><input type="text" class="text" id="f6" /></div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f7">Email</label>
+                                        <div class="form-field"><input type="text" class="text" id="f7" /></div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f8">Country</label>
+                                        <div class="form-field">
+                                            <select id="f8">
+                                                <option>United States</option>
+                                                <option>Costa Rica</option>
+                                            </select>
+                                        </div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f9">State</label>
+                                        <div class="form-field"><input type="text" class="text" id="f9" /></div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f10-1">Birthday</label>
+                                        <div class="form-field">
+                                            <div class="clearfix">
+                                                <div class="fnl-bd-day">
+                                                    <select id="f10-1">
+                                                        <option>1</option>
+                                                        <option>2</option>
+                                                    </select>
+                                                </div>
+                                                <div class="fnl-bd-month">
+                                                    <select id="f10-2">
+                                                        <option>January</option>
+                                                        <option>February</option>
+                                                    </select>
+                                                </div>
+                                                <div class="fnl-bd-year">
+                                                    <select id="f10-3">
+                                                        <option>1985</option>
+                                                        <option>1986</option>
+                                                    </select>
+                                                </div>
+                                            </div> <!-- .clearfix -->
+                                        </div>
+                                    </div> <!-- .form-row -->
+                                </div> <!-- .db-set-form-col -->
+                            </div> <!-- .clearfix -->
+                        </div> <!-- .dashboard-settings-block -->
+                        <div class="dashboard-settings-block">
+                            <h2>Account Information</h2>
+                            <div class="clearfix">
+                                <div class="db-set-form-col ld">
+                                    <div class="form-row">
+                                        <label for="f11">You are a</label>
+                                        <div class="form-field">
+                                            <select id="f11">
+                                                <option>Man Seeking a Woman</option>
+                                                <option>Woman Seeking a Man</option>
+                                            </select>
+                                        </div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f12">Current Relationship </label>
+                                        <div class="form-field">
+                                            <select id="f12">
+                                                <option>Single</option>
+                                                <option>Multiple</option>
+                                            </select>
+                                        </div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f13">Relationship Desired</label>
+                                        <div class="form-field">
+                                            <select id="f13">
+                                                <option>Choose One</option>
+                                                <option>Choose Two</option>
+                                            </select>
+                                        </div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f14">Race</label>
+                                        <div class="form-field">
+                                            <select id="f14">
+                                                <option>Hispanic</option>
+                                                <option>Islamic</option>
+                                            </select>
+                                        </div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f15">Body</label>
+                                        <div class="form-field">
+                                            <select id="f15">
+                                                <option>Athletic</option>
+                                                <option>Pamthletic</option>
+                                            </select>
+                                        </div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f16">Personality Type</label>
+                                        <div class="form-field">
+                                            <select id="f16">
+                                                <option>Choose One</option>
+                                                <option>Choose Two</option>
+                                            </select>
+                                        </div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f17">Children</label>
+                                        <div class="form-field">
+                                            <select id="f17">
+                                                <option>Choose One</option>
+                                                <option>Choose Two</option>
+                                            </select>
+                                        </div>
+                                    </div> <!-- .form-row -->
+                                </div> <!-- .db-set-form-col -->
+                                <div class="db-set-form-col rd">
+                                    <div class="form-row clearfix">
+                                        <div class="db-set-fc-half ld">
+                                            <label for="f18">Eyes</label>
+                                            <div class="form-field">
+                                                <select id="f18">
+                                                    <option>Choose One</option>
+                                                    <option>Choose Two</option>
+                                                </select>
+                                            </div>
+                                        </div> <!-- .db-set-fc-half -->
+                                        <div class="db-set-fc-half rd">
+                                            <label for="f19">Hair</label>
+                                            <div class="form-field">
+                                                <select id="f19">
+                                                    <option>Choose One</option>
+                                                    <option>Choose Two</option>
+                                                </select>
+                                            </div>
+                                        </div> <!-- .db-set-fc-half -->
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row clearfix">
+                                        <div class="db-set-fc-half ld">
+                                            <label for="f20">Height</label>
+                                            <div class="form-field">
+                                                <select id="f20">
+                                                    <option>Choose One</option>
+                                                    <option>Choose Two</option>
+                                                </select>
+                                            </div>
+                                        </div> <!-- .db-set-fc-half -->
+                                        <div class="db-set-fc-half rd">
+                                            <label for="f21">Weight</label>
+                                            <div class="form-field">
+                                                <select id="f21">
+                                                    <option>Choose One</option>
+                                                    <option>Choose Two</option>
+                                                </select>
+                                            </div>
+                                        </div> <!-- .db-set-fc-half -->
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f22">Best Asset</label>
+                                        <div class="form-field">
+                                            <select id="f22">
+                                                <option>Choose One</option>
+                                                <option>Choose Two</option>
+                                            </select>
+                                        </div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row clearfix">
+                                        <div class="db-set-fc-half ld">
+                                            <label for="f23">Smoking Habits</label>
+                                            <div class="form-field">
+                                                <select id="f23">
+                                                    <option>Choose One</option>
+                                                    <option>Choose Two</option>
+                                                </select>
+                                            </div>
+                                        </div> <!-- .db-set-fc-half -->
+                                        <div class="db-set-fc-half rd">
+                                            <label for="f24">Drinking</label>
+                                            <div class="form-field">
+                                                <select id="f24">
+                                                    <option>Choose One</option>
+                                                    <option>Choose Two</option>
+                                                </select>
+                                            </div>
+                                        </div> <!-- .db-set-fc-half -->
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row clearfix">
+                                        <div class="db-set-fc-half ld">
+                                            <label for="f25">Drug Use</label>
+                                            <div class="form-field">
+                                                <select id="f25">
+                                                    <option>Choose One</option>
+                                                    <option>Choose Two</option>
+                                                </select>
+                                            </div>
+                                        </div> <!-- .db-set-fc-half -->
+                                        <div class="db-set-fc-half rd">
+                                            <label for="f26">Body Art</label>
+                                            <div class="form-field">
+                                                <select id="f26">
+                                                    <option>Choose One</option>
+                                                    <option>Choose Two</option>
+                                                </select>
+                                            </div>
+                                        </div> <!-- .db-set-fc-half -->
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row clearfix">
+                                        <div class="db-set-fc-half ld">
+                                            <label for="f27">Income</label>
+                                            <div class="form-field">
+                                                <select id="f27">
+                                                    <option>Choose One</option>
+                                                    <option>Choose Two</option>
+                                                </select>
+                                            </div>
+                                        </div> <!-- .db-set-fc-half -->
+                                        <div class="db-set-fc-half rd">
+                                            <label for="f28">Education</label>
+                                            <div class="form-field">
+                                                <select id="f28">
+                                                    <option>Choose One</option>
+                                                    <option>Choose Two</option>
+                                                </select>
+                                            </div>
+                                        </div> <!-- .db-set-fc-half -->
+                                    </div> <!-- .form-row -->
+                                </div> <!-- .db-set-form-col -->
+                            </div> <!-- .clearfix -->
+                        </div> <!-- .dashboard-settings-block -->
+                        <div class="dashboard-settings-block">
+                            <h2>Tell us more about you</h2>
+                            <div class="clearfix">
+                                <div class="db-set-form-col ld">
+                                    <div class="form-row">
+                                        <label for="f29">Tagline <span class="field-info">(Up to 10 words)</span></label>
+                                        <div class="form-field"><textarea class="text" id="f29" rows="4"></textarea></div>
+                                    </div> <!-- .form-row -->
+                                    <div class="form-row">
+                                        <label for="f30">About Me <span class="field-info">(Up to 100 words)</span></label>
+                                        <div class="form-field"><textarea class="text" id="f30" rows="4"></textarea></div>
+                                    </div> <!-- .form-row -->
+                                </div> <!-- .db-set-form-col -->
+                                <div class="db-set-form-col rd">
+                                    <div class="form-row">
+                                        <label for="f31">I&rsquo;m looking for <span class="field-info">(Up to 100 words)</span></label>
+                                        <div class="form-field"><textarea class="text" id="f31" rows="4"></textarea></div>
+                                    </div> <!-- .form-row -->
+                                </div> <!-- .db-set-form-col -->
+                            </div> <!-- .clearfix -->
+                        </div> <!-- .dashboard-settings-block -->
+                        <div class="dashboard-settings-block">
+                            <div class="ra"><a href="#" class="btn btn-blue db-set-submit-1">Save Changes</a></div>
+                        </div> <!-- .dashboard-settings-block -->
+                    </form>
+                </div> <!-- #dashboard-content -->
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+                <div id="members-sidebar" class="dashboard-sidebar">
+                    <?= $this->partial('partials/dashsettings.phtml', array('active' => 0)) ?>
+                    <?= $this->partial('partials/dashsidebar.phtml') ?>
+                </div> <!-- #members-sidebar.dashboard-sidebar -->
+            </div>
+        </div> <!-- #members-content-wrap -->
+    </div> <!-- .white-box-1 -->
+</div> <!-- .sub-wrap -->
+<?php $this->getFooter() ?>

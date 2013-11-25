@@ -1,0 +1,54 @@
+<?php $this->getHeader($this->title, 'page-video', 6) ?>
+<div class="sp-wrap">
+    <div class="in">
+        <div class="subpage-content">
+            <div id="members-content-wrap">
+                <div class="clearfix">
+                    <div id="good-life-content">
+                        <h1 class="ttl-primary">the good life</h1>
+                        <div class="clearfix glc-main">
+                            <div class="glc-main-left">
+                                <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-detail-1.jpg" alt="" class="block" />
+                                <div class="ib-list good-life-detail-pics">
+                                    <div class="ib-block"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/good-life-detail-2.jpg" alt="" class="block" /></a></div>
+                                    <div class="ib-block"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/good-life-detail-3.jpg" alt="" class="block" /></a></div>
+                                </div> <!-- .good-life-detail-pics -->
+                            </div> <!-- .glc-main-left -->
+                            <div class="glc-main-right">
+                                <p><span class="tag-top-10">TOP 10</span></p>
+                                <h3>Dining Experiences</h3>
+                                <h2>Monteverde Loft</h2>
+                                <p class="good-life-location">Santa Monica, CA</p>
+                                <div class="good-life-style">
+                                    Italian &bull; Mexican Fusion
+                                </div>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id neque velit, a rutrum lectus. Nam a felis erat. Nunc est felis, vehicula eget elementum et, ultrices eu lectus. Sed iaculis imperdiet arcu eleifend accumsan. Integer tempor vestibulum euismod. Morbi gravida dapibus enim. Etiam at metus tristique magna porttitor ultrices. Vestibulum massa diam, molestie sit amet fringilla eu, fermentum ac dui. Fusce non gravida neque</p>
+                                <hr />
+                                <p>
+                                    <strong>Parking Info</strong>
+                                    <br />Valet
+                                </p>
+                                <p>
+                                    <strong>Address</strong>
+                                    <br />Street 48, Avenue, Los Angeles, CA
+                                </p>
+                                <p>
+                                    <strong>Telephone</strong>
+                                    <br />(310) 8475-4487
+                                </p>
+                                <p>
+                                    <br />
+                                    <a href="#" class="btn btn-blue">Menu</a>&nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-blue">Reserve Now</a>
+                                </p>
+                            </div> <!-- .glc-main-right -->
+                        </div> <!-- .glc-main -->
+                        <div class="ad"><img src="<?= $this->baseUrl() ?>/images/clipart/ad-4.jpg" alt="" /></div>
+                    </div> <!-- #good-life-content -->
+
+                    <?php $this->getSidebar(array('search', 'account', 'favorites')) ?>
+                </div> <!-- .clearfix -->
+            </div> <!-- #members-content -->
+        </div> <!-- .subpage-content -->
+    </div> <!-- .in -->
+</div> <!-- .sp-wrap -->
+<?php $this->getFooter() ?>

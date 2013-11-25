@@ -1,7 +1,155 @@
-<?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+<?php $this->getHeader($this->title, 'page-video', 6) ?>
+<div class="sub-wrap">
+    <div class="in white-box-1">
+        <div class="video-category-content no-padding">
+            <div class="good-life-home-top">
+                <div class="good-life-home-top-1">
+                    <h1 class="ttl-primary">the good life</h1>
+                    <div class="clearfix glht-1-1">
+                        <div class="glht1-left">
+                            <div class="glht1-left-pic">
+                                <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-big.jpg" alt="" class="block" />
+                                <span class="good-life-result-num">1</span>
+                            </div>
+                        </div> <!-- .glht1-left -->
+                        <div class="glht1-right">
+                            <p><span class="tag-top-10">TOP 10</span></p>
+                            <h3>Dining Experiences</h3>
+                            <h2>Monteverde Loft</h2>
+                            <p class="good-life-location">Santa Monica, CA</p>
+                            <div class="good-life-style">
+                                Italian &bull; Mexican Fusion
+                            </div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur pulvinar tellus, vel mattis dui tincidunt nec. Ut sollicitudin nisl eget dui auctor.</p>
+                            <p><br /><a href="<?= $this->lurl('life/123456') ?>" class="btn btn-blue">Explore</a></p>
+                        </div> <!-- .glht1-right -->
+                    </div> <!-- .clearfix -->
+                    <div class="glht1-nav">
+                        <ul class="ib-list">
+                            <li class="ib-block active"><a href="#">Dining</a></li>
+                            <li class="ib-block"><a href="#">Entertainment</a></li>
+                            <li class="ib-block"><a href="#">Nightlife</a></li>
+                            <li class="ib-block"><a href="#">Shopping</a></li>
+                            <li class="ib-block"><a href="#">Wellness</a></li>
+                            <li class="ib-block"><a href="#">Luxury Rentals</a></li>
+                            <li class="ib-block"><a href="#">Travel</a></li>
+                            <li class="ib-block"><a href="#">Special Gift</a></li>
+                        </ul>
+                    </div> <!-- .glht1-nav -->
+                </div> <!-- .good-life-home-top-1 -->
+                <div class="good-life-home-top-2 clearfix">
+                    <h2 class="ttl-primary ld">Search by</h2>
+                    <div class="rd">
+                        <form>
+                            <div class="filter-group">
+                                <label for="filter-state">State</label>
+                                <div class="fg-field">
+                                    <select id="filter-state">
+                                        <option>California</option>
+                                        <option>New York</option>
+                                    </select>
+                                </div> <!-- .fg-field -->
+                            </div> <!-- .filter-group -->
+                            <div class="filter-group">
+                                <label for="filter-city">City</label>
+                                <div class="fg-field">
+                                    <select id="filter-city">
+                                        <option>January</option>
+                                        <option>February</option>
+                                    </select>
+                                </div> <!-- .fg-field -->
+                            </div> <!-- .filter-group -->
+                            <div class="filter-group">
+                                <label for="filter-category">Category</label>
+                                <div class="fg-field">
+                                    <select id="filter-category">
+                                        <option>Major Events</option>
+                                        <option>Minor Events</option>
+                                    </select>
+                                </div> <!-- .fg-field -->
+                            </div> <!-- .filter-group -->
+                            <div class="filter-group glht2-submit-wrap"><a href="#" class="btn btn-blue">Search</a></div>
+                        </form>
+                    </div>
+                </div> <!-- .good-life-home-top-2 -->
+            </div> <!-- .good-life-home-top -->
+            <div class="good-life-home-results">
+                <div class="ib-list good-life-list">
+                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
+                        <span class="good-life-result-pic">
+                            <span class="good-life-result-num">2</span>
+                            <span class="good-life-result-name"><span>Resturant X</span></span>
+                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-1.jpg" alt="" class="block" />
+                        </span>
+                        <span class="good-life-result-title">Mexican Food</span>
+                    </a> <!-- .ib-block -->
+                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
+                        <span class="good-life-result-pic">
+                            <span class="good-life-result-num">3</span>
+                            <span class="good-life-result-name"><span>Resturant X</span></span>
+                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-2.jpg" alt="" class="block" />
+                        </span>
+                        <span class="good-life-result-title">Mexican Food</span>
+                    </a> <!-- .ib-block -->
+                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
+                        <span class="good-life-result-pic">
+                            <span class="good-life-result-num">4</span>
+                            <span class="good-life-result-name"><span>Resturant X</span></span>
+                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-3.jpg" alt="" class="block" />
+                        </span>
+                        <span class="good-life-result-title">Mexican Food</span>
+                    </a> <!-- .ib-block -->
+                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
+                        <span class="good-life-result-pic">
+                            <span class="good-life-result-num">4</span>
+                            <span class="good-life-result-name"><span>Resturant X</span></span>
+                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-4.jpg" alt="" class="block" />
+                        </span>
+                        <span class="good-life-result-title">Mexican Food</span>
+                    </a> <!-- .ib-block -->
+                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
+                        <span class="good-life-result-pic">
+                            <span class="good-life-result-num">5</span>
+                            <span class="good-life-result-name"><span>Resturant X</span></span>
+                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-5.jpg" alt="" class="block" />
+                        </span>
+                        <span class="good-life-result-title">Mexican Food</span>
+                    </a> <!-- .ib-block -->
+                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
+                        <span class="good-life-result-pic">
+                            <span class="good-life-result-num">6</span>
+                            <span class="good-life-result-name"><span>Resturant X</span></span>
+                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-6.jpg" alt="" class="block" />
+                        </span>
+                        <span class="good-life-result-title">Mexican Food</span>
+                    </a> <!-- .ib-block -->
+                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
+                        <span class="good-life-result-pic">
+                            <span class="good-life-result-num">7</span>
+                            <span class="good-life-result-name"><span>Resturant X</span></span>
+                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-7.jpg" alt="" class="block" />
+                        </span>
+                        <span class="good-life-result-title">Mexican Food</span>
+                    </a> <!-- .ib-block -->
+                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
+                        <span class="good-life-result-pic">
+                            <span class="good-life-result-num">8</span>
+                            <span class="good-life-result-name"><span>Resturant X</span></span>
+                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-8.jpg" alt="" class="block" />
+                        </span>
+                        <span class="good-life-result-title">Mexican Food</span>
+                    </a> <!-- .ib-block -->
+                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
+                        <span class="good-life-result-pic">
+                            <span class="good-life-result-num">9</span>
+                            <span class="good-life-result-name"><span>Resturant X</span></span>
+                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-9.jpg" alt="" class="block" />
+                        </span>
+                        <span class="good-life-result-title">Mexican Food</span>
+                    </a> <!-- .ib-block -->
+                </div> <!-- .ib-list -->
+            </div> <!-- .good-life-home-results -->
+        </div> <!-- .video-category-content -->
+    </div> <!-- .white-box-1 -->
+</div> <!-- .sub-wrap -->
+<?php $this->getFooter() ?>

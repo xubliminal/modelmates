@@ -1,7 +1,110 @@
-<?php
-
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+<?php $this->getHeader($this->title, 'page-video', 3) ?>
+<div id="videos-home-top">
+    <div class="in">
+        <div class="ib-list">
+            <div class="ib-block">
+                <div class="vht-pic-wrap"><img src="images/clipart/video-girl-1.png" alt="" /></div>
+                <h2>Hot 100</h2>
+                <p>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit</p>
+                <p><a href="<?= $this->lurl('hot100/videos') ?>" class="btn btn-blue">Watch Hot 100 Videos</a></p>
+            </div> <!-- .ib-block -->
+            <div class="ib-block">
+                <div class="vht-pic-wrap"><img src="images/clipart/video-girl-2.png" alt="" /></div>
+                <h2>Double Dare</h2>
+                <p>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit</p>
+                <p><a href="<?= $this->lurl('videos/category/all') ?>" class="btn btn-blue">Watch All Double Dare Videos</a></p>
+            </div> <!-- .ib-block -->
+            <div class="ib-block">
+                <div class="vht-pic-wrap"><img src="images/clipart/video-girl-3.png" alt="" /></div>
+                <h2>Watch All</h2>
+                <p>Lorem ipsum dolor sit amet, conse ctetur adipiscing elit</p>
+                <p><a href="<?= $this->lurl('videos/category/all') ?>" class="btn btn-blue">Watch Funny Girls Videos</a></p>
+            </div> <!-- .ib-block -->
+        </div> <!-- .ib-list -->
+    </div> <!-- .in -->
+</div> <!-- #videos-home-top -->
+<div class="in white-box-1" id="videos-home-main-wrap">
+    <div id="videos-home-main" class="clearfix">
+        <div class="videos-right">
+            <h1 class="ttl-primary">upcoming events</h1>
+            <div class="ib-list videos-home-list">
+                <div class="ib-block">
+                    <div class="clearfix">
+                        <img src="images/clipart/event-small-1.jpg" alt="" class="ld" />
+                        <div class="event-small-descr">
+                            <p><strong>Lorem ipsum dolor</strong></p>
+                            <p>April 26th, 2013</p>
+                            <p><a href="<?= $this->lurl('events/123456') ?>" class="link-more">Read more</a></p>
+                        </div> <!-- .event-small-descr -->
+                    </div> <!-- .clearfix -->
+                </div> <!-- .ib-block -->
+                <div class="ib-block">
+                    <div class="clearfix">
+                        <img src="images/clipart/event-small-2.jpg" alt="" class="ld" />
+                        <div class="event-small-descr">
+                            <p><strong>Lorem ipsum dolor</strong></p>
+                            <p>April 26th, 2013</p>
+                            <p><a href="<?= $this->lurl('events/123456') ?>" class="link-more">Read more</a></p>
+                        </div> <!-- .event-small-descr -->
+                    </div> <!-- .clearfix -->
+                </div> <!-- .ib-block -->
+                <div class="ib-block">
+                    <div class="clearfix">
+                        <img src="images/clipart/event-small-3.jpg" alt="" class="ld" />
+                        <div class="event-small-descr">
+                            <p><strong>Lorem ipsum dolor</strong></p>
+                            <p>April 26th, 2013</p>
+                            <p><a href="<?= $this->lurl('events/123456') ?>" class="link-more">Read more</a></p>
+                        </div> <!-- .event-small-descr -->
+                    </div> <!-- .clearfix -->
+                </div> <!-- .ib-block -->
+                <div class="ib-block">
+                    <div class="clearfix">
+                        <img src="images/clipart/event-small-4.jpg" alt="" class="ld" />
+                        <div class="event-small-descr">
+                            <p><strong>Lorem ipsum dolor</strong></p>
+                            <p>April 26th, 2013</p>
+                            <p><a href="<?= $this->lurl('events/123456') ?>" class="link-more">Read more</a></p>
+                        </div> <!-- .event-small-descr -->
+                    </div> <!-- .clearfix -->
+                </div> <!-- .ib-block -->
+                <div class="ib-block">
+                    <div class="clearfix">
+                        <img src="images/clipart/event-small-5.jpg" alt="" class="ld" />
+                        <div class="event-small-descr">
+                            <p><strong>Lorem ipsum dolor</strong></p>
+                            <p>April 26th, 2013</p>
+                            <p><a href="<?= $this->lurl('events/123456') ?>" class="link-more">Read more</a></p>
+                        </div> <!-- .event-small-descr -->
+                    </div> <!-- .clearfix -->
+                </div> <!-- .ib-block -->
+                <div class="ib-block">
+                    <div class="clearfix">
+                        <img src="images/clipart/event-small-6.jpg" alt="" class="ld" />
+                        <div class="event-small-descr">
+                            <p><strong>Lorem ipsum dolor</strong></p>
+                            <p>April 26th, 2013</p>
+                            <p><a href="<?= $this->lurl('events/123456') ?>" class="link-more">Read more</a></p>
+                        </div> <!-- .event-small-descr -->
+                    </div> <!-- .clearfix -->
+                </div> <!-- .ib-block -->
+            </div> <!-- .videos-home-list -->
+        </div> <!-- .videos-right -->
+        <div class="videos-left">
+            <h1 class="ttl-primary">VIDEO CATEGORIES</h1>
+            <ul>
+                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Beach</a></li>
+                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Photo Sessions</a></li>
+                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Maecenas interdum</a></li>
+                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Leo in erat accumsan</a></li>
+                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Pulvinar pharetra</a></li>
+                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Beach</a></li>
+                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Photo Sessions</a></li>
+                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Maecenas interdum</a></li>
+                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Leo in erat accumsan</a></li>
+            </ul>
+            <p><a href="<?= $this->lurl('videos/category/all') ?>" class="btn btn-blue">See All Videos</a></p>
+        </div> <!-- .videos-left -->
+    </div> <!-- #videos-home-main -->
+</div> <!-- #videos-home-main-wrap -->
+<?php $this->getFooter() ?>

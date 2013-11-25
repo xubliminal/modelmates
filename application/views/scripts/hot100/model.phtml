@@ -1,0 +1,54 @@
+<?php $this->getHeader($this->title, 'page-black', 2) ?>
+<div class="sp-wrap hot-wrap-1">
+    <div class="in">
+        <div class="subpage-content">
+            <div id="members-content-wrap">
+                <div class="clearfix">
+                    <div id="more-main-content">
+                        <?= $this->partial('partials/hottop.phtml', array('active' => 0)) ?>
+                        <div id="hot-100-main">
+                            <ul class="ib-list hot-100-qst-nav">
+                                <li class="ib-block"><a href="<?= $this->lurl('hot100/models/') ?>">Girls of Model Mates</a></li>
+                                <li class="ib-block"><a href="<?= $this->lurl('hot100/models/?t=winners') ?>">Winners</a></li>
+                                <li class="ib-block"><a href="<?= $this->lurl('hot100/models/?t=voting') ?>">Voting</a></li>
+                                <li class="ib-block"><a href="<?= $this->lurl('events/123456') ?>">Hot 100 Party Invitation</a></li>
+                            </ul>
+                            <div class="pagination clearfix hot-100-qst-pag">
+                                <div class="ld"><strong>Girls of Model Mates</strong></div>
+                                <div class="ib-list rd">
+                                    <a href="#" class="page active">1</a>
+                                    <a href="#" class="page">2</a>
+                                    <a href="#" class="page">3</a>
+                                    <a href="#" class="page">4</a>
+                                    <a href="#" class="page">5</a>
+                                    <a href="#" class="page">6</a>
+                                    <a href="#" class="page">7</a>
+                                    <a href="#" class="page">8</a>
+                                    <a href="#" class="page">9</a>
+                                    <a href="#" class="page">10</a>
+                                    <a href="#" class="page"><span class="hot-100-qst-pag-prev"></span></a>
+                                    <a href="#" class="page"><span class="hot-100-qst-pag-next"></span></a>
+                                </div>
+                            </div> <!-- .pagination -->
+                            <div id="hot-100-question-block">
+                                <img src="<?= $this->baseUrl() ?>/images/clipart/hot-100-question.jpg" alt="" class="block" />
+                                <div class="hot-100-qst-logo"></div>
+                                <div class="hot-100-qst-date">September<br />2014</div>
+                                <div class="hot-100-qst-text">
+                                    <h1>5</h1>
+                                    <h2><span>KATHERINE</span></h2>
+                                    <h3>Firegirl_1985</h3>
+                                    <p>Proin tempor lacus sed enim vehicula hendrerit. Praesent at dolor mi, a lobortis nisl. Integer feugiat gravida est, non vestibulum nulla condimentum sed oin tempor lacus sed enim vehicula hendrerit. Praesent at dolor mi, a lobortis nisl. Integer feugiat gravida est, non vestibulum nulla condimentum sed Proin tempor lacus sed enim vehicula hendrerit. Praesent at dolor mi, a lobortis nisl. Integer feugiat gravida est, non vestibulum nulla condimentum sed</p>
+                                </div> <!-- .hot-100-qst-text -->
+                            </div> <!-- #hot-100-question-block -->
+                        </div> <!-- #hot-100-main -->
+                    </div> <!-- #more-main-content -->
+                    <?php $this->getSidebar(array('search', 'account', 'favorites')) ?>
+                </div> <!-- .clearfix -->
+            </div> <!-- #members-content -->
+        </div> <!-- .subpage-content -->
+    </div> <!-- .in -->
+</div> <!-- .sp-wrap -->
+<?php $this->getFooter() ?>
+</body>
+</html>

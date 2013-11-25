@@ -1,7 +1,115 @@
-<?php
+<?php $this->getHeader($this->title, 'page-white', 0) ?>
+<div class="dashboard-sub-wrap">
+    <div class="in">
+        <div id="members-content-wrap">
+            <div id="dashboard-top">
+                <div class="clearfix">
+                    <h1 class="ttl-sub-1 ld">my dashboard</h1>
+                    <div class="rd">
+                        <?= $this->partial('partials/dashmenu.phtml', array('active' => 0)) ?>
+                    </div> <!-- .rd -->
+                </div> <!-- .clearfix -->
+            </div> <!-- #dashboard-top -->
+            <div class="clearfix">
+                <div id="dashboard-content">
+                    <div class="dashboard-content-regular">
+                        <div class="dmp-gp clearfix">
+                            <div class="dmp-gp-1-left">
+                                <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-my-profile.png" alt="" class="block rounded" />
+                            </div> <!-- .dmp-gp-1-left -->
+                            <div class="dmp-gp-1-right">
+                                <div class="dmp-gp-1-r-top clearfix">
+                                    <a href="<?= $this->lurl('account/settings') ?>" class="btn btn-blue rd">Edit Profile</a>
+                                    <div class="ld">
+                                        <h1>scott_1978</h1>
+                                        <p>Torrance, CA</p>
+                                    </div> <!-- .ld -->
+                                </div> <!-- .dmp-gp-1-r-top -->
+                                <div class="dmp-gp-1-r-bottom clearfix">
+                                    <div class="ib-list">
+                                        <div class="ib-block">
+                                            <p>Age <strong>46</strong></p>
+                                            <p>Birthdate <strong>February 20</strong></p>
+                                            <p>Race <strong>White</strong></p>
+                                            <p>Body Type <strong>Athletic</strong></p>
+                                            <p>Height <strong>6&rsquo;2</strong></p>
+                                        </div> <!-- .ib-block -->
+                                        <div class="ib-block">
+                                            <p>Best Asset <strong>Brain</strong></p>
+                                            <p>Education <strong>MBA</strong></p>
+                                            <p>Occupation <strong>Technology</strong></p>
+                                            <p>Income <strong>$500 &ndash; 1MK</strong></p>
+                                            <p>Personality Type <strong>High Energy</strong></p>
+                                        </div> <!-- .ib-block -->
+                                    </div> <!-- .ib-list -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .dmp-gp-1-right -->
+                        </div> <!-- .dmp-gp -->
+                        <div class="dmp-gp clearfix">
+                            <div class="dmp-gp-2-left">
+                                <h2>About</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id neque velit, a rutrum lectus. Nam a felis erat. Nunc est felis, vehicula eget elementum et, ultrices eu lectus. Sed iaculis imperdiet arcu eleifend accumsan. Integer tempor vestibulum euismod. Morbi gravida dapibus enim. Etiam at metus tristique magna porttitor ultrices. Vestibulum massa diam, molestie sit amet fringilla eu, fermentum ac dui. Fusce non gravida neque</p>
+                                <h2>I&rsquo;m Looking for</h2>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id neque velit, a rutrum lectus. Nam a felis erat. Nunc est felis, vehicula eget elementum et, ultrices eu lectus. Sed iaculis imperdiet arcu eleifend accumsan. Integer tempor vestibulum euismod. Morbi gravida dapibus enim. Etiam at metus tristique magna porttitor ultrices. Vestibulum massa diam, molestie sit amet fringilla eu, fermentum ac dui. Fusce non gravida neque</p>
+                            </div> <!-- .dmp-gp-2-left -->
+                            <div class="dmp-gp-2-right">
+                                <h2 class="ttl-sub-1">10 Things You Should Know About Me</h2>
+                                <div class="clearfix">
+                                    <div class="member-perks">
+                                        <p>
+                                            Righty or Lefty?
+                                            <br /><strong>Righty</strong>
+                                        </p>
+                                        <p>
+                                            Morning or Night Person?
+                                            <br /><strong>Morning</strong>
+                                        </p>
+                                        <p>
+                                            Favorite Late Night Snack
+                                            <br /><strong>Popcorn</strong>
+                                        </p>
+                                        <p>
+                                            Chocolate or Vanilla?
+                                            <br /><strong>Chocolate Ice Cream</strong>
+                                        </p>
+                                        <p>
+                                            Favorite Movie
+                                            <br /><strong>Easy Rider</strong>
+                                        </p>
+                                    </div> <!-- .member-perks -->
+                                    <div class="member-perks">
+                                        <p>
+                                            5 things I can&rsquo;t live without
+                                            <br /><strong>Cell Phone, Milkshakes, DVR, My kids, Lazy Sundays</strong>
+                                        </p>
+                                        <p>
+                                            One day soon I plan to
+                                            <br /><strong>Learn how to sail</strong>
+                                        </p>
+                                        <p>
+                                            Favorite place in the World
+                                            <br /><strong>Spain</strong>
+                                        </p>
+                                        <p>
+                                            My Ideal Woman should
+                                            <br /><strong>Love dogs</strong>
+                                        </p>
+                                        <p>
+                                            Boxers or Briefs?
+                                            <br /><strong>Boxers</strong>
+                                        </p>
+                                    </div> <!-- .member-perks -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .dmp-gp-2-right -->
+                        </div> <!-- .dmp-gp -->
+                    </div> <!-- .dashboard-content-regular -->
+                </div> <!-- #dashboard-content -->
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+                <div id="members-sidebar" class="dashboard-sidebar">
+                    <?= $this->partial('partials/dashsidebar.phtml') ?>
+                </div> <!-- #members-sidebar.dashboard-sidebar -->
+            </div>
+        </div> <!-- #members-content-wrap -->
+    </div> <!-- .white-box-1 -->
+</div> <!-- .sub-wrap -->
+<?php $this->getFooter() ?>

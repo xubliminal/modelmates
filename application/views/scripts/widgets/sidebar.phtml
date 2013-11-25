@@ -1,0 +1,145 @@
+<div id="members-sidebar">
+    <?php if(in_array('search', $this->widgets)): ?>
+    <div class="members-widget widget-blue" id="widget-members-search">
+        <h2 class="members-widget-title">
+            <span class="mwt-tip"></span>
+            <span class="mwt-icon mwt-icon-search"></span>
+            <span class="mwt-text">Quick Search</span>
+        </h2>
+        <form>
+            <div class="form-row">
+                <label for="qs-1">Seeking a</label>
+                <div class="form-field">
+                    <select id="qs-1">
+                        <option>Beautiful Woman</option>
+                        <option>Successful Man</option>
+                    </select>
+                </div>
+            </div> <!-- .form-row -->
+            <div class="form-row">
+                <label for="qs-2">Between</label>
+                <div class="form-field small-selects">
+                    <div class="select-small">
+                        <select id="qs-2">
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                        </select>
+                    </div>
+                    <span class="select-to">to</span>
+                    <div class="select-small">
+                        <select>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                        </select>
+                    </div>
+                </div>
+            </div> <!-- .form-row -->
+            <div class="form-row">
+                <label for="qs-3">Body Type</label>
+                <div class="form-field">
+                    <select id="qs-3">
+                        <option>Athletic</option>
+                        <option>Nonathletic</option>
+                    </select>
+                </div>
+            </div> <!-- .form-row -->
+            <div class="form-row">
+                <label for="qs-4">Located Within</label>
+                <div class="form-field">
+                    <select id="qs-4">
+                        <option>10 Miles</option>
+                        <option>20 Miles</option>
+                    </select>
+                </div>
+            </div> <!-- .form-row -->
+            <div class="form-row">
+                <label for="qs-5">Zip Code</label>
+                <div class="form-field"><input type="text" class="text" id="qs-5" /></div>
+            </div> <!-- .form-row -->
+            <div class="form-row members-form-or"><span>or</span></div>
+            <div class="form-row clearfix">
+                <div class="ld" id="mws-city-wrap">
+                    <label for="qs-6">City</label>
+                    <div class="form-field"><input type="text" class="text" id="qs-6" /></div>
+                </div>
+                <div class="rd" id="mws-state-wrap">
+                    <label for="qs-7">State</label>
+                    <div class="form-field">
+                        <select id="qs-7">
+                            <option>CA</option>
+                            <option>LA</option>
+                        </select>
+                    </div>
+                </div>
+            </div> <!-- .form-row -->
+            <div class="form-row">
+                <button class="btn btn-blue">Search Now</button>
+            </div> <!-- .form-row -->
+            <div class="form-row"><a href="<?= $this->lurl('search') ?>" class="link-more">Advanced Search</a></div>
+            <input name="type" type="hidden" value="quick" />
+        </form>
+    </div> <!-- .members-widget -->
+    <?php endif; if(in_array('account', $this->widgets)): ?>
+    <div class="members-widget">
+        <h2 class="members-widget-title">
+            <span class="mwt-tip"></span>
+            <span class="mwt-icon mwt-icon-my-modelmates"></span>
+            <span class="mwt-text">my modelmates</span>
+        </h2>
+        <ul class="member-widget-links">
+            <li><a href="<?= $this->lurl('account') ?>">My Dashboard</a></li>
+            <li><a href="<?= $this->lurl('account/settings') ?>">Account Settings</a></li>
+            <li><a href="<?= $this->lurl('account/messages') ?>">New Messages<span class="count">13</span></a></li>
+            <li><a href="<?= $this->lurl('account/recent') ?>">Recent Views<span class="count">7</span></a></li>
+            <li><a href="<?= $this->lurl('account/favorites') ?>">My Favorites<span class="count">20</span></a></li>
+        </ul>
+    </div> <!-- .members-widget -->
+    <?php endif; if(in_array('favorites', $this->widgets)): ?>
+    <div class="widget-sep"></div>
+    <div class="members-widget">
+        <h2 class="members-widget-title">
+            <span class="mwt-tip"></span>
+            <span class="mwt-icon mwt-icon-favorites"></span>
+            <span class="mwt-text">favorites</span>
+            <span class="mwt-status online">Online Now</span>
+        </h2>
+        <ul class="ib-list members-favorites">
+            <li class="ib-block"><a href="<?= $this->lurl('girl') ?>">
+                    <span class="members-favorites-pic"><img src="<?= $this->baseUrl() ?>/images/clipart/photo-fav-1.jpg" alt="" /></span>
+                    <span class="members-favorites-screnname">nicole_7985_blah</span>
+                </a></li>
+            <li class="ib-block"><a href="<?= $this->lurl('girl') ?>">
+                    <span class="members-favorites-pic"><img src="<?= $this->baseUrl() ?>/images/clipart/photo-fav-2.jpg" alt="" /></span>
+                    <span class="members-favorites-screnname">nancy1874</span>
+                </a></li>
+            <li class="ib-block"><a href="<?= $this->lurl('girl') ?>">
+                    <span class="members-favorites-pic"><img src="<?= $this->baseUrl() ?>/images/clipart/photo-fav-3.jpg" alt="" /></span>
+                    <span class="members-favorites-screnname">susan187</span>
+                </a></li>
+            <li class="ib-block"><a href="<?= $this->lurl('girl') ?>">
+                    <span class="members-favorites-pic"><img src="<?= $this->baseUrl() ?>/images/clipart/photo-fav-4.jpg" alt="" /></span>
+                    <span class="members-favorites-screnname">blonde487</span>
+                </a></li>
+            <li class="ib-block"><a href="<?= $this->lurl('girl') ?>">
+                    <span class="members-favorites-pic"><img src="<?= $this->baseUrl() ?>/images/clipart/photo-fav-5.jpg" alt="" /></span>
+                    <span class="members-favorites-screnname">veronica154</span>
+                </a></li>
+            <li class="ib-block"><a href="<?= $this->lurl('girl') ?>">
+                    <span class="members-favorites-pic"><img src="<?= $this->baseUrl() ?>/images/clipart/photo-fav-6.jpg" alt="" /></span>
+                    <span class="members-favorites-screnname">maria157</span>
+                </a></li>
+            <li class="ib-block"><a href="<?= $this->lurl('girl') ?>">
+                    <span class="members-favorites-pic"><img src="<?= $this->baseUrl() ?>/images/clipart/photo-fav-7.jpg" alt="" /></span>
+                    <span class="members-favorites-screnname">mariafernand</span>
+                </a></li>
+            <li class="ib-block"><a href="<?= $this->lurl('girl') ?>">
+                    <span class="members-favorites-pic"><img src="<?= $this->baseUrl() ?>/images/clipart/photo-fav-8.jpg" alt="" /></span>
+                    <span class="members-favorites-screnname">marion_9764</span>
+                </a></li>
+        </ul>
+        <a href="<?= $this->lurl('account/favorites') ?>" class="link-more">See All Favorites</a>
+    </div> <!-- .members-widget -->
+    <?php endif; ?>
+</div> <!-- #members-sidebar -->

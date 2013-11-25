@@ -1,0 +1,10 @@
+<div id="ds-widget-settings">
+    <h2>Account Settings</h2>
+    <ul>
+        <li class="<?= $this->active == 0 ? 'active' : '' ?> ds-set-link-profile"><a href="<?= $this->lurl('account/settings') ?>">Profile Information</a></li>
+        <li class="<?= $this->active == 1 ? 'active' : '' ?> ds-set-link-upload"><a href="<?= $this->lurl('account/settings/media') ?>">Upload Pictures</a></li>
+        <li class="<?= $this->active == 2 ? 'active' : '' ?> ds-set-link-password"><a href="<?= $this->lurl('account/settings/password') ?>">Change Password</a></li>
+        <li class="<?= $this->active == 3 ? 'active' : '' ?> ds-set-link-privacy"><a href="<?= $this->lurl('account/settings/privacy') ?>">Privacy</a></li>
+        <li class="<?= $this->active == 4 ? 'active' : '' ?> ds-set-link-subscription"><a href="<?= $this->lurl('account/settings/subscription') ?>">Subscription</a></li>
+    </ul>
+</div> <!-- #ds-widget-settings -->

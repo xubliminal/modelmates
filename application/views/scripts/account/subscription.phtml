@@ -1,7 +1,45 @@
-<?php
+<?php $this->getHeader($this->title, 'page-white', 0) ?>
+<div class="dashboard-sub-wrap">
+    <div class="in">
+        <div id="members-content-wrap">
+            <div id="dashboard-top">
+                <div class="clearfix">
+                    <h1 class="ttl-sub-1 ld">my dashboard</h1>
+                    <div class="rd">
+                        <?= $this->partial('partials/dashmenu.phtml', array('active' => 4)) ?>
+                    </div> <!-- .rd -->
+                </div> <!-- .clearfix -->
+            </div> <!-- #dashboard-top -->
+            <div class="clearfix">
+                <div id="dashboard-content">
+                    <div class="dashboard-settings-block">
+                        <h2>Current Subscription</h2>
+                        <div class="ib-list db-set-subscription-wrap middle">
+                            <div class="ib-block db-set-sw-1">
+                                <dl class="ib-list">
+                                    <dt class="ib-block">Membership Type</dt>
+                                    <dd class="ib-block">3 Day Trial Membership</dd>
+                                    <dt class="ib-block">Register Date</dt>
+                                    <dd class="ib-block">April 26th, 2014</dd>
+                                    <dt class="ib-block">Expiration Date</dt>
+                                    <dd class="ib-block">April 29th, 2014</dd>
+                                    <dt class="ib-block">Pricing</dt>
+                                    <dd class="ib-block">$0 - Free</dd>
+                                </dl>
+                            </div>
+                            <div class="ib-block db-set-sw-2">
+                                <a href="<?= $this->lurl('account/upgrade') ?>" class="btn btn-blue block">Upgrade Subscription</a>
+                            </div>
+                        </div> <!-- .db-set-subscription-wrap -->
+                    </div> <!-- .dashboard-settings-block -->
+                </div> <!-- #dashboard-content -->
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+                <div id="members-sidebar" class="dashboard-sidebar">
+                    <?= $this->partial('partials/dashsettings.phtml', array('active' => 4)) ?>
+                    <?= $this->partial('partials/dashsidebar.phtml') ?>
+                </div> <!-- #members-sidebar.dashboard-sidebar -->
+            </div>
+        </div> <!-- #members-content-wrap -->
+    </div> <!-- .white-box-1 -->
+</div> <!-- .sub-wrap -->
+<?php $this->getFooter() ?>

@@ -1,0 +1,8 @@
+<ul>
+    <li class="<?= $this->active == 0 ? 'active': '' ?>"><a href="<?= $this->lurl('account/profile') ?>">My Profile</a></li>
+    <li class="<?= $this->active == 1 ? 'active': '' ?>"><a href="<?= $this->lurl('account/messages') ?>">Messages</a></li>
+    <li class="<?= $this->active == 2 ? 'active': '' ?>"><a href="<?= $this->lurl('account/recent') ?>">Recent Views</a></li>
+    <li class="<?= $this->active == 3 ? 'active': '' ?>"><a href="<?= $this->lurl('account/favorites') ?>">Favorites</a></li>
+    <li class="<?= $this->active == 4 ? 'active': '' ?>"><a href="<?= $this->lurl('account/settings') ?>">Settings</a></li>
+    <li class="db-top-green"><a href="<?= $this->lurl('account/upgrade') ?>">Upgrade Account</a></li>
+</ul>

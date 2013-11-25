@@ -1,7 +1,116 @@
-<?php
+<?php $this->getHeader($this->title, 'page-white', 0) ?>
+<div class="dashboard-sub-wrap">
+    <div class="in">
+        <div id="members-content-wrap">
+            <div id="dashboard-top">
+                <div class="clearfix">
+                    <h1 class="ttl-sub-1 ld">my dashboard</h1>
+                    <div class="rd">
+                        <?= $this->partial('partials/dashmenu.phtml', array('active' => 4)) ?>
+                    </div> <!-- .rd -->
+                </div> <!-- .clearfix -->
+            </div> <!-- #dashboard-top -->
+            <div class="clearfix">
+                <div id="dashboard-content">
+                    <div class="dashboard-settings-block">
+                        <h2 class="nom">Manage your Pictures</h2>
+                    </div> <!-- .dashboard-settings-block -->
+                    <div class="dashboard-settings-block">
+                        <div class="ib-list db-picts-uploading middle">
+                            <div class="ib-block db-picts-uploading-1">
+                                <strong>Uploading</strong>
+                                <br />You may upload multiple photos at once by holding CTRL (or Command on a Mac) and selecting all the photos you want. To get started click the "Upload Photos" button below.
+                            </div>
+                            <div class="ib-block db-picts-uploading-2 ra"><a href="#" class="btn btn-blue db-set-submit-1">Upload Photos</a></div>
+                        </div> <!-- .db-picts-uploading -->
+                    </div> <!-- .dashboard-settings-block -->
+                    <div class="dashboard-settings-block">
+                        <div class="ib-list uploaded-photos">
+                            <div class="ib-block">
+                                <div class="uploaded-photo-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/join-photo-1.jpg" alt="" class="block" />
+                                    <a href="#" class="icon-delete"></a>
+                                    <a href="#" class="db-picts-overlay"><span>Enlarge Picture</span></a>
+                                </div>
+                                <div class="uploaded-photo-input">
+                                    <input type="radio" name="upload" id="upload-1" />
+                                    <label for="upload-1">Mark as Profile Picture</label>
+                                </div>
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <div class="uploaded-photo-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/join-photo-2.jpg" alt="" class="block" />
+                                    <a href="#" class="icon-delete"></a>
+                                    <a href="#" class="db-picts-overlay"><span>Enlarge Picture</span></a>
+                                </div>
+                                <div class="uploaded-photo-input">
+                                    <input type="radio" name="upload" id="upload-2" />
+                                    <label for="upload-2">Mark as Profile Picture</label>
+                                </div>
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <div class="uploaded-photo-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/join-photo-3.jpg" alt="" class="block" />
+                                    <a href="#" class="icon-delete"></a>
+                                    <a href="#" class="db-picts-overlay"><span>Enlarge Picture</span></a>
+                                </div>
+                                <div class="uploaded-photo-input">
+                                    <input type="radio" name="upload" id="upload-3" />
+                                    <label for="upload-3">Mark as Profile Picture</label>
+                                </div>
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <div class="uploaded-photo-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/join-photo-4.jpg" alt="" class="block" />
+                                    <a href="#" class="icon-delete"></a>
+                                    <a href="#" class="db-picts-overlay"><span>Enlarge Picture</span></a>
+                                </div>
+                                <div class="uploaded-photo-input">
+                                    <input type="radio" name="upload" id="upload-4" />
+                                    <label for="upload-4">Mark as Profile Picture</label>
+                                </div>
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <div class="uploaded-photo-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/join-photo-5.jpg" alt="" class="block" />
+                                    <a href="#" class="icon-delete"></a>
+                                    <a href="#" class="db-picts-overlay"><span>Enlarge Picture</span></a>
+                                </div>
+                                <div class="uploaded-photo-input">
+                                    <input type="radio" name="upload" id="upload-5" />
+                                    <label for="upload-5">Mark as Profile Picture</label>
+                                </div>
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <div class="uploaded-photo-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/join-photo-6.jpg" alt="" class="block" />
+                                    <a href="#" class="icon-delete"></a>
+                                    <a href="#" class="db-picts-overlay"><span>Enlarge Picture</span></a>
+                                </div>
+                                <div class="uploaded-photo-input">
+                                    <input type="radio" name="upload" id="upload-6" />
+                                    <label for="upload-6">Mark as Profile Picture</label>
+                                </div>
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <a href="#" class="db-picts-upload-link">Upload Picture</a>
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <a href="#" class="db-picts-upload-link">Upload Picture</a>
+                            </div> <!-- .ib-block -->
+                        </div> <!-- .ib-list -->
+                    </div> <!-- .dashboard-settings-block -->
+                    <div class="dashboard-settings-block">
+                        <p class="db-picts-gl"><strong>GUIDELINES &amp; INFORMATION:</strong> You may only submit rated-pg pictures to the site for others to browse. Nudity or depictions of a sexual nature are not allowed on your general profile!!</p>
+                    </div> <!-- .dashboard-settings-block -->
+                </div> <!-- #dashboard-content -->
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+                <div id="members-sidebar" class="dashboard-sidebar">
+                    <?= $this->partial('partials/dashsettings.phtml', array('active' => 1)) ?>
+                    <?= $this->partial('partials/dashsidebar.phtml') ?>
+                </div> <!-- #members-sidebar.dashboard-sidebar -->
+            </div>
+        </div> <!-- #members-content-wrap -->
+    </div> <!-- .white-box-1 -->
+</div> <!-- .sub-wrap -->
+<?php $this->getFooter() ?>

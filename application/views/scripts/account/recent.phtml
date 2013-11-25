@@ -1,7 +1,291 @@
-<?php
+<?php $this->getHeader($this->title, 'page-white', 0) ?>
+<div class="dashboard-sub-wrap">
+    <div class="in">
+        <div id="members-content-wrap">
+            <div id="dashboard-top">
+                <div class="clearfix">
+                    <h1 class="ttl-sub-1 ld">my dashboard</h1>
+                    <div class="rd">
+                        <?= $this->partial('partials/dashmenu.phtml', array('active' => 2)) ?>
+                    </div> <!-- .rd -->
+                </div> <!-- .clearfix -->
+            </div> <!-- #dashboard-top -->
+            <div class="clearfix">
+                <div id="dashboard-content">
+                    <div class="dashboard-content-regular">
+                        <div class="dashboard-fav-top clearfix">
+                            <h1 class="ld">Recently Viewed your profile</h1>
+                            <div class="rd">
+                                <form>
+                                    <div class="filter-group">
+                                        <label for="filter-state">Sort by</label>
+                                        <div class="fg-field">
+                                            <select id="filter-state">
+                                                <option>California</option>
+                                                <option>New York</option>
+                                            </select>
+                                        </div> <!-- .fg-field -->
+                                    </div> <!-- .filter-group -->
+                                </form>
+                            </div>
+                        </div>
+                        <div class="pagination clearfix">
+                            <div class="ld">Showing <strong>1&ndash;8</strong> of <strong>30</strong> Results</div>
+                            <div class="ib-list rd">
+                                <a href="#" class="page active">1</a>
+                                <a href="#" class="page">2</a>
+                                <a href="#" class="page">3</a>
+                            </div>
+                        </div> <!-- .pagination -->
+                        <div class="ib-list db-favorites">
+                            <div class="ib-block">
+                                <a href="#" class="db-fav-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-favourite-1.jpg" alt="" class="block" />
+                                    <div class="good-life-result-name"><span>Ver&oacute;nica_789</span></div>
+                                </a>
+                                <div class="clearfix">
+                                    <a href="#" class="btn btn-grey rd">See Profile</a>
+                                    <div class="ld">
+                                        <div class="db-fav-text">
+                                            22 years
+                                            <br />New York, US
+                                            <br /><span class="member-list-status online">Online Now</span>
+                                        </div> <!-- .ld -->
+                                        <div class="db-fav-remove">
+                                            <a href="#">Remove Favorite</a>
+                                        </div> <!-- .db-fav-remove -->
+                                    </div> <!-- .ld -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <a href="#" class="db-fav-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-favourite-2.jpg" alt="" class="block" />
+                                    <span class="good-life-result-name"><span>
+                                            Ver&oacute;nica_789
+                                            <span class="db-fav-name-2">Last Seen on 08/17/2013 11:46 AM</span>
+                                        </span></span>
+                                </a>
+                                <div class="clearfix">
+                                    <a href="#" class="btn btn-grey rd">See Profile</a>
+                                    <div class="ld">
+                                        <div class="db-fav-text">
+                                            22 years
+                                            <br />New York, US
+                                            <br /><span class="member-list-status online">Online Now</span>
+                                        </div> <!-- .ld -->
+                                        <div class="db-fav-remove">
+                                            <a href="#">Remove Favorite</a>
+                                        </div> <!-- .db-fav-remove -->
+                                    </div> <!-- .ld -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <a href="#" class="db-fav-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-favourite-3.jpg" alt="" class="block" />
+                                    <div class="good-life-result-name"><span>Ver&oacute;nica_789</span></div>
+                                </a>
+                                <div class="clearfix">
+                                    <a href="#" class="btn btn-grey rd">See Profile</a>
+                                    <div class="ld">
+                                        <div class="db-fav-text">
+                                            22 years
+                                            <br />New York, US
+                                            <br /><span class="member-list-status online">Online Now</span>
+                                        </div> <!-- .ld -->
+                                        <div class="db-fav-remove">
+                                            <a href="#">Remove Favorite</a>
+                                        </div> <!-- .db-fav-remove -->
+                                    </div> <!-- .ld -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <a href="#" class="db-fav-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-favourite-4.jpg" alt="" class="block" />
+                                    <div class="good-life-result-name"><span>Ver&oacute;nica_789</span></div>
+                                </a>
+                                <div class="clearfix">
+                                    <a href="#" class="btn btn-grey rd">See Profile</a>
+                                    <div class="ld">
+                                        <div class="db-fav-text">
+                                            22 years
+                                            <br />New York, US
+                                            <br /><span class="member-list-status online">Online Now</span>
+                                        </div> <!-- .ld -->
+                                        <div class="db-fav-remove">
+                                            <a href="#">Remove Favorite</a>
+                                        </div> <!-- .db-fav-remove -->
+                                    </div> <!-- .ld -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <a href="#" class="db-fav-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-favourite-5.jpg" alt="" class="block" />
+                                    <div class="good-life-result-name"><span>Ver&oacute;nica_789</span></div>
+                                </a>
+                                <div class="clearfix">
+                                    <a href="#" class="btn btn-grey rd">See Profile</a>
+                                    <div class="ld">
+                                        <div class="db-fav-text">
+                                            22 years
+                                            <br />New York, US
+                                            <br /><span class="member-list-status online">Online Now</span>
+                                        </div> <!-- .ld -->
+                                        <div class="db-fav-remove">
+                                            <a href="#">Remove Favorite</a>
+                                        </div> <!-- .db-fav-remove -->
+                                    </div> <!-- .ld -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <a href="#" class="db-fav-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-favourite-6.jpg" alt="" class="block" />
+                                    <div class="good-life-result-name"><span>Ver&oacute;nica_789</span></div>
+                                </a>
+                                <div class="clearfix">
+                                    <a href="#" class="btn btn-grey rd">See Profile</a>
+                                    <div class="ld">
+                                        <div class="db-fav-text">
+                                            22 years
+                                            <br />New York, US
+                                            <br /><span class="member-list-status online">Online Now</span>
+                                        </div> <!-- .ld -->
+                                        <div class="db-fav-remove">
+                                            <a href="#">Remove Favorite</a>
+                                        </div> <!-- .db-fav-remove -->
+                                    </div> <!-- .ld -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <a href="#" class="db-fav-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-favourite-7.jpg" alt="" class="block" />
+                                    <div class="good-life-result-name"><span>Ver&oacute;nica_789</span></div>
+                                </a>
+                                <div class="clearfix">
+                                    <a href="#" class="btn btn-grey rd">See Profile</a>
+                                    <div class="ld">
+                                        <div class="db-fav-text">
+                                            22 years
+                                            <br />New York, US
+                                            <br /><span class="member-list-status online">Online Now</span>
+                                        </div> <!-- .ld -->
+                                        <div class="db-fav-remove">
+                                            <a href="#">Remove Favorite</a>
+                                        </div> <!-- .db-fav-remove -->
+                                    </div> <!-- .ld -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <a href="#" class="db-fav-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-favourite-8.jpg" alt="" class="block" />
+                                    <div class="good-life-result-name"><span>Ver&oacute;nica_789</span></div>
+                                </a>
+                                <div class="clearfix">
+                                    <a href="#" class="btn btn-grey rd">See Profile</a>
+                                    <div class="ld">
+                                        <div class="db-fav-text">
+                                            22 years
+                                            <br />New York, US
+                                            <br /><span class="member-list-status online">Online Now</span>
+                                        </div> <!-- .ld -->
+                                        <div class="db-fav-remove">
+                                            <a href="#">Remove Favorite</a>
+                                        </div> <!-- .db-fav-remove -->
+                                    </div> <!-- .ld -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <a href="#" class="db-fav-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-favourite-9.jpg" alt="" class="block" />
+                                    <div class="good-life-result-name"><span>Ver&oacute;nica_789</span></div>
+                                </a>
+                                <div class="clearfix">
+                                    <a href="#" class="btn btn-grey rd">See Profile</a>
+                                    <div class="ld">
+                                        <div class="db-fav-text">
+                                            22 years
+                                            <br />New York, US
+                                            <br /><span class="member-list-status online">Online Now</span>
+                                        </div> <!-- .ld -->
+                                        <div class="db-fav-remove">
+                                            <a href="#">Remove Favorite</a>
+                                        </div> <!-- .db-fav-remove -->
+                                    </div> <!-- .ld -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <a href="#" class="db-fav-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-favourite-10.jpg" alt="" class="block" />
+                                    <div class="good-life-result-name"><span>Ver&oacute;nica_789</span></div>
+                                </a>
+                                <div class="clearfix">
+                                    <a href="#" class="btn btn-grey rd">See Profile</a>
+                                    <div class="ld">
+                                        <div class="db-fav-text">
+                                            22 years
+                                            <br />New York, US
+                                            <br /><span class="member-list-status online">Online Now</span>
+                                        </div> <!-- .ld -->
+                                        <div class="db-fav-remove">
+                                            <a href="#">Remove Favorite</a>
+                                        </div> <!-- .db-fav-remove -->
+                                    </div> <!-- .ld -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <a href="#" class="db-fav-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-favourite-11.jpg" alt="" class="block" />
+                                    <div class="good-life-result-name"><span>Ver&oacute;nica_789</span></div>
+                                </a>
+                                <div class="clearfix">
+                                    <a href="#" class="btn btn-grey rd">See Profile</a>
+                                    <div class="ld">
+                                        <div class="db-fav-text">
+                                            22 years
+                                            <br />New York, US
+                                            <br /><span class="member-list-status online">Online Now</span>
+                                        </div> <!-- .ld -->
+                                        <div class="db-fav-remove">
+                                            <a href="#">Remove Favorite</a>
+                                        </div> <!-- .db-fav-remove -->
+                                    </div> <!-- .ld -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                            <div class="ib-block">
+                                <a href="#" class="db-fav-pic">
+                                    <img src="<?= $this->baseUrl() ?>/images/clipart/dashboard-favourite-12.jpg" alt="" class="block" />
+                                    <div class="good-life-result-name"><span>Ver&oacute;nica_789</span></div>
+                                </a>
+                                <div class="clearfix">
+                                    <a href="#" class="btn btn-grey rd">See Profile</a>
+                                    <div class="ld">
+                                        <div class="db-fav-text">
+                                            22 years
+                                            <br />New York, US
+                                            <br /><span class="member-list-status online">Online Now</span>
+                                        </div> <!-- .ld -->
+                                        <div class="db-fav-remove">
+                                            <a href="#">Remove Favorite</a>
+                                        </div> <!-- .db-fav-remove -->
+                                    </div> <!-- .ld -->
+                                </div> <!-- .clearfix -->
+                            </div> <!-- .ib-block -->
+                        </div> <!-- .db-favorites -->
+                        <div class="pagination clearfix">
+                            <div class="ld">Showing <strong>1&ndash;8</strong> of <strong>30</strong> Results</div>
+                            <div class="ib-list rd">
+                                <a href="#" class="page active">1</a>
+                                <a href="#" class="page">2</a>
+                                <a href="#" class="page">3</a>
+                            </div>
+                        </div> <!-- .pagination -->
+                    </div> <!-- .dashboard-content-regular -->
+                </div> <!-- #dashboard-content -->
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+                <div id="members-sidebar" class="dashboard-sidebar">
+                    <?= $this->partial('partials/dashsidebar.phtml') ?>
+                </div> <!-- #members-sidebar.dashboard-sidebar -->
+            </div>
+        </div> <!-- #members-content-wrap -->
+    </div> <!-- .white-box-1 -->
+</div> <!-- .sub-wrap -->
+<?php $this->getFooter() ?>

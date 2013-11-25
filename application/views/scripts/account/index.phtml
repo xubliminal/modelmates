@@ -1,7 +1,80 @@
-<?php
+<?php $this->getHeader($this->title, 'page-white', 0) ?>
+<div class="dashboard-sub-wrap">
+    <div class="in">
+        <div id="members-content-wrap">
+            <div id="dashboard-top">
+                <div class="clearfix">
+                    <h1 class="ttl-sub-1 ld">my dashboard</h1>
+                    <div class="rd">
+                        <?= $this->partial('partials/dashmenu.phtml', array('active' => 6)) ?>
+                    </div> <!-- .rd -->
+                </div> <!-- .clearfix -->
+            </div> <!-- #dashboard-top -->
+            <div class="clearfix">
+                <div id="dashboard-content">
+                    <div class="dashboard-home-top">
+                        <div class="dht-pic">
+                            <img src="images/clipart/dashboard-home-a.jpg" alt="" class="block" />
+                            <div class="dht-member-info">
+                                <div class="dht-mi-t1">Today&rsquo;s Girl</div>
+                                <h1 class="ttl-primary">veronica</h1>
+                                <div class="dht-mi-t2">San Francisco, CA</div>
+                            </div> <!-- .dht-member-info -->
+                        </div> <!-- .dht-pic -->
+                        <div class="dht-bullets-wrap">
+                            <ul class="ib-list dht-bullets">
+                                <li class="ib-block"><a href="<?= $this->lurl('account/messages') ?>">New Messages</a></li>
+                                <li class="ib-block"><a href="<?= $this->lurl('account/recent') ?>">Hot Listed Me</a></li>
+                                <li class="ib-block"><a href="<?= $this->lurl('account/favorites') ?>">My Favorites</a></li>
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+                                <li class="ib-block"><a href="<?= $this->lurl('account/messages') ?>">Opened Messages</a></li>
+                                <li class="ib-block"><a href="<?= $this->lurl('account/recent') ?>">Viewed Me</a></li>
+                                <li class="ib-block"><a href="<?= $this->lurl('account/bookmarks') ?>">My Bookmarks</a></li>
+
+                                <li class="ib-block"><a href="<?= $this->lurl('account/messages') ?>">Sent Messages</a></li>
+                                <li class="ib-block"><a href="<?= $this->lurl('account/recent') ?>">Viewed Me</a></li>
+                                <li class="ib-block"><a href="<?= $this->lurl('account/votes') ?>">My Votes</a></li>
+                            </ul>
+                        </div> <!-- .dht-bullets -->
+                    </div> <!-- .dashboard-home-top -->
+                    <div class="dashboard-home-responses">
+                        <h2 class="ttl-primary ca">Awaiting your response</h2>
+                        <div class="ib-list">
+                            <a href="<?= $this->lurl('account/messages') ?>" class="ib-block">
+                                <img src="images/clipart/dashboard-awaiting-1.jpg" alt="" />
+                                <span class="block"><strong>Veronica</strong></span>
+                                <span class="block dhr-location">San Francisco, CA</span>
+                            </a>
+                            <a href="<?= $this->lurl('account/messages') ?>" class="ib-block">
+                                <img src="images/clipart/dashboard-awaiting-2.jpg" alt="" />
+                                <span class="block"><strong>Erycka</strong></span>
+                                <span class="block dhr-location">San Francisco, CA</span>
+                            </a>
+                            <a href="<?= $this->lurl('account/messages') ?>" class="ib-block">
+                                <img src="images/clipart/dashboard-awaiting-3.jpg" alt="" />
+                                <span class="block"><strong>Denisee</strong></span>
+                                <span class="block dhr-location">San Francisco, CA</span>
+                            </a>
+                            <a href="<?= $this->lurl('account/messages') ?>" class="ib-block">
+                                <img src="images/clipart/dashboard-awaiting-4.jpg" alt="" />
+                                <span class="block"><strong>Monica</strong></span>
+                                <span class="block dhr-location">San Francisco, CA</span>
+                            </a>
+                            <a href="<?= $this->lurl('account/messages') ?>" class="ib-block">
+                                <img src="images/clipart/dashboard-awaiting-5.jpg" alt="" />
+                                <span class="block"><strong>Noelia</strong></span>
+                                <span class="block dhr-location">San Francisco, CA</span>
+                            </a>
+                        </div> <!-- .ib-list -->
+                    </div> <!-- .dashboard-home-responses -->
+                </div> <!-- #dashboard-content -->
+
+                <div id="members-sidebar" class="dashboard-sidebar">
+                    <?= $this->partial('partials/dashsidebar.phtml') ?>
+                </div> <!-- #members-sidebar.dashboard-sidebar -->
+            </div>
+        </div> <!-- #members-content-wrap -->
+    </div> <!-- .white-box-1 -->
+</div> <!-- .sub-wrap -->
+
+<?php $this->getFooter() ?>

@@ -1,7 +1,142 @@
-<?php
+<?php $this->getHeader() ?>
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>
+<div id="home-content">
+    <div class="in">
+        <div id="home-blocks" class="clearfix">
+            <div class="home-block" id="home-block-1">
+                <div class="label-new"></div>
+                <h2>The Hot 100</h2>
+                <div class="home-block-content">
+                    <a href="<?= $this->lurl('videos') ?>" class="link-video">
+                        <img src="images/clipart/home-1.jpg" alt="" />
+                        <span class="play-icon-1">Play Video</span>
+                    </a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam a porttitor est. Praesent&nbsp;sagittis enim quam nibh et arcu mattis&nbsp;viverra.</p>
+                </div> <!-- .home-block-content -->
+            </div> <!-- .home-block -->
+            <div class="home-block" id="home-block-2">
+                <h2>Newest members</h2>
+                <div class="home-block-content">
+                    <img src="images/clipart/home-2.jpg" alt="" class="block" />
+                    <h3>Elizabeth</h3>
+                    <p>
+                        Santa Monica, CA
+                        <br />22 Years Old
+                    </p>
+                </div> <!-- .home-block-content -->
+                <div class="home-block-bottom hbb-2 clearfix">
+                    <a href="#">Women</a>
+                    <a href="#" class="active">Men</a>
+                </div> <!-- .home-block-bottom -->
+            </div> <!-- .home-block -->
+            <div class="home-block" id="home-block-3">
+                <h2>Meet Your Match</h2>
+                <form>
+                    <div class="home-form">
+                        <div class="form-row clearfix">
+                            <label for="f1">I am a</label>
+                            <div class="form-field">
+                                <select id="f1">
+                                    <option>Successful Man</option>
+                                    <option>Beautiful woman</option>
+                                </select>
+                            </div>
+                        </div> <!-- .form-row -->
+                        <div class="form-row clearfix">
+                            <label for="f2">Seeking a</label>
+                            <div class="form-field">
+                                <select id="f2">
+                                    <option>Beautiful woman</option>
+                                    <option>Successful Man</option>
+                                </select>
+                            </div>
+                        </div> <!-- .form-row -->
+                        <div class="form-row clearfix">
+                            <label for="f3">Between</label>
+                            <div class="form-field small-selects">
+                                <div class="select-small">
+                                    <select id="f3">
+                                        <option>23</option>
+                                        <option>24</option>
+                                        <option>25</option>
+                                    </select>
+                                </div>
+                                <span class="select-to">to</span>
+                                <div class="select-small">
+                                    <select>
+                                        <option>23</option>
+                                        <option>24</option>
+                                        <option>25</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div> <!-- .form-row -->
+                        <div class="form-row clearfix">
+                            <label for="f4">Within</label>
+                            <div class="form-field">
+                                <select id="f4">
+                                    <option>25 Miles of</option>
+                                    <option>50 Miles of</option>
+                                </select>
+                            </div>
+                        </div> <!-- .form-row -->
+                        <div class="form-row clearfix">
+                            <label for="f5">Zip Code</label>
+                            <div class="form-field"><input type="text" class="text" name="f5" id="f5" /></div>
+                        </div> <!-- .form-row -->
+                    </div> <!-- .home-form -->
+                    <div class="home-form">
+                        <div class="form-row clearfix">
+                            <label for="f6">Name</label>
+                            <div class="form-field"><input type="text" class="text" name="f6" id="f6" /></div>
+                        </div> <!-- .form-row -->
+                        <div class="form-row clearfix">
+                            <label for="f9">Email</label>
+                            <div class="form-field"><input type="text" class="text" name="f9" id="f9" /></div>
+                        </div> <!-- .form-row -->
+                        <div class="form-row clearfix">
+                            <label for="f10">Age</label>
+                            <div class="form-field"><input type="text" class="text input-xs" name="f10" id="f10" /></div>
+                        </div> <!-- .form-row -->
+                    </div> <!-- .home-form -->
+                    <a href="<?= $this->lurl('members') ?>" class="btn btn-blue">Find My Perfect Mate</a>
+                </form>
+            </div> <!-- .home-block -->
+        </div> <!-- #home-blocks -->
+        <a href="<?= $this->lurl('signup') ?>"><img src="images/clipart/home-banner.png" alt="" class="block" /></a>
+    </div> <!-- .in -->
+</div> <!-- #home-content -->
+
+<div style="display: none;">
+    <div id="home-popup">
+        <div class="popup-content clearfix" id="home-popup-content">
+            <span class="popup-or">or</span>
+            <div class="popup-col" id="home-popup-woman">
+                <div class="popup-col-in">
+                    <h1>I am a<br />woman</h1>
+                    <h3>Sign Up For</h3>
+                    <h2>Model Mates Dating</h2>
+                    <p><a href="<?= $this->lurl('woman') ?>" class="btn btn-blue">Sign Up Now!</a></p>
+                    <div class="clearfix">
+                        <div class="ld"><input type="checkbox" id="pf1" /></div>
+                        <label for="pf1">I am at least 21 years of age lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis rutrum tortor, eu cursus dolor.</label>
+                    </div> <!-- .clearfix -->
+                </div> <!-- .popup-col-in -->
+            </div> <!-- .popup-col -->
+            <div class="popup-col" id="home-popup-man">
+                <div class="popup-col-in">
+                    <h1>I am a<br />Man</h1>
+                    <h3>Sign Up For</h3>
+                    <h2>Model Mates Dating</h2>
+                    <p><a href="<?= $this->lurl('signup') ?>" class="btn btn-blue">Sign Up Now!</a></p>
+                    <div class="clearfix">
+                        <div class="ld"><input type="checkbox" id="pf2" /></div>
+                        <label for="pf2">I am at least 21 years of age lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mattis rutrum tortor, eu cursus dolor.</label>
+                    </div> <!-- .clearfix -->
+                </div> <!-- .popup-col-in -->
+            </div> <!-- .popup-col -->
+        </div> <!-- .popup-content -->
+    </div> <!-- #home-popup -->
+</div>
+
+<?php $this->getFooter() ?>

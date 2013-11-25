@@ -1,0 +1,13 @@
+<div id="hot-100-top">
+    <div class="clearfix">
+        <h1 class="ttl-primary ld">hot 100</h1>
+        <div class="rd glht1-nav">
+            <ul class="ib-list">
+                <li class="ib-block <?= $this->active == 0 ? 'active' : '' ?>"><a href="<?= $this->lurl('hot100') ?>">Hot 100</a></li>
+                <li class="ib-block <?= $this->active == 1 ? 'active' : '' ?>"><a href="<?= $this->lurl('hot100/new') ?>">New Members</a></li>
+                <li class="ib-block <?= $this->active == 2 ? 'active' : '' ?>"><a href="<?= $this->lurl('hot100/photos') ?>">New Photos</a></li>
+                <li class="ib-block <?= $this->active == 3 ? 'active' : '' ?>"><a href="<?= $this->lurl('hot100/videos') ?>">New Videos</a></li>
+            </ul>
+        </div>
+    </div> <!-- .clearfix -->
+</div> <!-- #hot-100-top -->

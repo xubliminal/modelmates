@@ -5,7 +5,7 @@
     <title><?= $this->title ?></title>
     <?php $this->getStyles() ?>
 </head>
-<body>
+<body class="<?= $this->class ?>">
 <div id="top">
     <div class="in clearfix">
         <a href="<?= $this->lurl() ?>" id="logo-wrap">
@@ -26,6 +26,6 @@
     <div class="nav-shadow top"></div>
     <div class="nav-shadow bottom"></div>
     <div class="in">
-        <?php $this->getMenu() ?>
+        <?php $this->getMenu($this->active) ?>
     </div> <!-- .in -->
 </div> <!-- #nav -->

@@ -1,0 +1,21 @@
+<div id="ds-widget-top">
+    <h2>Complete your Profile</h2>
+    <div id="ds-profile-completion-bar"><div style="width:20%;"></div></div>
+    <div id="ds-profile-completion-value">20%</div>
+    <p>It's a fact&nbsp;&ndash; Completed profiles get better results. Improve your ranking by filling in the following:</p>
+    <p>
+        <a href="<?= $this->lurl('account/profile') ?>">Write Something About You</a>
+        <br /><a href="<?= $this->lurl('account/settings/media') ?>">Upload a Photo</a>
+        <br /><a href="<?= $this->lurl('account/questions') ?>">Answer Some Questions</a>
+    </p>
+</div> <!-- #ds-widget-top -->
+<div id="ds-widget-upgrade">
+    <h2>Upgrade your Account</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <p><a href="<?= $this->lurl('account/upgrade') ?>" class="btn btn-green block">Upgrade Now</a></p>
+</div> <!-- #ds-widget-upgrade -->
+<?php if(isset($this->extended)): ?>
+<div class="ds-widget-ad"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/ad-6.jpg" alt="" class="block" /></a></div>
+<div class="ds-widget-ad"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/ad-6.jpg" alt="" class="block" /></a></div>
+<div class="ds-widget-ad"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/ad-6.jpg" alt="" class="block" /></a></div>
+<?php endif; 

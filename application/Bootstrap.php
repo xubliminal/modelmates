@@ -153,6 +153,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             ))
         );
         
+        $router->addRoute('search', new Zend_Controller_Router_Route(
+            '/search', array(
+                'controller' => 'members',
+                'action'     => 'search',
+                'module'     => 'default',
+            ))
+        );
+        
         $router->addRoute('user_about', new Zend_Controller_Router_Route(
             '/:username/about', array(
                 'controller' => 'members',
@@ -173,6 +181,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             '/:username/lookbook', array(
                 'controller' => 'members',
                 'action'     => 'lookbook',
+                'module'     => 'default',
+            ))
+        );
+        
+        $router->addRoute('ajax', new Zend_Controller_Router_Route(
+            '/ajax/:action', array(
+                'controller' => 'ajax',
+                'action'     => ':action',
                 'module'     => 'default',
             ))
         );
@@ -233,10 +249,10 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             ))
         );
         
-        $router->addRoute('hot100_questions', new Zend_Controller_Router_Route(
-            '/hot100/questions', array(
+        $router->addRoute('hot100_models', new Zend_Controller_Router_Route(
+            '/hot100/models', array(
                 'controller' => 'hot100',
-                'action'     => 'questions',
+                'action'     => 'models',
                 'module'     => 'default',
             ))
         );
@@ -249,10 +265,26 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             ))
         );
         
+        $router->addRoute('galleries_cat', new Zend_Controller_Router_Route(
+            '/galleries/:id', array(
+                'controller' => 'media',
+                'action'     => 'galleries',
+                'module'     => 'default',
+            ))
+        );
+        
         $router->addRoute('events_details', new Zend_Controller_Router_Route(
             '/events/:id', array(
                 'controller' => 'media',
                 'action'     => 'event',
+                'module'     => 'default',
+            ))
+        );
+        
+        $router->addRoute('events_all', new Zend_Controller_Router_Route(
+            '/events/all', array(
+                'controller' => 'media',
+                'action'     => 'eventsall',
                 'module'     => 'default',
             ))
         );
@@ -377,6 +409,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             ))
         );
         
+        $router->addRoute('hot100_questions', new Zend_Controller_Router_Route(
+            '/hot100/models/:id', array(
+                'controller' => 'hot100',
+                'action'     => 'model',
+                'module'     => 'default',
+            ))
+        );
+        
         $router->addRoute('account_settings_media', new Zend_Controller_Router_Route(
             '/account/settings/media', array(
                 'controller' => 'account',
@@ -409,14 +449,6 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             ))
         );
         
-        $router->addRoute('account_upgrade', new Zend_Controller_Router_Route(
-            '/account/upgrade', array(
-                'controller' => 'account',
-                'action'     => 'upgrade',
-                'module'     => 'default',
-            ))
-        );
-        
     }
     
     public function _initHelpers() {
@@ -425,6 +457,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         
         Zend_Registry::set('scripts', $scripts);
         Zend_Registry::set('styles', $styles);
+    }
+    
+    public function _initConfig() {
+        $sizes = $this->getOption('sizes');
+        Zend_Registry::set('sizes', $sizes);
+        
+        $cloud = $this->getOption('cloud');
+        Zend_Registry::set('cloud', $cloud);
     }
     
 }
