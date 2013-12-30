@@ -13922,3 +13922,13 @@ select.tt-hint {
   width: 16px;
   height: 16px;
 }
+
+.empty {
+    text-align: center;
+    padding: 30px 0;
+}
+.empty h2 {
+    padding: 10px 0;
+}
+
+.delete { color: #f00 !important; }

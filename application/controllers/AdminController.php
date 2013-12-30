@@ -50,9 +50,19 @@ class AdminController extends Zend_Controller_Action {
     }
     
     public function listingsAction() {
-        switch($this->_getParam('task')) {
+        switch($this->_getParam('task', 'index')) {
             case 'new':
+                $this->view->categories = MM_Service_Listings::getCategories();
+                $this->view->data = array('title' => '','description' => '','category' => '','type' => '','state' => '','city' => '','address' => '','phone' => '','parking' => '1');
+                if($this->_request->isPost()) {
+                    $listing = MM_Service_Listings::create($_POST);
+                    if($listing != null)
+                        $this->_redirect('admin/listings');
+                }
                 $this->render('listings-new');
+                break;
+            case 'index':
+                $this->view->listings = MM_Service_Listings::getAll();
                 break;
         }
     }

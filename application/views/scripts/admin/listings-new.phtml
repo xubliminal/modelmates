@@ -7,7 +7,7 @@
                 <li><a href="<?= $this->baseUrl() ?>/admin/listings">The good life</a></li>
                 <li><span>New</span></li>
             </ol>
-            <h1>The Good Life</h1>
+            <h1>The Good Life - New Listing</h1>
             <div class="options">
                 <a class="btn btn-success" href="<?= $this->baseUrl() ?>/admin/listings/new">Add New Listing</a>
             </div>
@@ -15,11 +15,151 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
-                    <div class="panel panel-primary">
-                        <div class="panel-body">
-                            
+                    <form id="listingForm" method="post" class="validate">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="title" class="col-sm-3 control-label">Title</label>
+                                        <div class="col-sm-6">
+                                            <input value="<?= $this->data['title'] ?>" type="text" class="form-control required" id="title" name="title">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description" class="col-sm-3 control-label">Description</label>
+                                        <div class="col-sm-6">
+                                            <textarea name="description" id="description" cols="50" rows="4" class="form-control required"><?= $this->data['description'] ?></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image" class="col-sm-3 control-label">Images</label>
+                                        <div class="col-sm-7">
+                                            <a href="#" class="btn btn-success">Upload</a><br><br>
+                                            <div class="clearfix">
+                                                <img src="http://hmelius.com/avant/assets/demo/images/thmb_nature_mossytree.jpg" class="img-thumbnail" alt="Emma Watson" style="margin: 5px 5px 10px;">
+                                                <img src="http://hmelius.com/avant/assets/demo/images/thmb_nature_mossytree.jpg" class="img-thumbnail" alt="Emma Watson" style="margin: 5px 5px 10px;">
+                                                <img src="http://hmelius.com/avant/assets/demo/images/thmb_nature_mossytree.jpg" class="img-thumbnail" alt="Emma Watson" style="margin: 5px 5px 10px;">
+                                                <img src="http://hmelius.com/avant/assets/demo/images/thmb_nature_mossytree.jpg" class="img-thumbnail" alt="Emma Watson" style="margin: 5px 5px 10px;">
+                                                <img src="http://hmelius.com/avant/assets/demo/images/thmb_nature_mossytree.jpg" class="img-thumbnail" alt="Emma Watson" style="margin: 5px 5px 10px;">
+                                                <img src="http://hmelius.com/avant/assets/demo/images/thmb_nature_mossytree.jpg" class="img-thumbnail" alt="Emma Watson" style="margin: 5px 5px 10px;">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="category" class="col-sm-3 control-label">Category</label>
+                                        <div class="col-sm-6">
+                                            <select name="category" id="category" class="form-control">
+                                                <option value="">-- Select One --</option>
+                                                <?php foreach($this->categories as $c): ?>
+                                                <option <?= ($this->data['category'] == $c->id) ? 'selected' : '' ?> value="<?= $c->id ?>"><?= $c->title ?></option>
+                                                <?php endforeach ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="type" class="col-sm-3 control-label">Type</label>
+                                        <div class="col-sm-6">
+                                            <input value="<?= $this->data['type'] ?>" type="text" class="form-control required" id="type" name="type">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="state" class="col-sm-3 control-label">State</label>
+                                        <div class="col-sm-6">
+                                            <select name="state" id="state" class="form-control">
+                                                <option value="">-- Select One --</option>
+                                                <option <?= ($this->data['state'] == 'AL') ? 'selected' : '' ?> value="AL">Alabama</option>
+                                                <option <?= ($this->data['state'] == 'AK') ? 'selected' : '' ?> value="AK">Alaska</option>
+                                                <option <?= ($this->data['state'] == 'AZ') ? 'selected' : '' ?> value="AZ">Arizona</option>
+                                                <option <?= ($this->data['state'] == 'AR') ? 'selected' : '' ?> value="AR">Arkansas</option>
+                                                <option <?= ($this->data['state'] == 'CA') ? 'selected' : '' ?> value="CA">California</option>
+                                                <option <?= ($this->data['state'] == 'CO') ? 'selected' : '' ?> value="CO">Colorado</option>
+                                                <option <?= ($this->data['state'] == 'CT') ? 'selected' : '' ?> value="CT">Connecticut</option>
+                                                <option <?= ($this->data['state'] == 'DE') ? 'selected' : '' ?> value="DE">Delaware</option>
+                                                <option <?= ($this->data['state'] == 'DC') ? 'selected' : '' ?> value="DC">District Of Columbia</option>
+                                                <option <?= ($this->data['state'] == 'FL') ? 'selected' : '' ?> value="FL">Florida</option>
+                                                <option <?= ($this->data['state'] == 'GA') ? 'selected' : '' ?> value="GA">Georgia</option>
+                                                <option <?= ($this->data['state'] == 'HI') ? 'selected' : '' ?> value="HI">Hawaii</option>
+                                                <option <?= ($this->data['state'] == 'ID') ? 'selected' : '' ?> value="ID">Idaho</option>
+                                                <option <?= ($this->data['state'] == 'IL') ? 'selected' : '' ?> value="IL">Illinois</option>
+                                                <option <?= ($this->data['state'] == 'IN') ? 'selected' : '' ?> value="IN">Indiana</option>
+                                                <option <?= ($this->data['state'] == 'IA') ? 'selected' : '' ?> value="IA">Iowa</option>
+                                                <option <?= ($this->data['state'] == 'KS') ? 'selected' : '' ?> value="KS">Kansas</option>
+                                                <option <?= ($this->data['state'] == 'KY') ? 'selected' : '' ?> value="KY">Kentucky</option>
+                                                <option <?= ($this->data['state'] == 'LA') ? 'selected' : '' ?> value="LA">Louisiana</option>
+                                                <option <?= ($this->data['state'] == 'ME') ? 'selected' : '' ?> value="ME">Maine</option>
+                                                <option <?= ($this->data['state'] == 'MD') ? 'selected' : '' ?> value="MD">Maryland</option>
+                                                <option <?= ($this->data['state'] == 'MA') ? 'selected' : '' ?> value="MA">Massachusetts</option>
+                                                <option <?= ($this->data['state'] == 'MI') ? 'selected' : '' ?> value="MI">Michigan</option>
+                                                <option <?= ($this->data['state'] == 'MN') ? 'selected' : '' ?> value="MN">Minnesota</option>
+                                                <option <?= ($this->data['state'] == 'MS') ? 'selected' : '' ?> value="MS">Mississippi</option>
+                                                <option <?= ($this->data['state'] == 'MO') ? 'selected' : '' ?> value="MO">Missouri</option>
+                                                <option <?= ($this->data['state'] == 'MT') ? 'selected' : '' ?> value="MT">Montana</option>
+                                                <option <?= ($this->data['state'] == 'NE') ? 'selected' : '' ?> value="NE">Nebraska</option>
+                                                <option <?= ($this->data['state'] == 'NV') ? 'selected' : '' ?> value="NV">Nevada</option>
+                                                <option <?= ($this->data['state'] == 'NH') ? 'selected' : '' ?> value="NH">New Hampshire</option>
+                                                <option <?= ($this->data['state'] == 'NJ') ? 'selected' : '' ?> value="NJ">New Jersey</option>
+                                                <option <?= ($this->data['state'] == 'NM') ? 'selected' : '' ?> value="NM">New Mexico</option>
+                                                <option <?= ($this->data['state'] == 'NY') ? 'selected' : '' ?> value="NY">New York</option>
+                                                <option <?= ($this->data['state'] == 'NC') ? 'selected' : '' ?> value="NC">North Carolina</option>
+                                                <option <?= ($this->data['state'] == 'ND') ? 'selected' : '' ?> value="ND">North Dakota</option>
+                                                <option <?= ($this->data['state'] == 'OH') ? 'selected' : '' ?> value="OH">Ohio</option>
+                                                <option <?= ($this->data['state'] == 'OK') ? 'selected' : '' ?> value="OK">Oklahoma</option>
+                                                <option <?= ($this->data['state'] == 'OR') ? 'selected' : '' ?> value="OR">Oregon</option>
+                                                <option <?= ($this->data['state'] == 'PA') ? 'selected' : '' ?> value="PA">Pennsylvania</option>
+                                                <option <?= ($this->data['state'] == 'RI') ? 'selected' : '' ?> value="RI">Rhode Island</option>
+                                                <option <?= ($this->data['state'] == 'SC') ? 'selected' : '' ?> value="SC">South Carolina</option>
+                                                <option <?= ($this->data['state'] == 'SD') ? 'selected' : '' ?> value="SD">South Dakota</option>
+                                                <option <?= ($this->data['state'] == 'TN') ? 'selected' : '' ?> value="TN">Tennessee</option>
+                                                <option <?= ($this->data['state'] == 'TX') ? 'selected' : '' ?> value="TX">Texas</option>
+                                                <option <?= ($this->data['state'] == 'UT') ? 'selected' : '' ?> value="UT">Utah</option>
+                                                <option <?= ($this->data['state'] == 'VT') ? 'selected' : '' ?> value="VT">Vermont</option>
+                                                <option <?= ($this->data['state'] == 'VA') ? 'selected' : '' ?> value="VA">Virginia</option>
+                                                <option <?= ($this->data['state'] == 'WA') ? 'selected' : '' ?> value="WA">Washington</option>
+                                                <option <?= ($this->data['state'] == 'WV') ? 'selected' : '' ?> value="WV">West Virginia</option>
+                                                <option <?= ($this->data['state'] == 'WI') ? 'selected' : '' ?> value="WI">Wisconsin</option>
+                                                <option <?= ($this->data['state'] == 'WY') ? 'selected' : '' ?> value="WY">Wyoming</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city" class="col-sm-3 control-label">City</label>
+                                        <div class="col-sm-6">
+                                            <input value="<?= $this->data['city'] ?>" type="text" class="form-control" id="city" name="city">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="address" class="col-sm-3 control-label">Address</label>
+                                        <div class="col-sm-6">
+                                            <textarea name="address" id="address" cols="50" rows="2" class="form-control"><?= $this->data['address'] ?></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="phone" class="col-sm-3 control-label">Phone</label>
+                                        <div class="col-sm-6">
+                                            <input value="<?= $this->data['phone'] ?>" type="text" class="form-control" id="phone" name="phone">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="parkibg" class="col-sm-3 control-label">Parking</label>
+                                        <div class="col-sm-6">
+                                            <div class="radio block"><label><input name="parking" value="1" <?= ($this->data['parking'] == 1) ? 'checked' : '' ?> type="radio"> Yes</label></div>
+                                            <div class="radio block"><label><input name="parking" value="0" <?= ($this->data['parking'] == 0) ? 'checked' : '' ?> type="radio"> No</label></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <div class="btn-toolbar">
+                                            <button type="submit" class="btn-primary btn">Save</button>
+                                            <a href="<?= $this->baseUrl() ?>/admin/listings" class="btn-default btn">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </div>
+                    </form>    
                 </div>
             </div>
         </div> <!-- container -->

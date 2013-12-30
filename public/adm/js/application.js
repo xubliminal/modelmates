@@ -307,3 +307,9 @@ $('#search').click(function(event) {
 
 //Presentational: set all panel-body with br0 if it has panel-footer
 $(".panel-footer").prev().css("border-radius","0");
+
+$(function(){
+  $('.delete').click(function(){
+     return confirm('Are you sure you want to delete this?');
+  });
+})

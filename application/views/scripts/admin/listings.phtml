@@ -16,7 +16,36 @@
                 <div class="col-md-12">
                     <div class="panel panel-primary">
                         <div class="panel-body">
-                            
+                            <?php if(count($this->listings) > 0): ?>
+                            <table class="table table-condensed">
+                                <tr>
+                                  <th>#</th>
+                                  <th>Title</th>
+                                  <th>Category</th>
+                                  <th>Description</th>
+                                  <th>State</th>
+                                  <th>Actions</th>
+                                </tr>
+                                <?php foreach($this->listings as $l): ?>
+                                <tr>
+                                  <td><?= $l->id ?></td>
+                                  <td><?= $l->title ?></td>
+                                  <td><?= $l->getCategory()->title ?></td>
+                                  <td><?= $l->description ?></td>
+                                  <td><?= $l->state ?></td>
+                                  <td><a href="<?= $this->baseUrl() ?>/life/<?= $l->id ?>" target="_blank">View</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                      <a href="<?= $this->baseUrl() ?>/admin/listings/edit?id=<?= $l->id ?>">Edit</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                      <a class="delete" href="<?= $this->baseUrl() ?>/admin/listings/delete?id=<?= $l->id ?>">Delete</a></td>
+                                </tr>
+                                <?php endforeach ?>
+                            </table>
+                            <?php else: ?>
+                            <div class="empty">
+                                <i class="fa fa-cutlery fa-5x"></i>
+                                <h2>No listings found</h2>
+                                 <a class="btn btn-success" href="<?= $this->baseUrl() ?>/admin/listings/new">Add New Listing</a>
+                            </div>
+                            <?php endif ?>
                         </div>
                     </div>
                 </div>
