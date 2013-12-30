@@ -42,8 +42,7 @@ $(function () {
     var targetAnchor;
     $.each ($('ul.acc-menu a'), function() {
        //console.log(this.href);
-       
-        if( this.href == window.location ) {
+        if(window.location.href.indexOf(this.href) !== -1 ) {
             targetAnchor = this;
             return false;
         }

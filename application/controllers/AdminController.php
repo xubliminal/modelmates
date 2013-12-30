@@ -48,4 +48,12 @@ class AdminController extends Zend_Controller_Action {
     public function indexAction() {
         
     }
+    
+    public function listingsAction() {
+        switch($this->_getParam('task')) {
+            case 'new':
+                $this->render('listings-new');
+                break;
+        }
+    }
 }

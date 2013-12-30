@@ -1,4 +1,4 @@
-/*!
+navbar-brand/*!
  * Avant v1.2 (c) by The Red Team
  * Powered by Bootstrap v3.0 and FontAwesome 4.0.3
  */
@@ -8476,12 +8476,8 @@ body.static-header {
 }
 /* Logo */
 .navbar-brand {
-  font: 0/0 a !important;
-  color: transparent !important;
-  text-shadow: none !important;
   background-color: transparent !important;
   border: 0 !important;
-  background: url("../img/logo.png") no-repeat center center;
   height: 40px;
   width: 106px;
 }

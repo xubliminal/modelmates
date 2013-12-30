@@ -1,0 +1,28 @@
+<?= $this->partial('partials/admin/header.phtml') ?>
+<div id="page-content">
+    <div id='wrap'>
+        <div id="page-heading">
+            <ol class="breadcrumb">
+                <li><a href="<?= $this->baseUrl() ?>/admin">Dashboard</a></li>
+                <li><a href="<?= $this->baseUrl() ?>/admin/listings">The good life</a></li>
+                <li><span>New</span></li>
+            </ol>
+            <h1>The Good Life</h1>
+            <div class="options">
+                <a class="btn btn-success" href="<?= $this->baseUrl() ?>/admin/listings/new">Add New Listing</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- container -->
+    </div> <!--wrap -->
+</div> <!-- page-content -->
+<?= $this->partial('partials/admin/footer.phtml') ?>
