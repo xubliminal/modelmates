@@ -1,3 +1,4 @@
+<script type="text/javascript">MM = <?= json_encode($this->settings) ?>;</script>
 <?php foreach($this->scripts['noie'] as $script): ?>
 <script type="text/javascript" src="<?= $script->src ?>"></script>
 <?php endforeach; ?>

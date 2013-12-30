@@ -4,6 +4,7 @@ class Zend_View_Helper_GetScripts extends Zend_View_Helper_Abstract {
     
     public function getScripts() {
         $scripts = Zend_Registry::get('scripts');
+        $settings = $scripts->getSettings();
         $js = $scripts->getAll();
         $ordered = array('ie' => array(), 'noie' => array());
         foreach($js as $j) {
@@ -17,7 +18,12 @@ class Zend_View_Helper_GetScripts extends Zend_View_Helper_Abstract {
             }
         }
         
-        echo $this->view->partial('widgets/scripts.phtml', array('scripts' => $ordered));
+        $vars = array(
+            'scripts' => $ordered,
+            'settings' => $settings
+        );
+        
+        echo $this->view->partial('widgets/scripts.phtml', $vars);
     }
     
 }

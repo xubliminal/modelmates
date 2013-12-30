@@ -161,6 +161,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             ))
         );
         
+        $router->addRoute('admin', new Zend_Controller_Router_Route(
+            '/admin', array(
+                'controller' => 'admin',
+                'action'     => 'index',
+                'module'     => 'default',
+            ))
+        );
+        
         $router->addRoute('user_about', new Zend_Controller_Router_Route(
             '/:username/about', array(
                 'controller' => 'members',
@@ -189,6 +197,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             '/ajax/:action', array(
                 'controller' => 'ajax',
                 'action'     => ':action',
+                'module'     => 'default',
+            ))
+        );
+        
+        $router->addRoute('admin_action', new Zend_Controller_Router_Route(
+            '/admin/:action', array(
+                'controller' => 'admin',
+                'action'     => 'index',
                 'module'     => 'default',
             ))
         );
@@ -381,6 +397,14 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             '/account/upgrade', array(
                 'controller' => 'account',
                 'action'     => 'upgrade',
+                'module'     => 'default',
+            ))
+        );
+        
+        $router->addRoute('admin_task', new Zend_Controller_Router_Route(
+            '/admin/:action/:task', array(
+                'controller' => 'admin',
+                'action'     => 'index',
                 'module'     => 'default',
             ))
         );

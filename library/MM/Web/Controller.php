@@ -19,6 +19,8 @@ class MM_Web_Controller extends Zend_Controller_Action {
         $this->addScript('scripts/bind.js');
         $this->addScript('scripts/html5shiv.js', true);
         
+        $this->addJSSettings('baseUrl', $this->view->baseUrl());
+        
         $this->user = MM_Service_Users::getCurrent();
     }
     
@@ -31,6 +33,12 @@ class MM_Web_Controller extends Zend_Controller_Action {
     public function addScript($src, $ie = false, $external = false) {
         $scripts = Zend_Registry::get('scripts');
         $scripts->add($src, $ie, $external);
+        Zend_Registry::set('scripts', $scripts);
+    }
+    
+    public function addJSSettings($key, $value) {
+        $scripts = Zend_Registry::get('scripts');
+        $scripts->addSettings($key, $value);
         Zend_Registry::set('scripts', $scripts);
     }
     

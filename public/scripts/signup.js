@@ -28,7 +28,7 @@ $(function(){
     
     var uploader = new qq.FileUploader({
         element: document.getElementById('file_upload'),
-        action: '/ajax/upload',
+        action: MM.baseUrl+'/ajax/upload',
         multiple:true,
         allowedExtensions:['jpg', 'jpeg', 'png', 'gif'],
         sizeLimit:20971520,
@@ -50,9 +50,13 @@ $(function(){
             $item = $(item);
             
             $item.find('.uploaded-photo-pic').html(response.image);
+            $item.find('.js-upload-checkbox input').val(response.id);
+            $item.find('.js-upload-checkbox input').attr('id', 'main'+response.id);
+            $item.find('.js-upload-checkbox label').attr('for', 'main'+response.id);
             $item.find('.uploaded-photo-input .qq-upload-file').remove();
             $item.find('.uploaded-photo-input .qq-upload-size').remove();
             $item.find('.uploaded-photo-input .qq-upload-failed-text').remove();
+            
             
         },
         params:{

@@ -65,7 +65,8 @@ class MM_Domain_File extends MM_Domain {
             
             return array(
                 'success' => true,
-                'image' => $picture->getImage($size['name'], $size['width'], $size['height'])
+                'image' => $picture->getImage($size['name'], $size['width'], $size['height']),
+                'id' => $this->id
             );
             
         } else {

@@ -515,9 +515,9 @@
                                                     <span class="qq-upload-size"></span>
                                                     <span class="qq-upload-failed-text">Failed</span>
                                                 </div>
-                                                <div class="js-upload-checkbox hide">
-                                                    <input type="radio" name="upload" id="upload" />
-                                                    <label for="upload">Make Primary Photo</label>
+                                                <div class="js-upload-checkbox">
+                                                    <input type="radio" value="" name="main" id="main" />
+                                                    <label for="main">Make Primary Photo</label>
                                                 </div>
                                             </div>
                                         </div>
@@ -528,7 +528,7 @@
                                 <a href="#" id="file_upload" class="jr-add-photo-link">Add pictures</a>
                             </div> <!-- .jr-add-photo-link -->
                             <div class="jr-submit">
-                                <a href="<?= $this->lurl('account') ?>" class="btn btn-blue">Continue</a>
+                                <button type="submit" class="btn btn-blue">Continue</button>
                             </div> <!-- .jr-submit -->
                             <input type="hidden" name="user" value="<?= $this->user ?>" />
                             <input type="hidden" name="token" value="<?= $this->token ?>" />

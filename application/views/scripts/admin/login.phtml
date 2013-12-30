@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Modelmates | Admin</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ModelMates Admin Panel">
+    <meta name="author" content="Xubliminal">
+    <link rel="stylesheet" href="<?= $this->baseUrl() ?>/adm/css/styles.min.css?=113">
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600' rel='stylesheet' type='text/css'>
+</head>
+<body class="focusedform">
+<div class="verticalcenter">
+	<a href="<?= $this->baseUrl() ?>/admin/login"><img src="<?= $this->baseUrl() ?>/images/logo-welcome.png" alt="Logo" class="brand" /></a>
+    <form action="<?= $this->baseUrl() ?>/admin/login" method="post" class="form-horizontal" style="margin-bottom: 0px !important;">
+        <div class="panel panel-primary">
+            <div class="panel-body">
+                <?php if($this->error): ?>
+                <div class="alert alert-danger">
+                    <?= $this->error ?>
+                </div>
+                <?php endif ?>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input value="<?= $this->username ?>" type="text" class="form-control" name="username" id="username" placeholder="Username">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="pull-right">
+                    <button type="submit" class="btn btn-primary">Log In</a>
+                </div>
+            </div>
+        </div>
+    </form>
+ </div>
+</body>
+</html>
