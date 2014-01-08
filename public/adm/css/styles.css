@@ -13932,3 +13932,25 @@ select.tt-hint {
 }
 
 .delete { color: #f00 !important; }
+.img-thumbnail { position: relative; }
+.loading {
+    background: url('../../images/ajax-loader.gif') top left no-repeat;
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    margin-left: -8px;
+    margin-top: -8px;
+    z-index: 10;
+}
+.icon-delete{
+	background-image: url(../../images/icon-close.png);
+	background-repeat: no-repeat;
+	width: 22px;
+	height: 22px;
+	position: absolute;
+	top: -11px;
+	right: -11px;
+	z-index:1000;
+}

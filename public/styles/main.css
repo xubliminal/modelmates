@@ -1733,6 +1733,7 @@ hr{
 .fg-field{
 	display: inline-block;
 	width: 110px;
+        vertical-align: middle;
 }
 #video-detail{
 	margin: 0 -25px 15px;

@@ -20,7 +20,7 @@ class AdminController extends Zend_Controller_Action {
         $this->_user = $this->_auth->getIdentity();
     }
     
-    public function loginAction() {
+    public function loginAction() { 
         $this->_auth->clearIdentity();
         if($this->_request->isPost()) {
             try {
@@ -63,6 +63,10 @@ class AdminController extends Zend_Controller_Action {
                 break;
             case 'index':
                 $this->view->listings = MM_Service_Listings::getAll();
+                break;
+            case 'delete':
+                MM_Service_Listings::remove($_GET['id']);
+                $this->_redirect('admin/listings'); 
                 break;
         }
     }

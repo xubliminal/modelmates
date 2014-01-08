@@ -27,6 +27,7 @@ class MM_Domain_File extends MM_Domain {
     }
     
     public function upload($user, $size, $scope = 'profile', $type = 'image') {
+        
         $user = MM_Service_Users::get($user);
         
         $name = $user->id.'z'.rand().'-'.md5($user->token.time().rand());
@@ -61,7 +62,10 @@ class MM_Domain_File extends MM_Domain {
             $this->created = date('Y-m-d H:i:s');
             $this->save();
             
-            $picture = MM_Service_Pictures::create($this->id, $scope, $user->id);
+            if($scope == 'profile')
+                $picture = MM_Service_Pictures::create($this->id, $scope, $user->id);
+            else
+                $picture = MM_Service_Pictures::create($this->id, $scope, 0);
             
             return array(
                 'success' => true,

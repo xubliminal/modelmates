@@ -18,6 +18,16 @@ class MM_Service_Listings extends MM_Service {
         return self::$_categories;
     }
     
+    public static function remove($id) {
+        $inst = self::getInstance();
+        $select = $inst->select();
+        $select->where('id = ?', $id);
+        
+        $listing = $inst->fetchRow($select);
+        if($listing !== null)
+            $listing->delete();
+    }
+    
     public static function getCategory($id) {
         $categories = new Zend_Db_Table('listing_categories');
         $select = $categories->select();
@@ -40,9 +50,11 @@ class MM_Service_Listings extends MM_Service {
     
     public function createNew($data) {
         $listing = $this->fetchNew();
+        $images = $data['images']; unset($data['images']);
         $data['created'] = date('Y-m-d H:i:s');
         $listing->setFromArray($data);
         $listing->save();
+        $listing->addImages($images);
         
         return $listing;
     }

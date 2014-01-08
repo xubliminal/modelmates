@@ -20,6 +20,20 @@ class MM_Service_Pictures extends MM_Service {
         return $inst->createNew($file, $type, $id);
     }
     
+    public static function getByFile($file) {
+        $inst = self::getInstance();
+        return $inst->getByFileId($file);
+    }
+    
+    public static function getMainOf($type, $id) {
+        $inst = self::getInstance();
+        $select = $inst->select();
+        $select->where('object_type = ?', $type);
+        $select->where('object_id = ?', $id);
+        
+        return $inst->fetchRow($select);
+    }
+    
     public function createNew($file, $type, $id) {
         $pic = $this->fetchNew();
         $pic->object_id = $id;
@@ -29,6 +43,13 @@ class MM_Service_Pictures extends MM_Service {
         
         $pic->save();
         return $pic;
+    }
+    
+    public function getByFileId($file) {
+        $select = $this->select();
+        $select->where('file_id = ?', $file);
+        
+        return $this->fetchRow($select);
     }
     
 }

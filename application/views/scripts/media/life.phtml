@@ -5,35 +5,31 @@
             <div class="good-life-home-top">
                 <div class="good-life-home-top-1">
                     <h1 class="ttl-primary">the good life</h1>
+                    <?php $listing = $this->listings[0] ?>
                     <div class="clearfix glht-1-1">
                         <div class="glht1-left">
                             <div class="glht1-left-pic">
-                                <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-big.jpg" alt="" class="block" />
+                                <?= $listing->getMainPicture('thumbbig', 'block') ?>
                                 <span class="good-life-result-num">1</span>
                             </div>
                         </div> <!-- .glht1-left -->
                         <div class="glht1-right">
                             <p><span class="tag-top-10">TOP 10</span></p>
-                            <h3>Dining Experiences</h3>
-                            <h2>Monteverde Loft</h2>
-                            <p class="good-life-location">Santa Monica, CA</p>
+                            <h3><?= $listing->getCategoryLabel() ?></h3>
+                            <h2><?= $listing->title ?></h2>
+                            <p class="good-life-location"><?= $listing->city ?>, <?= $listing->state ?></p>
                             <div class="good-life-style">
-                                Italian &bull; Mexican Fusion
+                                <?= $listing->type ?>
                             </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur pulvinar tellus, vel mattis dui tincidunt nec. Ut sollicitudin nisl eget dui auctor.</p>
-                            <p><br /><a href="<?= $this->lurl('life/123456') ?>" class="btn btn-blue">Explore</a></p>
+                            <p><?= nl2br($listing->description) ?></p>
+                            <p><br /><a href="<?= $this->lurl('life/'.$listing->id) ?>" class="btn btn-blue">Explore</a></p>
                         </div> <!-- .glht1-right -->
                     </div> <!-- .clearfix -->
                     <div class="glht1-nav">
                         <ul class="ib-list">
-                            <li class="ib-block active"><a href="#">Dining</a></li>
-                            <li class="ib-block"><a href="#">Entertainment</a></li>
-                            <li class="ib-block"><a href="#">Nightlife</a></li>
-                            <li class="ib-block"><a href="#">Shopping</a></li>
-                            <li class="ib-block"><a href="#">Wellness</a></li>
-                            <li class="ib-block"><a href="#">Luxury Rentals</a></li>
-                            <li class="ib-block"><a href="#">Travel</a></li>
-                            <li class="ib-block"><a href="#">Special Gift</a></li>
+                            <?php foreach($this->categories as $c): ?>
+                            <li class="ib-block <?= $c->id == $this->category ? 'active' : '' ?>"><a href="?cat=<?= $c->id ?>"><?= $c->title ?></a></li>
+                            <?php endforeach ?>
                         </ul>
                     </div> <!-- .glht1-nav -->
                 </div> <!-- .good-life-home-top-1 -->
@@ -75,78 +71,17 @@
             </div> <!-- .good-life-home-top -->
             <div class="good-life-home-results">
                 <div class="ib-list good-life-list">
-                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
+                    <?php unset($this->listings[0]) ?>
+                    <?php foreach($this->listings as $i => $list): ?>
+                    <a href="<?= $this->lurl('life/'.$list->id) ?>" class="ib-block">
                         <span class="good-life-result-pic">
-                            <span class="good-life-result-num">2</span>
-                            <span class="good-life-result-name"><span>Resturant X</span></span>
-                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-1.jpg" alt="" class="block" />
+                            <span class="good-life-result-num"><?= $i + 1 ?></span>
+                            <span class="good-life-result-name"><span><?= $list->title ?></span></span>
+                            <?= $list->getMainPicture('thumbsmall', 'block') ?>
                         </span>
-                        <span class="good-life-result-title">Mexican Food</span>
+                        <span class="good-life-result-title"><?= $list->type ?></span>
                     </a> <!-- .ib-block -->
-                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
-                        <span class="good-life-result-pic">
-                            <span class="good-life-result-num">3</span>
-                            <span class="good-life-result-name"><span>Resturant X</span></span>
-                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-2.jpg" alt="" class="block" />
-                        </span>
-                        <span class="good-life-result-title">Mexican Food</span>
-                    </a> <!-- .ib-block -->
-                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
-                        <span class="good-life-result-pic">
-                            <span class="good-life-result-num">4</span>
-                            <span class="good-life-result-name"><span>Resturant X</span></span>
-                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-3.jpg" alt="" class="block" />
-                        </span>
-                        <span class="good-life-result-title">Mexican Food</span>
-                    </a> <!-- .ib-block -->
-                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
-                        <span class="good-life-result-pic">
-                            <span class="good-life-result-num">4</span>
-                            <span class="good-life-result-name"><span>Resturant X</span></span>
-                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-4.jpg" alt="" class="block" />
-                        </span>
-                        <span class="good-life-result-title">Mexican Food</span>
-                    </a> <!-- .ib-block -->
-                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
-                        <span class="good-life-result-pic">
-                            <span class="good-life-result-num">5</span>
-                            <span class="good-life-result-name"><span>Resturant X</span></span>
-                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-5.jpg" alt="" class="block" />
-                        </span>
-                        <span class="good-life-result-title">Mexican Food</span>
-                    </a> <!-- .ib-block -->
-                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
-                        <span class="good-life-result-pic">
-                            <span class="good-life-result-num">6</span>
-                            <span class="good-life-result-name"><span>Resturant X</span></span>
-                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-6.jpg" alt="" class="block" />
-                        </span>
-                        <span class="good-life-result-title">Mexican Food</span>
-                    </a> <!-- .ib-block -->
-                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
-                        <span class="good-life-result-pic">
-                            <span class="good-life-result-num">7</span>
-                            <span class="good-life-result-name"><span>Resturant X</span></span>
-                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-7.jpg" alt="" class="block" />
-                        </span>
-                        <span class="good-life-result-title">Mexican Food</span>
-                    </a> <!-- .ib-block -->
-                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
-                        <span class="good-life-result-pic">
-                            <span class="good-life-result-num">8</span>
-                            <span class="good-life-result-name"><span>Resturant X</span></span>
-                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-8.jpg" alt="" class="block" />
-                        </span>
-                        <span class="good-life-result-title">Mexican Food</span>
-                    </a> <!-- .ib-block -->
-                    <a href="<?= $this->lurl('life/123456') ?>" class="ib-block">
-                        <span class="good-life-result-pic">
-                            <span class="good-life-result-num">9</span>
-                            <span class="good-life-result-name"><span>Resturant X</span></span>
-                            <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-9.jpg" alt="" class="block" />
-                        </span>
-                        <span class="good-life-result-title">Mexican Food</span>
-                    </a> <!-- .ib-block -->
+                    <?php endforeach ?>
                 </div> <!-- .ib-list -->
             </div> <!-- .good-life-home-results -->
         </div> <!-- .video-category-content -->
