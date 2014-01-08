@@ -59,13 +59,13 @@ class MediaController extends MM_Web_Controller
     
     public function lifedetailAction()
     {
-        $listing = MM_Service_Listings::get($this->getParam('id'));
+        $listing = MM_Service_Listings::get($this->_getParam('id'));
         if($listing === null)
             throw new Exception('Page Not Found');
         
         $this->view->listing = $listing;
         
-        $this->view->title = $listing->title . " | ModelMates";
+        $this->view->title = $listing->title ." | ModelMates";
     }
 }
 
