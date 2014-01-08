@@ -12,6 +12,22 @@ class MM_Domain_Listing extends MM_Domain {
         return $this->_category;
     }
     
+    public function updateInfo($data) {
+        $images = $this->getPictures();
+        foreach($images as $img) {
+            if(!isset($data['image'][$img->file_id]))
+                $img->delete();
+        }
+        if(isset($data['images']) && count($data['images']) > 0) {
+            $images = $data['images']; 
+            unset($data['images']);
+            
+            $this->addImages($images);
+        }
+        $this->setFromArray($data);
+        $this->save();
+    }
+    
     
     public function addImages($images) { 
         foreach($images as $fid) {
@@ -21,13 +37,12 @@ class MM_Domain_Listing extends MM_Domain {
         }
     }
     
-    public function getMainPicture($size, $class = "") {
+    public function getMainPicture($size, $width, $height, $class = "") {
         $picture = MM_Service_Pictures::getMainOf('listing', $this->id);
         if($picture === null)
             return '';
-        else {
-            var_dump($picture); die;
-        }
+        else 
+           return $picture->getImage($size, $width, $height, $class);
     }
     
     public function getCategoryLabel() {
@@ -35,6 +50,11 @@ class MM_Domain_Listing extends MM_Domain {
             $this->getCategory();
         
         return $this->_category->description;
+    }
+    
+    public function getPictures() {
+        return MM_Service_Pictures::getAllOf('listing', $this->id);
+        
     }
     
 }

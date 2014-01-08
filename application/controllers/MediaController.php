@@ -53,11 +53,19 @@ class MediaController extends MM_Web_Controller
         $this->view->categories = $categories;
         $this->view->category = $category;
         $this->view->listings = $listings;
+        
+        $this->view->title = "The Good Life | ModelMates";
     }
     
     public function lifedetailAction()
     {
+        $listing = MM_Service_Listings::get($this->getParam('id'));
+        if($listing === null)
+            throw new Exception('Page Not Found');
         
+        $this->view->listing = $listing;
+        
+        $this->view->title = $listing->title . " | ModelMates";
     }
 }
 

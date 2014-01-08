@@ -61,6 +61,18 @@ class AdminController extends Zend_Controller_Action {
                 }
                 $this->render('listings-new');
                 break;
+            case 'edit':
+                $listing = MM_Service_Listings::get($_GET['id']);
+                if($this->_request->isPost()) {
+                    $listing->updateInfo($_POST);
+                    $this->_redirect('admin/listings');
+                }
+                
+                $this->view->pictures = MM_Service_Pictures::getAllOf('listing', $listing->id);
+                $this->view->categories = MM_Service_Listings::getCategories();
+                $this->view->data = $listing->toArray();
+                $this->render('listings-new');
+                break;
             case 'index':
                 $this->view->listings = MM_Service_Listings::getAll();
                 break;

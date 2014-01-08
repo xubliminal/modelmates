@@ -8,37 +8,48 @@
                         <h1 class="ttl-primary">the good life</h1>
                         <div class="clearfix glc-main">
                             <div class="glc-main-left">
-                                <img src="<?= $this->baseUrl() ?>/images/clipart/good-life-detail-1.jpg" alt="" class="block" />
+                                <?php $pictures = $this->listing->getPictures() ?>
+                                <?php if(count($pictures) > 0): ?>
+                                <?= $pictures[0]->getImage('thumbmed', 357, 263, 'block'); ?>
                                 <div class="ib-list good-life-detail-pics">
-                                    <div class="ib-block"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/good-life-detail-2.jpg" alt="" class="block" /></a></div>
-                                    <div class="ib-block"><a href="#"><img src="<?= $this->baseUrl() ?>/images/clipart/good-life-detail-3.jpg" alt="" class="block" /></a></div>
+                                    <?php foreach($pictures as $i => $pic): ?>
+                                    <?php if($i != 0): ?>
+                                    <div class="ib-block"><a href="<?= $pic->getUrl() ?>"><?= $pic->getImage('thumbmed', 178, 'auto', 'block') ?></a></div>
+                                    <?php endif ?>
+                                    <?php endforeach ?>
                                 </div> <!-- .good-life-detail-pics -->
+                                <?php endif ?>
                             </div> <!-- .glc-main-left -->
                             <div class="glc-main-right">
                                 <p><span class="tag-top-10">TOP 10</span></p>
-                                <h3>Dining Experiences</h3>
-                                <h2>Monteverde Loft</h2>
-                                <p class="good-life-location">Santa Monica, CA</p>
+                                <h3><?= $this->listing->getCategoryLabel() ?></h3>
+                                <h2><?= $this->listing->title ?></h2>
+                                <p class="good-life-location"><?= $this->listing->city ?>, <?= $this->listing->state ?></p>
                                 <div class="good-life-style">
-                                    Italian &bull; Mexican Fusion
+                                    <?= $this->listing->type ?>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id neque velit, a rutrum lectus. Nam a felis erat. Nunc est felis, vehicula eget elementum et, ultrices eu lectus. Sed iaculis imperdiet arcu eleifend accumsan. Integer tempor vestibulum euismod. Morbi gravida dapibus enim. Etiam at metus tristique magna porttitor ultrices. Vestibulum massa diam, molestie sit amet fringilla eu, fermentum ac dui. Fusce non gravida neque</p>
+                                <p><?= nl2br($this->listing->description) ?></p>
                                 <hr />
                                 <p>
                                     <strong>Parking Info</strong>
-                                    <br />Valet
+                                    <br /><?= ($this->listing->parking == 1) ? 'Yes' : 'No' ?>
                                 </p>
                                 <p>
                                     <strong>Address</strong>
-                                    <br />Street 48, Avenue, Los Angeles, CA
+                                    <br /><?= nl2br($this->listing->address) ?>
                                 </p>
                                 <p>
                                     <strong>Telephone</strong>
-                                    <br />(310) 8475-4487
+                                    <br /><?= $this->listing->phone ?>
                                 </p>
                                 <p>
                                     <br />
-                                    <a href="#" class="btn btn-blue">Menu</a>&nbsp;&nbsp;&nbsp;<a href="#" class="btn btn-blue">Reserve Now</a>
+                                    <!--<a href="#" class="btn btn-blue">Menu</a>&nbsp;&nbsp;&nbsp;-->
+                                    <?php if($this->user !== null): ?>
+                                    <a href="#" class="js-register btn btn-blue">Reserve Now</a>
+                                    <?php else: ?>
+                                    <a href="<?= $this->lurl('signup') ?>" class="btn btn-blue">Reserve Now</a>
+                                    <?php endif ?>
                                 </p>
                             </div> <!-- .glc-main-right -->
                         </div> <!-- .glc-main -->

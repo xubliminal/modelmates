@@ -59,9 +59,21 @@ class MM_Service_Listings extends MM_Service {
         return $listing;
     }
     
-    public static function getAll() {
+    public static function getAll($cat = null) {
         $inst = self::getInstance();
+        if($cat !== null) {
+            $select = $inst->select();
+            $select->where('category = ?', $cat);
+            return $inst->fetchAll($select);
+        }
         return $inst->fetchAll();
+    }
+    
+    public static function get($id) {
+        $inst = self::getInstance();
+        $select = $inst->select();
+        $select->where('id = ?', $id);
+        return $inst->fetchRow($select);
     }
     
 }

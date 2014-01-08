@@ -36,7 +36,17 @@
                                         <div class="col-sm-7">
                                             <a id="file_upload" class="btn btn-success">Upload</a><br><br>
                                             <div id="uploaded-photos" class="clearfix">
-                                                
+                                                <?php if(count($this->pictures) > 0): ?>
+                                                <?php foreach($this->pictures as $pic): ?>
+                                                <div class="img-thumbnail-conrainer">
+                                                    <div class="img-thumbnail"  style="margin: 5px 5px 10px; float: left; width: 170px; height: 140px;">
+                                                        <?= $pic->getImage('thumbsmall', 150, 120) ?>
+                                                        <a href="#" class="icon-delete js-delete-image"></a>
+                                                    </div>
+                                                    <input type="hidden" name="image[<?= $pic->file_id ?>]" value="<?= $pic->file_id ?>" />
+                                                </div>
+                                                <?php endforeach ?>
+                                                <?php endif ?>
                                             </div>
                                             <div class="js-upload-template hide">
                                                 <div class="img-thumbnail-conrainer">

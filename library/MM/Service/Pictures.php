@@ -34,6 +34,15 @@ class MM_Service_Pictures extends MM_Service {
         return $inst->fetchRow($select);
     }
     
+    public static function getAllOf($type, $id) {
+        $inst = self::getInstance();
+        $select = $inst->select();
+        $select->where('object_type = ?', $type);
+        $select->where('object_id = ?', $id);
+        
+        return $inst->fetchAll($select);
+    }
+    
     public function createNew($file, $type, $id) {
         $pic = $this->fetchNew();
         $pic->object_id = $id;

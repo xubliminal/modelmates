@@ -45,5 +45,10 @@ $(function(){
             }
         }
     });
+    
+    $('.js-delete-image').click(function(){
+        $(this).parents('.img-thumbnail-conrainer').remove();
+        return false;
+    });
 });
 

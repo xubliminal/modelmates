@@ -5,11 +5,12 @@
             <div class="good-life-home-top">
                 <div class="good-life-home-top-1">
                     <h1 class="ttl-primary">the good life</h1>
+                    <?php if(count($this->listings) > 0): ?>
                     <?php $listing = $this->listings[0] ?>
                     <div class="clearfix glht-1-1">
                         <div class="glht1-left">
                             <div class="glht1-left-pic">
-                                <?= $listing->getMainPicture('thumbbig', 'block') ?>
+                                <?= $listing->getMainPicture('thumbbig', 533, 286, 'block') ?>
                                 <span class="good-life-result-num">1</span>
                             </div>
                         </div> <!-- .glht1-left -->
@@ -25,6 +26,7 @@
                             <p><br /><a href="<?= $this->lurl('life/'.$listing->id) ?>" class="btn btn-blue">Explore</a></p>
                         </div> <!-- .glht1-right -->
                     </div> <!-- .clearfix -->
+                    <?php endif ?>
                     <div class="glht1-nav">
                         <ul class="ib-list">
                             <?php foreach($this->categories as $c): ?>
@@ -71,16 +73,17 @@
             </div> <!-- .good-life-home-top -->
             <div class="good-life-home-results">
                 <div class="ib-list good-life-list">
-                    <?php unset($this->listings[0]) ?>
                     <?php foreach($this->listings as $i => $list): ?>
+                    <?php if($i > 0): ?>
                     <a href="<?= $this->lurl('life/'.$list->id) ?>" class="ib-block">
                         <span class="good-life-result-pic">
                             <span class="good-life-result-num"><?= $i + 1 ?></span>
                             <span class="good-life-result-name"><span><?= $list->title ?></span></span>
-                            <?= $list->getMainPicture('thumbsmall', 'block') ?>
+                            <?= $list->getMainPicture('thumbsmall', 265, 215, 'block') ?>
                         </span>
                         <span class="good-life-result-title"><?= $list->type ?></span>
                     </a> <!-- .ib-block -->
+                    <?php endif ?>
                     <?php endforeach ?>
                 </div> <!-- .ib-list -->
             </div> <!-- .good-life-home-results -->

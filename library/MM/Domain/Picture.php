@@ -18,6 +18,10 @@ class MM_Domain_Picture extends MM_Domain {
         $this->_file = $this->getFile();
     }
     
+    public function getUrl() {
+        return $this->_cloudConfig['cdn'].$this->_file->uri.'.'.$this->_file->extension;
+    }
+    
     public function getImage($size, $width, $height = null, $class = '') {
         if($this->_file == null){
             $this->getFile();
