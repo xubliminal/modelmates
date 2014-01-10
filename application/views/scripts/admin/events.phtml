@@ -1,0 +1,56 @@
+<?= $this->partial('partials/admin/header.phtml') ?>
+<div id="page-content">
+    <div id='wrap'>
+        <div id="page-heading">
+            <ol class="breadcrumb">
+                <li><a href="<?= $this->baseUrl() ?>/admin">Dashboard</a></li>
+                <li><span>Parties &amp; Events</span></li>
+            </ol>
+            <h1>Parties &amp; Events</h1>
+            <div class="options">
+                <a class="btn btn-success" href="<?= $this->baseUrl() ?>/admin/events/new">Add New Event</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <?php if(count($this->events) > 0): ?>
+                            <table class="table table-condensed">
+                                <tr>
+                                  <th>#</th>
+                                  <th>Title</th>
+                                  <th>Location</th>
+                                  <th>Date</th>
+                                  <th>Time</th>
+                                  <th>Actions</th>
+                                </tr>
+                                <?php foreach($this->events as $l): ?>
+                                <tr>
+                                  <td><?= $l->id ?></td>
+                                  <td><?= $l->title ?></td>
+                                  <td><?= $l->location ?></td>
+                                  <td><?= date('F jS, Y', strtotime($l->date)) ?></td>
+                                  <td>From: <?= date('g:i A', strtotime($l->start)) ?> To: <?= date('g:i A', strtotime($l->finish)) ?></td>
+                                  <td><a href="<?= $this->baseUrl() ?>/events/<?= $l->id ?>" target="_blank">View</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                      <a href="<?= $this->baseUrl() ?>/admin/events/edit?id=<?= $l->id ?>">Edit</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                      <a class="delete" href="<?= $this->baseUrl() ?>/admin/events/delete?id=<?= $l->id ?>">Delete</a></td>
+                                </tr>
+                                <?php endforeach ?>
+                            </table>
+                            <?php else: ?>
+                            <div class="empty">
+                                <i class="fa fa-calendar fa-5x"></i>
+                                <h2>No Events found</h2>
+                                 <a class="btn btn-success" href="<?= $this->baseUrl() ?>/admin/events/new">Add New Event</a>
+                            </div>
+                            <?php endif ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- container -->
+    </div> <!--wrap -->
+</div> <!-- page-content -->
+<?= $this->partial('partials/admin/footer.phtml') ?>

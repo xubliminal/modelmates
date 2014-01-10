@@ -2,54 +2,58 @@
 <div class="sub-wrap">
     <div class="in white-box-1">
         <div class="video-category-content">
-            <h1 class="ttl-primary party-detail-ttl">Summer party</h1>
+            <h1 class="ttl-primary party-detail-ttl"><?= $this->event->title ?></h1>
             <div class="clearfix">
                 <div class="party-detail-left">
                     <div class="pdl-row clearfix">
                         <div class="pdl-lbl">Event</div>
-                        <div class="pdl-data">All White Party</div>
+                        <div class="pdl-data"><?= $this->event->title ?></div>
                     </div> <!-- .pdl-row -->
                     <div class="pdl-row clearfix">
                         <div class="pdl-lbl">Date</div>
-                        <div class="pdl-data">Saturday, April 26th, 2014</div>
+                        <div class="pdl-data"><?= $this->event->getDate('l, F jS, Y') ?></div>
                     </div> <!-- .pdl-row -->
                     <div class="pdl-row clearfix">
                         <div class="pdl-lbl">Time</div>
-                        <div class="pdl-data">8:00 pm - 1:00 am</div>
+                        <div class="pdl-data"><?= $this->event->getTime() ?></div>
                     </div> <!-- .pdl-row -->
                     <div class="pdl-row clearfix">
                         <div class="pdl-lbl">Location</div>
-                        <div class="pdl-data">Green Coast Hotel, San Francisco, CA</div>
+                        <div class="pdl-data"><?= $this->event->location ?></div>
                     </div> <!-- .pdl-row -->
                     <div class="pdl-row clearfix">
                         <div class="pdl-lbl">Description</div>
                         <div class="pdl-data">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus id neque velit, a rutrum lectus. Nam a felis erat. Nunc est felis, vehicula eget elementum et, ultrices eu lectus. Sed iaculis imperdiet arcu eleifend accumsan. Integer tempor vestibulum euismod. Morbi gravida dapibus enim. Etiam at metus tristique magna porttitor ultrices. Vestibulum massa diam, molestie sit amet fringilla eu, fermentum ac dui. Fusce non gravida neque</p>
+                            <p><?= nl2br($this->event->description) ?></p>
+                            <?php $covers = $this->event->getCovers() ?>
+                            <?php if(count($covers) > 0): ?>
                             <div class="clearfix">
+                                <?php foreach($covers as $c): ?>
                                 <div class="pdl-price-block">
                                     <div class="pdl-price-unit">
-                                        <div class="pdl-pu-1">$20</div>
+                                        <div class="pdl-pu-1">$<?= number_format($c->price) ?></div>
                                         <div class="pdl-pu-2">per person</div>
                                     </div>
-                                    <div class="pdl-pu-text">General<br />Admission</div>
+                                    <div class="pdl-pu-text"><?= $c->title ?></div>
                                 </div>
-                                <div class="pdl-price-block">
-                                    <div class="pdl-price-unit">
-                                        <div class="pdl-pu-1">$35</div>
-                                        <div class="pdl-pu-2">per person</div>
-                                    </div>
-                                    <div class="pdl-pu-text">VIP (Complimentary<br />Drinks)</div>
-                                </div>
+                                <?php endforeach ?>
                             </div> <!-- .clearfix -->
+                            <?php endif ?>
                         </div>
                     </div> <!-- .pdl-row -->
                 </div> <!-- .party-detail-left -->
                 <div class="party-detail-right">
-                    <div class="pdl-r-image"><img src="<?= $this->baseUrl() ?>/images/clipart/event-details.jpg" alt="" class="block" /></div>
+                    <div class="pdl-r-image">
+                        <?= $this->event->getPicture('thumbbig', 438, 242, 'block') ?>
+                    </div>
                     <p>
-                        <a href="#" class="btn btn-blue">Register</a>
-                        <a href="#" class="btn btn-grey">Invite a Friend</a>
-                        <a href="#" class="link-more">View Event Photos</a>
+                        <?php if($this->user === null): ?>
+                        <a href="<?= $this->lurl('signup') ?>" class="btn btn-blue">Register</a>
+                        <?php else: ?>
+                        <a href="#" class="btn js-register btn-blue">Register</a>
+                        <?php endif ?>
+                        <a href="#" class="btn js-invite btn-grey">Invite a Friend</a>
+                        <!--<a href="#" class="link-more">View Event Photos</a> -->
                     </p>
                 </div> <!-- .party-detail-right -->
             </div> <!-- .clearfix -->

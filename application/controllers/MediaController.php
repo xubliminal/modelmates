@@ -40,7 +40,12 @@ class MediaController extends MM_Web_Controller
     
     public function eventAction()
     {
+        $event = MM_Service_Events::get($this->_getParam('id'));
+        if($event === null)
+            throw new Exception('Page Not Found');
         
+        $this->view->event = $event;
+        $this->view->title = 'Event: '. $event->title.' | ModelMates';
     }
     
     public function lifeAction()

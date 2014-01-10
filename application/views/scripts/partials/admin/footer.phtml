@@ -17,6 +17,7 @@
 <script type='text/javascript' src='<?= $this->baseUrl() ?>/adm/plugins/easypiechart/jquery.easypiechart.min.js'></script> 
 <script type='text/javascript' src='<?= $this->baseUrl() ?>/adm/plugins/sparklines/jquery.sparklines.min.js'></script> 
 <script type='text/javascript' src='<?= $this->baseUrl() ?>/adm/plugins/form-toggle/toggle.min.js'></script> 
+<script type='text/javascript' src='<?= $this->baseUrl() ?>/adm/plugins/jqueryui-timepicker/jquery.ui.timepicker.min.js'></script> 
 <script type='text/javascript' src='<?= $this->baseUrl() ?>/adm/plugins/fullcalendar/fullcalendar.min.js'></script> 
 <script type='text/javascript' src='<?= $this->baseUrl() ?>/adm/plugins/form-daterangepicker/daterangepicker.min.js'></script> 
 <script type='text/javascript' src='<?= $this->baseUrl() ?>/adm/plugins/form-daterangepicker/moment.min.js'></script> 
@@ -27,6 +28,8 @@
 <script type='text/javascript' src='<?= $this->baseUrl() ?>/adm/js/placeholdr.js'></script> 
 <script type='text/javascript' src='<?= $this->baseUrl() ?>/scripts/uploader.js'></script> 
 <script type='text/javascript' src='<?= $this->baseUrl() ?>/adm/js/application.js'></script> 
-<script type='text/javascript' src='<?= $this->baseUrl() ?>/adm/js/listings.js'></script> 
+<?php if(count($this->scripts) > 0): foreach($this->scripts as $src): ?>
+<script type='text/javascript' src='<?= $this->baseUrl() ?>/<?= $src ?>'></script> 
+<?php endforeach; endif; ?>
 </body>
 </html>

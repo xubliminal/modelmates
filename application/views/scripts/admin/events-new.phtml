@@ -1,0 +1,174 @@
+<?= $this->partial('partials/admin/header.phtml') ?>
+<div id="page-content">
+    <div id='wrap'>
+        <div id="page-heading">
+            <ol class="breadcrumb">
+                <li><a href="<?= $this->baseUrl() ?>/admin">Dashboard</a></li>
+                <li><a href="<?= $this->baseUrl() ?>/admin/events">Parties &amp; Events</a></li>
+                <li><span>New</span></li>
+            </ol>
+            <h1>Parties &amp; Events - New Event</h1>
+            <div class="options">
+                <a class="btn btn-success" href="<?= $this->baseUrl() ?>/admin/events/new">Add New Event</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form id="listingForm" method="post" class="validate">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="title" class="col-sm-3 control-label">Title</label>
+                                        <div class="col-sm-6">
+                                            <input value="<?= $this->data['title'] ?>" type="text" class="form-control required" id="title" name="title">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description" class="col-sm-3 control-label">Description</label>
+                                        <div class="col-sm-6">
+                                            <textarea name="description" id="description" cols="50" rows="4" class="form-control required"><?= $this->data['description'] ?></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image" class="col-sm-3 control-label">Images</label>
+                                        <div class="col-sm-7">
+                                            <a id="file_upload" class="btn btn-success"><?= ($this->data['image']) ? 'Upload' : 'Replace' ?></a><br><br>
+                                            <div id="uploaded-photos" class="clearfix">
+                                                <?php if($this->data['image']): ?>
+                                                <?php $pic = MM_Service_Pictures::getByFile($this->data['image']) ?>
+                                                <div class="img-thumbnail-conrainer">
+                                                    <div class="img-thumbnail"  style="margin: 5px 5px 10px; float: left; width: 170px; height: 140px;">
+                                                        <?= $pic->getImage('thumbmed', 150, 120) ?>
+                                                        <a href="#" class="icon-delete js-delete-image"></a>
+                                                    </div>
+                                                    <input type="hidden" name="image" value="<?= $pic->file_id ?>" />
+                                                </div>
+                                                <?php endif ?>
+                                            </div>
+                                            <div class="js-upload-template hide">
+                                                <div class="img-thumbnail-conrainer">
+                                                    <div class="img-thumbnail"  style="margin: 5px 5px 10px; float: left; width: 170px; height: 140px;">
+                                                        <div class="loading"></div>
+                                                        <a href="#" class="icon-delete qq-upload-cancel"></a>
+                                                    </div>
+                                                    <input type="hidden" class="js-file-id" />
+                                                    <div class="hide">
+                                                        <span class="qq-upload-file"></span>
+                                                        <span class="qq-upload-spinner"></span>
+                                                        <span class="qq-upload-size"></span>
+                                                        <span class="qq-upload-failed-text">Failed</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="location" class="col-sm-3 control-label">Location</label>
+                                        <div class="col-sm-6">
+                                            <input value="<?= $this->data['location'] ?>" type="text" class="form-control required" id="location" name="location">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="date" class="col-sm-3 control-label">Date</label>
+                                        <div class="col-sm-6">
+                                            <input value="<?= $this->data['date'] ?>" type="text" class="form-control required js-date" id="date" name="date">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="start" class="col-sm-3 control-label">Start</label>
+                                        <div class="col-sm-2">
+                                            <input value="<?= $this->data['start'] ?>" type="text" class="form-control required js-time" id="start" name="start">
+                                        </div>
+                                        <label for="finish" class="col-sm-1 control-label">Finish</label>
+                                        <div class="col-sm-2">
+                                            <input value="<?= $this->data['finish'] ?>" type="text" class="form-control required js-time" id="finish" name="finish">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="start" class="col-sm-3 control-label">Covers</label>
+                                        <div class="col-sm-6">
+                                            <div class="covers-container">
+                                                <?php if(count($this->covers) > 0): ?>
+                                                <?php foreach($this->covers as $cov): ?>
+                                                <div class="cover-item">
+                                                    <div class="form-group">
+                                                        <label for="cpver_title_<?= $cov->id ?>" class="col-md-2 control-label">Title</label>
+                                                        <div class="col-md-4">
+                                                            <input id="cover_title_<?= $cov->id ?>" value="<?= $cov->title ?>" name="cover[<?= $cov->id ?>][title]" type="text" class="form-control col-sm-2" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for='cover_price_<?= $cov->id ?>' class="col-md-2 control-label">Price</label>
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">$</span>
+                                                                <input id="cover_price_<?= $cov->id ?>" value="<?= $cov->price ?>" name="cover[<?= $cov->id ?>][price]" type="text" class="form-control">
+                                                                <span class="input-group-addon">Per Person</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for='cover_description_<?= $cov->id ?>' class="col-md-2 control-label">Description</label>
+                                                        <div class="col-md-10">
+                                                            <input id="cover_description_<?= $cov->id ?>" value="<?= $cov->description ?>" name="cover[<?= $cov->id ?>][description]" type="text" class="form-control col-sm-2" />
+                                                        </div>
+                                                    </div>
+                                                    <a href="#" class="js-remove-cover col-md-offset-2 btn btn-danger">Remove Cover</a>
+                                                    <hr/>
+                                                </div>
+                                                <?php endforeach; endif ?>
+                                            </div>
+                                            <div class="hide js-cover-template">
+                                                <div class="cover-item">
+                                                    <div class="form-group">
+                                                        <label class="col-md-2 control-label">Title</label>
+                                                        <div class="col-md-4">
+                                                            <input type="text" class="form-control col-sm-2 js-cover-title" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-2 control-label">Price</label>
+                                                        <div class="col-md-4">
+                                                            <div class="input-group">
+                                                                <span class="input-group-addon">$</span>
+                                                                <input type="text" class="form-control js-cover-price">
+                                                                <span class="input-group-addon">Per Person</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="col-md-2 control-label">Description</label>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control col-sm-2 js-cover-description" />
+                                                        </div>
+                                                    </div>
+                                                    <a href="#" class="js-remove-cover col-md-offset-2 btn btn-danger">Remove Cover</a>
+                                                    <hr/>
+                                                </div>
+                                            </div>
+                                            <p><a href="#" class="btn btn-primary js-add-new-cover">+ Add New Cover</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <div class="btn-toolbar">
+                                            <button type="submit" class="btn-primary btn">Save</button>
+                                            <a href="<?= $this->baseUrl() ?>/admin/listings" class="btn-default btn">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>    
+                </div>
+            </div>
+        </div> <!-- container -->
+    </div> <!--wrap -->
+</div> <!-- page-content -->
+<?php $scripts = array('adm/js/events.js') ?>
+<?= $this->partial('partials/admin/footer.phtml', array('scripts' => $scripts)) ?>

@@ -82,4 +82,36 @@ class AdminController extends Zend_Controller_Action {
                 break;
         }
     }
+    
+    public function eventsAction() {
+        switch($this->_getParam('task', 'index')) {
+            case 'new':
+                if($this->_request->isPost()) {
+                    //echo '<pre>'; var_dump($_POST); die;
+                    $event = MM_Service_Events::create($_POST);
+                    if($event !== null) 
+                        $this->_redirect('admin/events');                    
+                }
+                $this->render('events-new');
+                break;
+            case 'edit':
+                $event = MM_Service_Events::get($_GET['id']);
+                if($this->_request->isPost()) {
+                    //echo '<pre>'; var_dump($_POST); die;
+                    $event->updateInfo($_POST);
+                    $this->_redirect('admin/events');
+                }
+                $this->view->covers = $event->getCovers();
+                $this->view->data   = $event->toArray();
+                $this->render('events-new');                
+                break;
+            case 'index':
+                $this->view->events = MM_Service_Events::getAll();
+                break;
+            case 'delete':
+                MM_Service_Events::remove($_GET['id']);
+                $this->_redirect('admin/events');                 
+                break;
+        }
+    }
 }

@@ -185,4 +185,5 @@
         </div> <!-- container -->
     </div> <!--wrap -->
 </div> <!-- page-content -->
-<?= $this->partial('partials/admin/footer.phtml') ?>
+<?php $scripts = array('adm/js/listings.js') ?>
+<?= $this->partial('partials/admin/footer.phtml', array('scripts' => $scripts)) ?>

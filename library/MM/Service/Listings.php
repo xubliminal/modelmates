@@ -20,10 +20,7 @@ class MM_Service_Listings extends MM_Service {
     
     public static function remove($id) {
         $inst = self::getInstance();
-        $select = $inst->select();
-        $select->where('id = ?', $id);
-        
-        $listing = $inst->fetchRow($select);
+        $listing = $inst->getByID($id);
         if($listing !== null)
             $listing->delete();
     }
@@ -71,9 +68,7 @@ class MM_Service_Listings extends MM_Service {
     
     public static function get($id) {
         $inst = self::getInstance();
-        $select = $inst->select();
-        $select->where('id = ?', $id);
-        return $inst->fetchRow($select);
+        return $inst->getByID($id);
     }
     
 }
