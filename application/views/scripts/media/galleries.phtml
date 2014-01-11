@@ -4,28 +4,20 @@
         <div id="members-content-wrap">
             <div class="clearfix">
                 <div id="gallery-content-1">
+                    <?php foreach($this->gallery->getImages() as $pic): ?>
                     <div class="gallery-main-block">
-                        <p><img src="<?= $this->baseUrl() ?>/images/clipart/gallery-1.jpg" alt="" /></p>
-                        <p><strong>Erycka_4874</strong></p>
+                        <?= $pic->getImage('','','') ?>
                     </div> <!-- .gallery-main-block -->
-                    <div class="gallery-main-block">
-                        <p><img src="<?= $this->baseUrl() ?>/images/clipart/gallery-2.jpg" alt="" /></p>
-                        <p><strong>Erycka_4874</strong></p>
-                    </div> <!-- .gallery-main-block -->
+                    <?php endforeach ?>
                 </div> <!-- #gallery-content-1 -->
                 <div id="members-sidebar" class="results-sidebar gallery-sidebar">
                     <div class="gallery-widget">
                         <h2>Gallery</h2>
                         <p>Select a Category</p>
                         <ul>
-                            <li class="active"><a href="<?= $this->lurl('galleries/123456') ?>">Beauty &amp; The Beach</a></li>
-                            <li><a href="<?= $this->lurl('galleries/123456') ?>">Parties &amp; Events</a></li>
-                            <li><a href="<?= $this->lurl('galleries/123456') ?>">Glam Girls</a></li>
-                            <li><a href="<?= $this->lurl('galleries/123456') ?>">Exotic Beauties</a></li>
-                            <li><a href="<?= $this->lurl('galleries/123456') ?>">Behind the Scenes</a></li>
-                            <li><a href="<?= $this->lurl('galleries/123456') ?>">Head to Toe</a></li>
-                            <li><a href="<?= $this->lurl('galleries/123456') ?>">Double Dare</a></li>
-                            <li><a href="<?= $this->lurl('galleries/123456') ?>">Intimates</a></li>
+                            <?php foreach($this->galleries as $g): ?>
+                            <li class="<?= ($g->id == $this->gallery->id) ? 'active' : '' ?>"><a href="<?= $this->lurl('galleries/'.$g->id) ?>"><?= $g->title ?></a></li>
+                            <?php endforeach ?>
                         </ul>
                     </div> <!-- .gallery-widget -->
                 </div> <!-- #members-sidebar -->

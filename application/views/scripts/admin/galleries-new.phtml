@@ -1,0 +1,81 @@
+<?= $this->partial('partials/admin/header.phtml') ?>
+<div id="page-content">
+    <div id='wrap'>
+        <div id="page-heading">
+            <ol class="breadcrumb">
+                <li><a href="<?= $this->baseUrl() ?>/admin">Dashboard</a></li>
+                <li><a href="<?= $this->baseUrl() ?>/admin/galleries">Galleries</a></li>
+                <li><span>New</span></li>
+            </ol>
+            <h1>Galleries - New Gallery</h1>
+            <div class="options">
+                <a class="btn btn-success" href="<?= $this->baseUrl() ?>/admin/galleries/new">Add New Gallery</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form id="listingForm" method="post" class="validate">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="title" class="col-sm-3 control-label">Title</label>
+                                        <div class="col-sm-6">
+                                            <input value="<?= $this->data['title'] ?>" type="text" class="form-control required" id="title" name="title">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="image" class="col-sm-3 control-label">Images</label>
+                                        <div class="col-sm-7">
+                                            <a id="file_upload" class="btn btn-success">Upload</a><br><br>
+                                            <div id="uploaded-photos" class="clearfix">
+                                                <?php if(count($this->pictures) > 0): ?>
+                                                <?php foreach($this->pictures as $pic): ?>
+                                                <div class="img-thumbnail-conrainer">
+                                                    <div class="img-thumbnail"  style="margin: 5px 5px 10px; float: left; width: 170px; height: 140px;">
+                                                        <?= $pic->getImage('', 150, 120) ?>
+                                                        <a href="#" class="icon-delete js-delete-image"></a>
+                                                    </div>
+                                                    <input type="hidden" name="image[<?= $pic->file_id ?>]" value="<?= $pic->file_id ?>" />
+                                                </div>
+                                                <?php endforeach; endif ?>
+                                            </div>
+                                            <div class="js-upload-template hide">
+                                                <div class="img-thumbnail-conrainer">
+                                                    <div class="img-thumbnail"  style="margin: 5px 5px 10px; float: left; width: 170px; height: 140px;">
+                                                        <div class="loading"></div>
+                                                        <a href="#" class="icon-delete qq-upload-cancel"></a>
+                                                    </div>
+                                                    <input type="hidden" class="js-file-id" />
+                                                    <div class="hide">
+                                                        <span class="qq-upload-file"></span>
+                                                        <span class="qq-upload-spinner"></span>
+                                                        <span class="qq-upload-size"></span>
+                                                        <span class="qq-upload-failed-text">Failed</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <div class="btn-toolbar">
+                                            <button type="submit" class="btn-primary btn">Save</button>
+                                            <a href="<?= $this->baseUrl() ?>/admin/galleries" class="btn-default btn">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>    
+                </div>
+            </div>
+        </div> <!-- container -->
+    </div> <!--wrap -->
+</div> <!-- page-content -->
+<?php $scripts = array('adm/js/galleries.js') ?>
+<?= $this->partial('partials/admin/footer.phtml', array('scripts' => $scripts)) ?>

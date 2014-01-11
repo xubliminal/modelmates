@@ -95,6 +95,8 @@ class MM_Domain_File extends MM_Domain {
     {
         $sizes = Zend_Registry::get('sizes');
         $images = array();
+        $size = GetImageSize($path);
+        if(isset($sizes[$scope])) {
         foreach($sizes[$scope] as $sizeName => $s) {
             
             $opts = array(
@@ -109,8 +111,6 @@ class MM_Domain_File extends MM_Domain {
             
             $offsetX = null;
             $offsetY = null;
-            
-            $size = GetImageSize($path);
             
             $mime = $size['mime'];
             
@@ -233,6 +233,7 @@ class MM_Domain_File extends MM_Domain {
             $images[$sizeName]['path'] = $newName;
             $images[$sizeName]['name'] = $name.'_'.md5($sizeName).'.'.$ext;
             $images[$sizeName]['type'] = $size['mime'];
+        }
         }
         
         $images['original']['path'] = $path;

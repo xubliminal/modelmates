@@ -3501,6 +3501,14 @@ hr{
 .gallery-main-block{
 	padding: 40px 80px;
 }
+.gallery-main-block div {
+    max-width: 100%;
+    height: auto !important;
+}
+.gallery-main-block div img {
+    max-width: 100%;
+    height: auto;
+}
 .gallery-main-block+.gallery-main-block{border: 1px solid #eee;}
 #gallery-content-1 p+p{margin-top: 9px;}
 .gallery-sidebar{padding-top: 0;}

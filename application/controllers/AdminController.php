@@ -114,4 +114,36 @@ class AdminController extends Zend_Controller_Action {
                 break;
         }
     }
+    
+    public function galleriesAction() {
+        switch($this->_getParam('task', 'index')) {
+            case 'new':
+                if($this->_request->isPost()) {
+                    //echo '<pre>'; var_dump($_POST); die;
+                    $gallery = MM_Service_Galleries::create($_POST);
+                    if($gallery !== null) 
+                        $this->_redirect('admin/galleries');                    
+                }
+                $this->render('galleries-new');
+                break;
+            case 'edit':
+                $gallery = MM_Service_Galleries::get($_GET['id']);
+                if($this->_request->isPost()) {
+                    //echo '<pre>'; var_dump($_POST); die;
+                    $gallery->updateInfo($_POST);
+                    $this->_redirect('admin/galleries');
+                }
+                $this->view->pictures = $gallery->getImages();
+                $this->view->data   = $gallery->toArray();
+                $this->render('galleries-new');                
+                break;
+            case 'index':
+                $this->view->galleries = MM_Service_Galleries::getAll();
+                break;
+            case 'delete':
+                MM_Service_Galleries::remove($_GET['id']);
+                $this->_redirect('admin/galleries');                 
+                break;
+        }
+    }
 }

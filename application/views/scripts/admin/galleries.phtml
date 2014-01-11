@@ -1,0 +1,54 @@
+<?= $this->partial('partials/admin/header.phtml') ?>
+<div id="page-content">
+    <div id='wrap'>
+        <div id="page-heading">
+            <ol class="breadcrumb">
+                <li><a href="<?= $this->baseUrl() ?>/admin">Dashboard</a></li>
+                <li><span>Galleries</span></li>
+            </ol>
+            <h1>Galleries</h1>
+            <div class="options">
+                <a class="btn btn-success" href="<?= $this->baseUrl() ?>/admin/galleries/new">Add New Gallery</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <?php if(count($this->galleries) > 0): ?>
+                            <table class="table table-condensed">
+                                <tr>
+                                  <th>#</th>
+                                  <th>Title</th>
+                                  <th>Pictures</th>
+                                  <th>Created</th>
+                                  <th>Actions</th>
+                                </tr>
+                                <?php foreach($this->galleries as $l): ?>
+                                <tr>
+                                  <td><?= $l->id ?></td>
+                                  <td><?= $l->title ?></td>
+                                  <td><?= $l->imagesCount() ?></td>
+                                  <td><?= date('F jS, Y', strtotime($l->created)) ?></td>
+                                  <td><a href="<?= $this->baseUrl() ?>/galleries/<?= $l->id ?>" target="_blank">View</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                      <a href="<?= $this->baseUrl() ?>/admin/galleries/edit?id=<?= $l->id ?>">Edit</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                      <a class="delete" href="<?= $this->baseUrl() ?>/admin/galleries/delete?id=<?= $l->id ?>">Delete</a></td>
+                                </tr>
+                                <?php endforeach ?>
+                            </table>
+                            <?php else: ?>
+                            <div class="empty">
+                                <i class="fa fa-camera fa-5x"></i>
+                                <h2>No Galleries found</h2>
+                                <a class="btn btn-success" href="<?= $this->baseUrl() ?>/admin/galleries/new">Add New Gallery</a>
+                            </div>
+                            <?php endif ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- container -->
+    </div> <!--wrap -->
+</div> <!-- page-content -->
+<?= $this->partial('partials/admin/footer.phtml') ?>
