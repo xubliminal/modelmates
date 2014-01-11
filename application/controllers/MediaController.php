@@ -30,12 +30,12 @@ class MediaController extends MM_Web_Controller
     
     public function eventsAction()
     {
-        
+        $this->view->events = MM_Service_Events::getAll(6);
     }
     
     public function eventsallAction()
     {
-        
+        $this->view->events = MM_Service_Events::getAll();
     }
     
     public function eventAction()

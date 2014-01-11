@@ -36,9 +36,13 @@ class MM_Service_Events extends MM_Service {
         return $event;
     }
     
-    public static function getAll() {
+    public static function getAll($limit = false) {
         $inst = self::getInstance();
-        return $inst->fetchAll();
+        $select = $inst->select();
+        if($limit !== false) {
+            $select->limit($limit);
+        }
+        return $inst->fetchAll($select);
     }
     
     public static function get($id) {

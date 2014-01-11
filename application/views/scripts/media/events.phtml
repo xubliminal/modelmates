@@ -42,6 +42,7 @@
                     <div id="members-content">
                         <div class="clearfix" id="ec-top">
                             <div id="ec-content">
+                                <!--
                                 <div class="pagination clearfix no-border no-margin-top">
                                     <div class="ld">Showing 1-9 of 30 Results</div>
                                     <div class="ib-list rd">
@@ -49,98 +50,28 @@
                                         <a href="#" class="page">2</a>
                                         <a href="#" class="page">3</a>
                                     </div>
-                                </div> <!-- .pagination -->
+                                </div> <!-- .pagination --*>
+                                -->
                                 <div class="ib-list events-list small"> 
+                                    <?php foreach($this->events as $e): ?>
                                     <div class="ib-block">
                                         <div class="event-time">
-                                            <div class="event-time-month">APR</div>
-                                            <div class="event-time-day">26</div>
+                                            <div class="event-time-month"><?= strtoupper($e->getDate('M')) ?></div>
+                                            <div class="event-time-day"><?= $e->getDate('d') ?></div>
                                         </div>
-                                        <div class="event-pic"><img src="images/clipart/event-1.jpg" alt="" class="block" /></div>
+                                        <div class="event-pic">
+                                            <?= $e->getPicture('thumbsmall', 270, 151, 'block') ?>
+                                        </div>
                                         <div class="event-item-in">
-                                            <div class="event-name">Summer Party</div>
-                                            <div class="event-description">@ AJ&rsquo;s Bar &amp; Grill</div>
+                                            <div class="event-name"><?= $e->title ?></div>
+                                            <div class="event-description">@ <?= $e->location ?></div>
                                             <div class="event-actions ib-list">
-                                                <div class="ib-block"><a href="<?= $this->lurl('events/123456') ?>" class="btn btn-blue">Register</a></div>
-                                                <div class="ib-block"><a href="#" class="btn btn-grey">Invite a Friend</a></div>
+                                                <div class="ib-block"><a href="<?= $this->lurl('events/'. $e->id) ?>" class="btn btn-blue">Register</a></div>
+                                                <div class="ib-block"><a href="#" class="js-invite btn btn-grey">Invite a Friend</a></div>
                                             </div>
                                         </div>
                                     </div> <!-- .ib-block -->
-                                    <div class="ib-block">
-                                        <div class="event-time">
-                                            <div class="event-time-month">APR</div>
-                                            <div class="event-time-day">26</div>
-                                        </div>
-                                        <div class="event-pic"><img src="images/clipart/event-1.jpg" alt="" class="block" /></div>
-                                        <div class="event-item-in">
-                                            <div class="event-name">Summer Party</div>
-                                            <div class="event-description">@ AJ&rsquo;s Bar &amp; Grill</div>
-                                            <div class="event-actions ib-list">
-                                                <div class="ib-block"><a href="<?= $this->lurl('events/123456') ?>" class="btn btn-blue">Register</a></div>
-                                                <div class="ib-block"><a href="#" class="btn btn-grey">Invite a Friend</a></div>
-                                            </div>
-                                        </div>
-                                    </div> <!-- .ib-block -->
-                                    <div class="ib-block">
-                                        <div class="event-time">
-                                            <div class="event-time-month">APR</div>
-                                            <div class="event-time-day">26</div>
-                                        </div>
-                                        <div class="event-pic"><img src="images/clipart/event-1.jpg" alt="" class="block" /></div>
-                                        <div class="event-item-in">
-                                            <div class="event-name">Summer Party</div>
-                                            <div class="event-description">@ AJ&rsquo;s Bar &amp; Grill</div>
-                                            <div class="event-actions ib-list">
-                                                <div class="ib-block"><a href="<?= $this->lurl('events/123456') ?>" class="btn btn-blue">Register</a></div>
-                                                <div class="ib-block"><a href="#" class="btn btn-grey">Invite a Friend</a></div>
-                                            </div>
-                                        </div>
-                                    </div> <!-- .ib-block -->
-                                    <div class="ib-block">
-                                        <div class="event-time">
-                                            <div class="event-time-month">APR</div>
-                                            <div class="event-time-day">26</div>
-                                        </div>
-                                        <div class="event-pic"><img src="images/clipart/event-1.jpg" alt="" class="block" /></div>
-                                        <div class="event-item-in">
-                                            <div class="event-name">Summer Party</div>
-                                            <div class="event-description">@ AJ&rsquo;s Bar &amp; Grill</div>
-                                            <div class="event-actions ib-list">
-                                                <div class="ib-block"><a href="<?= $this->lurl('events/123456') ?>" class="btn btn-blue">Register</a></div>
-                                                <div class="ib-block"><a href="#" class="btn btn-grey">Invite a Friend</a></div>
-                                            </div>
-                                        </div>
-                                    </div> <!-- .ib-block -->
-                                    <div class="ib-block">
-                                        <div class="event-time">
-                                            <div class="event-time-month">APR</div>
-                                            <div class="event-time-day">26</div>
-                                        </div>
-                                        <div class="event-pic"><img src="images/clipart/event-1.jpg" alt="" class="block" /></div>
-                                        <div class="event-item-in">
-                                            <div class="event-name">Summer Party</div>
-                                            <div class="event-description">@ AJ&rsquo;s Bar &amp; Grill</div>
-                                            <div class="event-actions ib-list">
-                                                <div class="ib-block"><a href="<?= $this->lurl('events/123456') ?>" class="btn btn-blue">Register</a></div>
-                                                <div class="ib-block"><a href="#" class="btn btn-grey">Invite a Friend</a></div>
-                                            </div>
-                                        </div>
-                                    </div> <!-- .ib-block -->
-                                    <div class="ib-block">
-                                        <div class="event-time">
-                                            <div class="event-time-month">APR</div>
-                                            <div class="event-time-day">26</div>
-                                        </div>
-                                        <div class="event-pic"><img src="images/clipart/event-1.jpg" alt="" class="block" /></div>
-                                        <div class="event-item-in">
-                                            <div class="event-name">Summer Party</div>
-                                            <div class="event-description">@ AJ&rsquo;s Bar &amp; Grill</div>
-                                            <div class="event-actions ib-list">
-                                                <div class="ib-block"><a href="<?= $this->lurl('events/123456') ?>" class="btn btn-blue">Register</a></div>
-                                                <div class="ib-block"><a href="#" class="btn btn-grey">Invite a Friend</a></div>
-                                            </div>
-                                        </div>
-                                    </div> <!-- .ib-block -->
+                                    <?php endforeach ?>
                                 </div> <!-- .events-list -->
                             </div> <!-- #ec-content -->
                             <div id="ec-sidebar">
