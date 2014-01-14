@@ -19,4 +19,14 @@ class AjaxController extends MM_Web_Controller {
         }
     }
     
+    public function videoprocessedAction() {
+        if($this->_isPost()) {
+            require "Services/Zencoder.php";
+            $apikey = Zend_Registry::get('Zencoder');
+            $zencoder = new Services_Zencoder($apikey);
+            $notification = $zencoder->notifications->parseIncoming();
+            var_dump($notification); die;
+        }
+    }
+    
 }
