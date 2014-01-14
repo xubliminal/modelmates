@@ -489,6 +489,9 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         
         $cloud = $this->getOption('cloud');
         Zend_Registry::set('cloud', $cloud);
+        
+        $zencoder = $this->getOption('zencoder');
+        Zend_Registry::set('Zencoder', $zencoder['apikey']);
     }
     
 }

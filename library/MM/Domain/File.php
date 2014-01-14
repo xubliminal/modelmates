@@ -18,7 +18,7 @@ class MM_Domain_File extends MM_Domain {
         
         $this->_extensions = array(
             'image' => array('jpeg', 'jpg', 'png', 'gif'),
-            'video' => array('video/mp4', 'video/x-f4v', 'video/webm', 'video/x-flv')
+            'video' => array('mp4', 'm4v', 'f4v','mov','mpeg','ogm','ogv','wmv', 'webm', 'flv','3gp','3g2','3gpp','dat', 'asf', 'aff','avi','divx', 'dv')
         );
         
         $this->_sizeLimit = 20 * 1024 * 1024;
@@ -26,13 +26,13 @@ class MM_Domain_File extends MM_Domain {
         $this->_uploadDir = APPLICATION_PATH . '/uploads/';
     }
     
-    public function upload($user, $size, $scope = 'profile', $type = 'image') {
+    public function upload($user, $size = array(), $scope = 'profile', $type = 'image') {
         
         $user = MM_Service_Users::get($user);
         
         $name = $user->id.'z'.rand().'-'.md5($user->token.time().rand());
         
-        $this->_uploader = new MM_Domain_File_Uploader($this->_extensions['image'], $this->_sizeLimit);
+        $this->_uploader = new MM_Domain_File_Uploader($this->_extensions[$type], $this->_sizeLimit);
         
         $result = $this->_uploader->handleUpload($this->_uploadDir, $name);
         
@@ -74,18 +74,35 @@ class MM_Domain_File extends MM_Domain {
             );
             
         } else {
-            $video = array(
+            //var_dump($_FILES); die;
+            
+            $videos = array(
                 'original' => array(
                     'path' => $path,
-                    'name' => $name,
-                    'type' => $result['format']
+                    'name' => $name . '.' . $result['format'],
+                    'type' => $this->_uploader->getMime()
                 )
             );
             
-            $cloudVideos = $this->_moveToCloud($video);
+            $cloudVideos = $this->_moveToCloud($videos);
 
             if(count($cloudVideos) == 0)
                 return array('error'=>'Unable to move files to the cloud');
+            
+            $this->user_id = $user->id;
+            $this->size = $this->_uploader->getSize();
+            $this->uri = $name;
+            $this->extension = $result['format'];
+            $this->type = $videos['original']['type'];
+            $this->created = date('Y-m-d H:i:s');
+            $this->save();
+            
+            $video = MM_Service_Videos::create($this->id);
+            
+            return array(
+                'success' => true,
+                'id' => $this->id
+            );
         }        
         
         return array('success' => 1);
@@ -257,7 +274,7 @@ class MM_Domain_File extends MM_Domain {
         return max(round($result), 0);
     }
     
-    protected function _moveToCloud($images)
+    protected function _moveToCloud($files)
     {
         require_once 'Cloud/cloudfiles.php';
         $conf = Zend_Registry::get('cloud');
@@ -268,17 +285,17 @@ class MM_Domain_File extends MM_Domain {
         $conn = new CF_Connection($auth);
         $container = $conn->get_container($conf['container']);
         
-        $_images = array();
+        $_files = array();
         
-        foreach($images as $image) {
-            $object = $container->create_object($image['name']);
-            $object->content_type = $image['type'];
-            $object->load_from_filename($image['path']);
-            $_images[] = $object->public_uri();
-            unlink($image['path']);
+        foreach($files as $file) {
+            $object = $container->create_object($file['name']);
+            $object->content_type = $file['type'];
+            $object->load_from_filename($file['path']);
+            $_files[] = $object->public_uri();
+            unlink($file['path']);
         }
         
-        return $_images;
+        return $_files;
     }
     
 }

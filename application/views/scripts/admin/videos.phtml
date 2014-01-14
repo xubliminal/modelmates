@@ -1,0 +1,56 @@
+<?= $this->partial('partials/admin/header.phtml') ?>
+<div id="page-content">
+    <div id='wrap'>
+        <div id="page-heading">
+            <ol class="breadcrumb">
+                <li><a href="<?= $this->baseUrl() ?>/admin">Dashboard</a></li>
+                <li><span>Videos</span></li>
+            </ol>
+            <h1>Videos</h1>
+            <div class="options">
+                <a class="btn btn-success" href="<?= $this->baseUrl() ?>/admin/videos/new">Add New Video</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-body">
+                            <?php if(count($this->videos) > 0): ?>
+                            <table class="table table-condensed">
+                                <tr>
+                                  <th>#</th>
+                                  <th>Title</th>
+                                  <th>Uploaded</th>
+                                  <th>Duration</th>
+                                  <th>Category</th>
+                                  <th>Actions</th>
+                                </tr>
+                                <?php foreach($this->videos as $l): ?>
+                                <tr>
+                                  <td><?= $l->id ?></td>
+                                  <td><?= $l->title ?></td>
+                                  <td><?= date('F jS, Y', strtotime($l->created)) ?></td>
+                                  <td><?= $l->duration ?></td>
+                                  <td><?= $l->getCategory() ?></td>
+                                  <td><a href="<?= $this->baseUrl() ?>/videos/<?= $l->id ?>" target="_blank">View</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                      <a href="<?= $this->baseUrl() ?>/admin/videos/edit?id=<?= $l->id ?>">Edit</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                                      <a class="delete" href="<?= $this->baseUrl() ?>/admin/videos/delete?id=<?= $l->id ?>">Delete</a></td>
+                                </tr>
+                                <?php endforeach ?>
+                            </table>
+                            <?php else: ?>
+                            <div class="empty">
+                                <i class="fa fa-video-camera fa-5x"></i>
+                                <h2>No Videos found</h2>
+                                 <a class="btn btn-success" href="<?= $this->baseUrl() ?>/admin/videos/new">Add New Video</a>
+                            </div>
+                            <?php endif ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- container -->
+    </div> <!--wrap -->
+</div> <!-- page-content -->
+<?= $this->partial('partials/admin/footer.phtml') ?>

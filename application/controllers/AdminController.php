@@ -146,4 +146,36 @@ class AdminController extends Zend_Controller_Action {
                 break;
         }
     }
+    
+    public function videosAction() {
+        switch($this->_getParam('task', 'index')) {
+            case 'new':
+                if($this->_request->isPost()) {
+                    //echo '<pre>'; var_dump($_POST); die;
+                    $gallery = MM_Service_Videos::create($_POST);
+                    if($gallery !== null) 
+                        $this->_redirect('admin/videos');                    
+                }
+                $this->render('videos-new');
+                break;
+            case 'edit':
+                $video = MM_Service_Videos::get($_GET['id']);
+                if($this->_request->isPost()) {
+                    //echo '<pre>'; var_dump($_POST); die;
+                    $video->updateInfo($_POST);
+                    $this->_redirect('admin/videos');
+                }
+                $this->view->pictures = $video->getImages();
+                $this->view->data   = $video->toArray();
+                $this->render('videos-new');
+                break;
+            case 'index':
+                $this->view->videos = MM_Service_Videos::getAll();
+                break;
+            case 'delete':
+                MM_Service_Videos::remove($_GET['id']);
+                $this->_redirect('admin/videos');
+                break;
+        }
+    }
 }

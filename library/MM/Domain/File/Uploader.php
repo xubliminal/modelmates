@@ -105,5 +105,13 @@ class MM_Domain_File_Uploader {
     public function getSize() {
         return $this->file->getSize();
     }
+    
+    public function getFile() {
+        return $this->file;
+    }
+    
+    public function getMime() {
+        return $this->file->getMime();
+    }
 
 }

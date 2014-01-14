@@ -12,6 +12,8 @@
  */
 class MM_Domain_File_Uploader_Xhr {
     
+    protected $_mime;
+    
     /**
      * Save the file to the specified path
      * @return boolean TRUE on success
@@ -31,6 +33,9 @@ class MM_Domain_File_Uploader_Xhr {
         stream_copy_to_stream($temp, $target);
         fclose($target);
         
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $this->_mime = finfo_file($finfo, $path.$name.'.'.$ext);
+        
         return array(
             'url'   => $name,
             'format'=> $ext            
@@ -48,5 +53,9 @@ class MM_Domain_File_Uploader_Xhr {
             throw new Exception('Getting content length is not supported.');
         }      
     } 
+    
+    public function getMime() {
+        return $this->_mime;
+    }
     
 }

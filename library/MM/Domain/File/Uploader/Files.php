@@ -32,4 +32,8 @@ class MM_Domain_File_Uploader_Files {
     public function getSize() {
         return $_FILES['qqfile']['size'];
     }
+    
+    public function getMime() {
+        return $_FILES['qqfile']['type'];
+    }
 }

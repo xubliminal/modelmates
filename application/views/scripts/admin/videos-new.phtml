@@ -1,0 +1,117 @@
+<?= $this->partial('partials/admin/header.phtml') ?>
+<div id="page-content">
+    <div id='wrap'>
+        <div id="page-heading">
+            <ol class="breadcrumb">
+                <li><a href="<?= $this->baseUrl() ?>/admin">Dashboard</a></li>
+                <li><a href="<?= $this->baseUrl() ?>/admin/videos">Videos</a></li>
+                <li><span>New</span></li>
+            </ol>
+            <h1>Videos - New Video</h1>
+            <div class="options">
+                <a class="btn btn-success" href="<?= $this->baseUrl() ?>/admin/videos/new">Add New Video</a>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <form id="listingForm" method="post" class="validate">
+                        <div class="panel panel-primary">
+                            <div class="panel-body">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="title" class="col-sm-3 control-label">Title</label>
+                                        <div class="col-sm-6">
+                                            <input value="<?= $this->data['title'] ?>" type="text" class="form-control required" id="title" name="title">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="video" class="col-sm-3 control-label">Video</label>
+                                        <div class="col-sm-6">
+                                            <?php if($this->video): ?>
+                                            
+                                            <?php else: ?>
+                                            <div id="file_upload2">Upload</div>
+                                            <?php endif ?>
+                                            <div id='uploaded-videos'>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="image" class="col-sm-3 control-label">Thumbnail</label>
+                                        <div class="col-sm-7">
+                                            <div id="file_upload">Upload</div>
+                                            <p class='help-block'>Once the video is processed you will see a list of screenshots here where you can chose a thumbnail from<br/>
+                                            You can always upload your own</p>
+                                            <div id="uploaded-photos" class="clearfix">
+                                                <?php if(count($this->pictures) > 0): ?>
+                                                <?php foreach($this->pictures as $pic): ?>
+                                                <div class="img-thumbnail-conrainer">
+                                                    <div class="img-thumbnail"  style="margin: 5px 5px 10px; float: left; width: 170px; height: 140px;">
+                                                        <?= $pic->getImage('', 150, 120) ?>
+                                                        <a href="#" class="icon-delete js-delete-image"></a>
+                                                    </div>
+                                                    <input type="hidden" name="image[<?= $pic->file_id ?>]" value="<?= $pic->file_id ?>" />
+                                                    <input type="radio" name="thumb" value="<?= $pic->file_id ?>" /> Use this as a thumbnail
+                                                </div>
+                                                <?php endforeach; endif ?>
+                                            </div>
+                                            <div class="js-upload-template hide">
+                                                <div class="img-thumbnail-conrainer">
+                                                    <div class="img-thumbnail"  style="margin: 5px 5px 10px; float: left; width: 170px; height: 140px;">
+                                                        <div class="loading"></div>
+                                                        <a href="#" class="icon-delete qq-upload-cancel"></a>
+                                                    </div>
+                                                    <input type="hidden" class="js-file-id" />
+                                                    <input type="radio" class='js-thumb' /> Use this as a thumbnail
+                                                    <div class="hide">
+                                                        <span class="qq-upload-file"></span>
+                                                        <span class="qq-upload-spinner"></span>
+                                                        <span class="qq-upload-size"></span>
+                                                        <span class="qq-upload-failed-text">Failed</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="username" class="col-sm-3 control-label">Attached to User:</label>
+                                        <div class="col-sm-6">
+                                            <input name="usernmae" id="username" placeholder="Type in the user's username" class="form-control required" value="<?= $this->data['username'] ?>" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="category" class="col-sm-3 control-label">Category</label>
+                                        <div class="col-sm-6">
+                                            <select class='form-control' name='category_id' i='category'>
+                                                <option value="">Select a Category</option>
+                                                <?php foreach($this->categories as $c): ?>
+                                                <option value="<?= $c->id ?>"><?= $c->name ?></option>
+                                                <?php endforeach ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel-footer">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                        <div class="btn-toolbar">
+                                            <button type="submit" class="btn-primary btn">Save</button>
+                                            <a href="<?= $this->baseUrl() ?>/admin/listings" class="btn-default btn">Cancel</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>    
+                </div>
+            </div>
+        </div> <!-- container -->
+    </div> <!--wrap -->
+</div> <!-- page-content -->
+<?php $scripts = array('adm/js/videos.js') ?>
+<?= $this->partial('partials/admin/footer.phtml', array('scripts' => $scripts)) ?>
