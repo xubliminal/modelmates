@@ -8,6 +8,8 @@ class MM_Domain_Video extends MM_Domain {
     
     protected $_file;
     
+    protected $_encoder;
+    
     public function __construct(array $config = array()) {
         parent::__construct($config);
         
@@ -15,13 +17,15 @@ class MM_Domain_Video extends MM_Domain {
         $this->_cloudConfig = Zend_Registry::get('cloud');
         
         $this->getFile();
+        
+        require "Services/Zencoder.php";
+        $this->_encoder = new Services_Zencoder($this->_zenAPI);
     }
     
     public function process() {
-        require "Services/Zencoder.php";
-        $zencoder = new Services_Zencoder($this->_zenAPI);
+        
         $baseUrl = $this->getCloudUrl();
-        $job = $zencoder->jobs->create(array(
+        $job = $this->_encoder->jobs->create(array(
             'input' => $this->getUrl(),
             'outputs' => array(
                 array(
@@ -33,13 +37,22 @@ class MM_Domain_Video extends MM_Domain {
                         'number' => 5,
                     ),
                     'notifications' => array(
-                        'url' => 'http://166.78.10.207/ajax/videoprocessed'
+                        'url' => 'http://166.78.10.207/ajax/videoprocessed/?v='.$this->file_id
                     )
                 )
             )
         ));
         $this->job = $job->id;
         $this->save();
+    }
+    
+    public function processNotification() {
+        $notification = $this->_encoder->notifications->parseIncoming();
+        if($this->job != $notification->job->id) 
+            return array('error' => 'Video not found');
+        
+        $images = array();
+        var_dump($notification->job->outputs[0]); die;
     }
     
     public function getCloudUrl() {
