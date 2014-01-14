@@ -18,7 +18,7 @@ class MM_Domain_Video extends MM_Domain {
         
         $this->getFile();
         
-        require "Services/Zencoder.php";
+        require_once "Services/Zencoder.php";
         $this->_encoder = new Services_Zencoder($this->_zenAPI);
     }
     
