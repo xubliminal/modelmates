@@ -108,6 +108,10 @@ class MM_Domain_File extends MM_Domain {
         return array('success' => 1);
     }
     
+    public function generateImages($path, $name, $ext, $scope = 'profile') {
+        $this->_generateImages($path, $name, $ext, $scope);
+    }
+    
     protected function _generateImages($path, $name, $ext, $scope = 'profile')
     {
         $sizes = Zend_Registry::get('sizes');
@@ -272,6 +276,10 @@ class MM_Domain_File extends MM_Domain {
         $result = $a + $b * $final + $c * $final * $final;
 
         return max(round($result), 0);
+    }
+    
+    public function moveToCloud($files) {
+        return $this->_moveToCloud($files); die;
     }
     
     protected function _moveToCloud($files)
