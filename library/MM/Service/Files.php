@@ -25,4 +25,16 @@ class MM_Service_Files extends MM_Service {
         return $inst->getByID($id);
     }
     
+    public static function getByFile($file) {
+        $inst = self::getInstance();
+        return $inst->getByFileId($file);
+    }
+    
+    public function getByFileId($file) {
+        $select = $this->select();
+        $select->where('file_id = ?', $file);
+        
+        return $this->fetchRow($select);
+    }
+    
 }
