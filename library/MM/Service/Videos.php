@@ -42,4 +42,16 @@ class MM_Service_Videos extends MM_Service {
         return $vid;
     }
     
+    public static function getByFile($file) {
+        $inst = self::getInstance();
+        return $inst->getByFileId($file);
+    }
+    
+    public function getByFileId($file) {
+        $select = $this->select();
+        $select->where('file_id = ?', $file);
+        
+        return $this->fetchRow($select);
+    }
+    
 }
