@@ -109,7 +109,7 @@ class MM_Domain_File extends MM_Domain {
     }
     
     public function generateImages($path, $name, $ext, $scope = 'profile') {
-        $this->_generateImages($path, $name, $ext, $scope);
+        return $this->_generateImages($path, $name, $ext, $scope);
     }
     
     protected function _generateImages($path, $name, $ext, $scope = 'profile')
