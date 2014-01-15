@@ -75,7 +75,7 @@ class MM_Domain_Video extends MM_Domain {
             file_put_contents($path, fopen($this->_cloudConfig['cdn'].$name.'.'.$extension, 'r'));
             
             // Generate Thumbnails
-            $images = $this->_file->generateThumbnials($path, $name, $extension, 'video');
+            $images = $this->_file->generateImages($path, $name, $extension, 'video');
             
             // Move to cloud
             $files = $this->_file->moveToCloud($images);
