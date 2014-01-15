@@ -152,8 +152,8 @@ class AdminController extends Zend_Controller_Action {
             case 'new':
                 if($this->_request->isPost()) {
                     //echo '<pre>'; var_dump($_POST); die;
-                    $gallery = MM_Service_Videos::create($_POST);
-                    if($gallery !== null) 
+                    $video = MM_Service_Videos::create(null, $_POST);
+                    if($video !== null) 
                         $this->_redirect('admin/videos');                    
                 }
                 $this->render('videos-new');

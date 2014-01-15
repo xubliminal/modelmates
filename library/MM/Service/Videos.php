@@ -26,18 +26,37 @@ class MM_Service_Videos extends MM_Service {
         return $inst->fetchAll($select);
     }
     
-    public static function create($file) {
+    public static function create($file = null, $data = array()) {
         $inst = self::getInstance();
-        return $inst->createNew($file);
+        return $inst->createNew($file, $data);
     }
     
-    public function createNew($file) {
-        $vid = $this->fetchNew();
-        $vid->file_id = $file;
-        $vid->created = date('Y-m-d H:i:s');
-        $vid->save();
+    public function createNew($file = null, $data = array()) {
+        if($file !== null) {
+            $vid = $this->fetchNew();
+            
+            $vid->file_id = $file;
+            $vid->created = date('Y-m-d H:i:s');
+            $vid->save();
+            
+            $vid->process();
+        } else if(count($data) > 0) {
+            $vid = $this->getByFileId($data['file_id']);
+            $vid->title = $data['title'];
+            if(isset($data['thumb'])) 
+                $vid->thumb = $data['thumb'];
+            
+            if(!empty($data['username'])) {
+                $user = MM_Service_Users::getByUsername($data['user']);
+                $vid->user_id = $user->id;
+            }
+            if(!empty($data['category_id'])) 
+                $vid->category_id = $data['category_id'];
+            
+            $vid->save();
+        }
         
-        $vid->process();
+        
         
         return $vid;
     }

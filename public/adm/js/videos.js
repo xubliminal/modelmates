@@ -27,7 +27,7 @@ $(function(){
             while(item.qqFileId !== id) { item = item.nextSibling;}
             $item = $(item);
             $item.find('.img-thumbnail').html(response.image);
-            $item.find('.js-file-id').attr('name', 'image');
+            $item.find('.js-file-id').attr('name', 'thumb');
             $item.find('.js-file-id').val(response.id);
             $item.find('.uploaded-photo-input .qq-upload-file').remove();
             $item.find('.uploaded-photo-input .qq-upload-size').remove();
