@@ -52,21 +52,21 @@ class MM_Domain_Video extends MM_Domain {
             return array('error' => 'Video not found');
         
         // Replace video path
-        $pathinfo = pathinfo($notification->outputs[0]->url);
+        $pathinfo = pathinfo($notification->job->outputs[0]->url);
         
         $this->_file->uri = $pathinfo['filename'];
         $this->_file->extension = $pathinfo['extension'];
-        $this->_file->width = $notification->outputs[0]->width;
-        $this->_file->height = $notification->outputs[0]->height;
+        $this->_file->width = $notification->job->outputs[0]->width;
+        $this->_file->height = $notification->job->outputs[0]->height;
         $this->_file->save();
         
-        $this->duration = date('h:i:s', round($notification->outputs[0]->duration_in_ms / 1000));
+        $this->duration = date('h:i:s', round($notification->job->outputs[0]->duration_in_ms / 1000));
         $this->processed = 1;
         $this->save();
         
         // Create Thumbnails and asign one as thumbnail
         $uploadDir = APPLICATION_PATH . '/uploads/';
-        foreach($notification->outputs[0]->thumbnails[0]->images as $i => $image) {
+        foreach($notification->job->outputs[0]->thumbnails[0]->images as $i => $image) {
             // Download File
             $pinfo = pathinfo($image->url);
             $name = $pinfo['filename'];
