@@ -73,4 +73,8 @@ class MM_Service_Videos extends MM_Service {
         return $this->fetchRow($select);
     }
     
+    public function getCategory() {
+        return '--';
+    }
+    
 }
