@@ -117,4 +117,9 @@ class MM_Domain_Video extends MM_Domain {
         $this->_file = MM_Service_Files::get($this->file_id);
     }
     
+    public function getCategory() {
+        return '--';
+    }
+    
+    
 }
