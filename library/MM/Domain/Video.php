@@ -65,7 +65,6 @@ class MM_Domain_Video extends MM_Domain {
         $this->_file->save();
         
         $this->duration = date('h:i:s', round($notification->job->outputs[0]->duration_in_ms / 1000));
-        $this->processed = 1;
         $this->save();
         
         // Create Thumbnails and asign one as thumbnail
@@ -75,34 +74,41 @@ class MM_Domain_Video extends MM_Domain {
             $pinfo = pathinfo($image->url);
             $name = $pinfo['filename'];
             $extension = $pinfo['extension'];
-            $path = $uploadDir.$name.'.'.$extension;
-            file_put_contents($path, fopen($this->_cloudConfig['cdn'].$name.'.'.$extension, 'r'));
             
-            // Generate Thumbnails
-            $images = $this->_file->generateImages($path, $name, $extension, 'video');
+            $thumb = MM_Service_Files::getByName($name, $extension);
+            if($thumb === null) {
             
-            // Move to cloud
-            $files = $this->_file->moveToCloud($images);
-            
-            // Save picture to database
-            $thumbnail_file = MM_Service_Files::create();
-            $thumbnail_file->user_id = $this->_file->user_id;
-            $thumbnail_file->width = $images['original']['width'];
-            $thumbnail_file->height = $images['original']['height'];
-            $thumbnail_file->size = $image->file_size_bytes;
-            $thumbnail_file->uri = $name;
-            $thumbnail_file->extension = $extension;
-            $thumbnail_file->type = 'image/png';
-            $thumbnail_file->created = date('Y-m-d H:i:s');
-            $thumbnail_file->save();
-            
-            $thumbnail = MM_Service_Pictures::create($thumbnail_file->id, 'video', $this->id);
-            
-            if($i == 0) {
-                $this->thumb = $thumbnail->file_id;
-                $this->save();
+                $path = $uploadDir.$name.'.'.$extension;
+                file_put_contents($path, fopen($this->_cloudConfig['cdn'].$name.'.'.$extension, 'r'));
+
+                // Generate Thumbnails
+                $images = $this->_file->generateImages($path, $name, $extension, 'video');
+
+                // Move to cloud
+                $files = $this->_file->moveToCloud($images);
+
+                // Save picture to database
+                $thumbnail_file = MM_Service_Files::create();
+                $thumbnail_file->user_id = $this->_file->user_id;
+                $thumbnail_file->width = $images['original']['width'];
+                $thumbnail_file->height = $images['original']['height'];
+                $thumbnail_file->size = $image->file_size_bytes;
+                $thumbnail_file->uri = $name;
+                $thumbnail_file->extension = $extension;
+                $thumbnail_file->type = 'image/png';
+                $thumbnail_file->created = date('Y-m-d H:i:s');
+                $thumbnail_file->save();
+
+                $thumbnail = MM_Service_Pictures::create($thumbnail_file->id, 'video', $this->id);
+
+                if($i == 0) {
+                    $this->thumb = $thumbnail->file_id;
+                    $this->save();
+                }
             }
         }
+        $this->processed = 1;
+        $this->save();
 
         // Return result
         return array('success' => 1);

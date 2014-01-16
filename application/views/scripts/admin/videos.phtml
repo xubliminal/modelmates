@@ -24,6 +24,7 @@
                                   <th>Uploaded</th>
                                   <th>Duration</th>
                                   <th>Category</th>
+                                  <th>Processed</th>
                                   <th>Actions</th>
                                 </tr>
                                 <?php foreach($this->videos as $l): ?>
@@ -33,6 +34,7 @@
                                   <td><?= date('F jS, Y', strtotime($l->created)) ?></td>
                                   <td><?= $l->duration ?></td>
                                   <td><?= $l->getCategory() ?></td>
+                                  <td><?= $l->processed ?></td>
                                   <td><a href="<?= $this->baseUrl() ?>/videos/<?= $l->id ?>" target="_blank">View</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                                       <a href="<?= $this->baseUrl() ?>/admin/videos/edit?id=<?= $l->id ?>">Edit</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                                       <a class="delete" href="<?= $this->baseUrl() ?>/admin/videos/delete?id=<?= $l->id ?>">Delete</a></td>

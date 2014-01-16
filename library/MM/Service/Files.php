@@ -25,4 +25,13 @@ class MM_Service_Files extends MM_Service {
         return $inst->getByID($id);
     }
     
+    public static function getByName($uri, $extension) {
+        $inst = self::getInstance();
+        $select = $inst->select();
+        $select->where('uri = ?', $uri);
+        $select->where('extension = ?', $extension);
+        
+        return $inst->fetchRow($select);
+    }
+    
 }
