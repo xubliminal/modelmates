@@ -53,7 +53,7 @@ $(function(){
         return false;
     });
     
-    if(video.file) {
+    if(typeof video !== "undefined") {
         jwplayer('video-player').setup({
             file:video.file,
             image:video.image,
