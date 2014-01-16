@@ -156,6 +156,7 @@ class AdminController extends Zend_Controller_Action {
                     if($video !== null) 
                         $this->_redirect('admin/videos');                    
                 }
+                $this->view->categories = MM_Service_Videos::getCategories();
                 $this->render('videos-new');
                 break;
             case 'edit':
@@ -165,8 +166,10 @@ class AdminController extends Zend_Controller_Action {
                     $video->updateInfo($_POST);
                     $this->_redirect('admin/videos');
                 }
+                $this->view->video = $video;
                 $this->view->pictures = $video->getImages();
                 $this->view->data   = $video->toArray();
+                $this->view->categories = MM_Service_Videos::getCategories();
                 $this->render('videos-new');
                 break;
             case 'index':

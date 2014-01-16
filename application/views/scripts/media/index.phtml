@@ -28,80 +28,26 @@
         <div class="videos-right">
             <h1 class="ttl-primary">upcoming events</h1>
             <div class="ib-list videos-home-list">
+                <?php foreach($this->events as $event): ?>
                 <div class="ib-block">
                     <div class="clearfix">
-                        <img src="images/clipart/event-small-1.jpg" alt="" class="ld" />
+                        <?= $event->getPicture('thumbsmall', 109, 89, 'ld'); ?>
                         <div class="event-small-descr">
-                            <p><strong>Lorem ipsum dolor</strong></p>
-                            <p>April 26th, 2013</p>
-                            <p><a href="<?= $this->lurl('events/123456') ?>" class="link-more">Read more</a></p>
+                            <p><strong><?= $event->title ?></strong></p>
+                            <p><?= $event->getDate('F j, Y') ?></p>
+                            <p><a href="<?= $this->lurl('events/'.$event->id) ?>" class="link-more">Read more</a></p>
                         </div> <!-- .event-small-descr -->
                     </div> <!-- .clearfix -->
                 </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <div class="clearfix">
-                        <img src="images/clipart/event-small-2.jpg" alt="" class="ld" />
-                        <div class="event-small-descr">
-                            <p><strong>Lorem ipsum dolor</strong></p>
-                            <p>April 26th, 2013</p>
-                            <p><a href="<?= $this->lurl('events/123456') ?>" class="link-more">Read more</a></p>
-                        </div> <!-- .event-small-descr -->
-                    </div> <!-- .clearfix -->
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <div class="clearfix">
-                        <img src="images/clipart/event-small-3.jpg" alt="" class="ld" />
-                        <div class="event-small-descr">
-                            <p><strong>Lorem ipsum dolor</strong></p>
-                            <p>April 26th, 2013</p>
-                            <p><a href="<?= $this->lurl('events/123456') ?>" class="link-more">Read more</a></p>
-                        </div> <!-- .event-small-descr -->
-                    </div> <!-- .clearfix -->
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <div class="clearfix">
-                        <img src="images/clipart/event-small-4.jpg" alt="" class="ld" />
-                        <div class="event-small-descr">
-                            <p><strong>Lorem ipsum dolor</strong></p>
-                            <p>April 26th, 2013</p>
-                            <p><a href="<?= $this->lurl('events/123456') ?>" class="link-more">Read more</a></p>
-                        </div> <!-- .event-small-descr -->
-                    </div> <!-- .clearfix -->
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <div class="clearfix">
-                        <img src="images/clipart/event-small-5.jpg" alt="" class="ld" />
-                        <div class="event-small-descr">
-                            <p><strong>Lorem ipsum dolor</strong></p>
-                            <p>April 26th, 2013</p>
-                            <p><a href="<?= $this->lurl('events/123456') ?>" class="link-more">Read more</a></p>
-                        </div> <!-- .event-small-descr -->
-                    </div> <!-- .clearfix -->
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <div class="clearfix">
-                        <img src="images/clipart/event-small-6.jpg" alt="" class="ld" />
-                        <div class="event-small-descr">
-                            <p><strong>Lorem ipsum dolor</strong></p>
-                            <p>April 26th, 2013</p>
-                            <p><a href="<?= $this->lurl('events/123456') ?>" class="link-more">Read more</a></p>
-                        </div> <!-- .event-small-descr -->
-                    </div> <!-- .clearfix -->
-                </div> <!-- .ib-block -->
+                <?php endforeach ?>
             </div> <!-- .videos-home-list -->
         </div> <!-- .videos-right -->
         <div class="videos-left">
             <h1 class="ttl-primary">VIDEO CATEGORIES</h1>
             <ul>
-                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Beach</a></li>
-                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Photo Sessions</a></li>
-                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Maecenas interdum</a></li>
-                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Leo in erat accumsan</a></li>
-                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Pulvinar pharetra</a></li>
-                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Beach</a></li>
-                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Photo Sessions</a></li>
-                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Maecenas interdum</a></li>
-                <li><a href="<?= $this->lurl('videos/category/beach') ?>">Leo in erat accumsan</a></li>
+                <?php foreach($this->categories as $cat): ?>
+                <li><a href="<?= $this->lurl('videos/category/'.$cat->permalink) ?>"><?= $cat->name ?></a></li>
+                <?php endforeach ?>
             </ul>
             <p><a href="<?= $this->lurl('videos/category/all') ?>" class="btn btn-blue">See All Videos</a></p>
         </div> <!-- .videos-left -->

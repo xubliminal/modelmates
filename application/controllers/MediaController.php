@@ -11,16 +11,31 @@ class MediaController extends MM_Web_Controller
     public function indexAction()
     {
         // action body
+        $this->view->categories = MM_Service_Videos::getCategories();
+        $this->view->events = MM_Service_Events::getAll(6);
     }
     
     public function videoAction()
     {
+        $video = MM_Service_Videos::get($this->_getParam('id'));
+        if($video === null)
+            throw new Exception('Page Not Found');
         
+        $this->view->videos = MM_Service_Videos::getAll();
+        $this->view->next = MM_Service_Videos::getNext($video->id);
+        $this->view->video = $video;
+        
+        $this->addJSSettings('video_image', $video->getThumbUrl());
+        $this->addJSSettings('video_file', $video->getUrl());
+        
+        $this->addScript('scripts/jwplayer.js');
+        $this->addScript('scripts/video.js');
     }
     
     public function categoryAction()
     {
-        
+        $category = $this->_getParam('category');
+        $this->view->videos = MM_Service_Videos::getAll(null, $category);
     }
     
     public function galleriesAction()

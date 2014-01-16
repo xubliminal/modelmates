@@ -13954,3 +13954,13 @@ select.tt-hint {
 	right: -11px;
 	z-index:1000;
 }
+.img-thumbnail-conrainer {
+    float: left;
+    margin-bottom: 20px;
+    margin-right: 10px;
+}
+.img-thumbnail-conrainer .clearfix { padding-left: 10px;}
+
+#video-player {
+    margin-bottom: 20px;
+}

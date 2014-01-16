@@ -27,29 +27,42 @@ $(function(){
             while(item.qqFileId !== id) { item = item.nextSibling;}
             $item = $(item);
             $item.find('.img-thumbnail').html(response.image);
-            $item.find('.js-file-id').attr('name', 'thumb');
+            $item.find('.js-thumb').attr('name', 'thumb');
+            $item.find('.js-thumb').val(response.id);
+            $item.find('.js-file-id').attr('name', 'images['+response.id+']');
             $item.find('.js-file-id').val(response.id);
             $item.find('.uploaded-photo-input .qq-upload-file').remove();
             $item.find('.uploaded-photo-input .qq-upload-size').remove();
             $item.find('.uploaded-photo-input .qq-upload-failed-text').remove();
-            
-            
-        },
-        onSubmit:function() {
-            $('.img-thumbnail-conrainer').html('');
         },
         params:{
             user:1,
             scope:'video',
             size:{
-                name:'thumbmed',
+                name:'thumbsmall',
                 width:150,
                 height:120
             }
         }
     });
     
-    var uploader2 = new qq.FileUploader({
+    
+    
+    $('.js-delete-image').click(function(){
+        $(this).parents('.img-thumbnail-conrainer').remove();
+        return false;
+    });
+    
+    console.log(video);
+    if(video.file) {
+        jwplayer('video-player').setup({
+            file:video.file,
+            image:video.image,
+            width:606,
+            height:346
+        });
+    } else {
+        var uploader2 = new qq.FileUploader({
         element: document.getElementById('file_upload2'),
         action:'/ajax/upload',
         multiple:false,
@@ -69,12 +82,6 @@ $(function(){
             type:'video'
         }
     });
-    
-    $('.js-delete-image').click(function(){
-        $(this).parents('.img-thumbnail-conrainer').remove();
-        return false;
-    });
-    
-    $('.qq-upload-button').addCLass('btn btn-success');
+    }
 });
 

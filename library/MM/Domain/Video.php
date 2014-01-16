@@ -36,6 +36,10 @@ class MM_Domain_Video extends MM_Domain {
                         'filename' => $this->_file->uri.'-thumb-{{number}}',
                         'number' => 5,
                     ),
+                    'width' => 606,
+                    'height' => 346,
+                    'format' => 'mp4',
+                    'upscale' => true,
                     'notifications' => array(
                         'url' => 'http://166.78.10.207/ajax/videoprocessed/?v='.$this->file_id
                     )
@@ -95,7 +99,7 @@ class MM_Domain_Video extends MM_Domain {
             $thumbnail = MM_Service_Pictures::create($thumbnail_file->id, 'video', $this->id);
             
             if($i == 0) {
-                $this->thumb = $thumbnail->id;
+                $this->thumb = $thumbnail->file_id;
                 $this->save();
             }
         }
@@ -113,6 +117,11 @@ class MM_Domain_Video extends MM_Domain {
         return $this->_cloudConfig['cdn'].$this->_file->uri.'.'.$this->_file->extension;
     }
     
+    public function getThumbUrl() {
+        $pic = MM_Service_Pictures::getByFile($this->thumb);
+        return $pic->getUrl();
+    }
+    
     public function getFile() {
         $this->_file = MM_Service_Files::get($this->file_id);
     }
@@ -121,5 +130,94 @@ class MM_Domain_Video extends MM_Domain {
         return '--';
     }
     
+    public function getImages() {
+        return MM_Service_Pictures::getAllOf('video', $this->id);
+    }
+    
+    public function toArray() {
+        $return = parent::toArray();
+        if($this->object_type === 'hot100') {
+            $hot100 = MM_Service_Hot100::get($this->object_id);
+            $return['username'] = $hot100->getUsername();
+        }
+        $return['username'] = '';
+        return $return;
+    }
+    
+    public function updateInfo($data) {
+        // Update Images
+        $images = isset($data['image']) ? $data['image'] : array();
+        $this->updateImages($images); unset($data['image']);
+        
+        // Add Images
+        if(isset($data['images'])) {
+            $this->addImages($data['images']);
+            unset($data['images']);
+        }
+        
+        // Update and save
+        if(!empty($data['username'])) {
+            // Add hot100 code here
+        }
+        unset($data['username']);
+        
+        if(empty($data['category_id'])) {
+            $data['category_id'] = NULL;
+        }
+        
+        $this->setFromArray($data);
+        $this->save();
+    }
+    
+    public function updateImages($images) {
+        $_images = $this->getImages();
+        foreach($_images as $pic) {
+            if(!isset($images[$pic->file_id])) {
+                $pic->delete();
+            }
+        }
+    }
+    
+    public function addImages($images) {
+        foreach($images as $file_id) {
+            $pic = MM_Service_Pictures::getByFile($file_id);
+            $pic->object_type = "video";
+            $pic->object_id = $this->id;
+            $pic->save();
+        }
+    }
+    
+    public function getThumbnail($size, $width, $height = '', $class = '') {
+        $pic = MM_Service_Pictures::getByFile($this->thumb);
+        return $pic->getImage($size, $width, $height, $class);
+    }
+    
+    public function getDate($format = 'F jS, Y') {
+        if($format != 'ago')
+            return date($format, strtotime($this->created));
+        
+        $time = time() - strtotime($this->created);
+ 
+        $chunks = array(
+            array(60 * 60 * 24 * 365 , 'year'),
+            array(60 * 60 * 24 * 30 , 'month'),
+            array(60 * 60 * 24 , 'day'),
+            array(60 * 60 , 'hour'),
+            array(60 , 'minute'),
+            array(1 , 'second')
+        );
+ 
+        for ($i = 0, $j = count($chunks); $i < $j; $i++) {
+            $seconds = $chunks[$i][0];
+            $name = $chunks[$i][1];
+            if (($count = floor($time / $seconds)) != 0) {
+                break;
+            }
+        }
+ 
+        $print = ($count == 1) ? '1 '.$name.' ago' : "$count {$name}s ago";
+        return $print;
+        
+    }
     
 }

@@ -1743,6 +1743,7 @@ hr{
 #video-detail h1{margin-bottom: 25px;}
 #video-detail-left{
 	width: 606px;
+        height: 346px;
 	float: left;
 }
 #video-detail-right{

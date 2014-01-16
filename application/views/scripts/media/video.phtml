@@ -3,24 +3,23 @@
     <div class="in white-box-1">
         <div class="video-category-content">
             <div id="video-detail">
-                <h1 class="ttl-primary">Username - Intimate</h1>
+                <?php if($this->video->object_type == 'hot100'): ?>
+                <h1 class="ttl-primary"><?= $this->video->getHot100('username') ?> - <?= $this->video->title ?></h1>
+                <?php else: ?>
+                <h1 class="ttl-primary"><?= $this->video->title ?></h1>
+                <?php endif ?>
                 <div class="clearfix">
-                    <div id="video-detail-left">
-                        <a href="#" class="link-video">
-                            <img src="<?= $this->baseUrl() ?>/images/clipart/video-big.jpg" alt="" />
-                            <span class="play-icon-1">Play Video</span>
-                        </a>
-                    </div> <!-- #video-detail-left -->
+                    <div id="video-detail-left"></div>
                     <div id="video-detail-right">
                         <div class="ad"><img src="<?= $this->baseUrl() ?>/images/clipart/ad-2.jpg" alt="" class="block" /></div>
                         <h2 class="ttl-sub-1">Next Video:</h2>
                         <div class="clearfix">
                             <a href="#" class="link-video ld">
-                                <img src="<?= $this->baseUrl() ?>/images/clipart/video-next.jpg" alt="" />
+                                <?= $this->next->getThumbnail('thumbsmall', 147,86) ?>
                                 <span class="play-icon-middle"></span>
                             </a>
                             <div class="next-video-descr">
-                                <p>Cinthya Henderson</p>
+                                <p><?= $this->next->title ?></p>
                                 <p><strong>Up Close</strong></p>
                             </div> <!-- .next-video-descr -->
                         </div> <!-- .clearfix -->
@@ -28,8 +27,9 @@
                 </div> <!-- .clearfix -->
             </div> <!-- #video-detail -->
             <div class="video-content-top clearfix">
-                <h2 class="ttl-primary ld">Hot 100 Video Collection</h2>
+                <h2 class="ttl-primary ld">More Videos</h2>
                 <div class="rd">
+                    <!--
                     <form>
                         <div class="filter-group">
                             <label for="filter-state">State</label>
@@ -38,8 +38,8 @@
                                     <option>California</option>
                                     <option>New York</option>
                                 </select>
-                            </div> <!-- .fg-field -->
-                        </div> <!-- .filter-group -->
+                            </div> <!-- .fg-field --*>
+                        </div> <!-- .filter-group --*>
                         <div class="filter-group">
                             <label for="filter-sort-by">Sort by</label>
                             <div class="fg-field">
@@ -47,160 +47,46 @@
                                     <option>Most Popular</option>
                                     <option>Least Popular</option>
                                 </select>
-                            </div> <!-- .fg-field -->
-                        </div> <!-- .filter-group -->
+                            </div> <!-- .fg-field --*>
+                        </div> <!-- .filter-group --*>
                     </form>
+                    -->
                 </div> <!-- .rd -->
             </div> <!-- .video-content-top -->
             <div class="pagination clearfix">
+                <!--
                 <div class="ld">Showing 1-9 of 56 Videos</div>
                 <div class="ib-list rd">
                     <a href="#" class="page active">1</a>
                     <a href="#" class="page">2</a>
                     <a href="#" class="page">3</a>
                 </div>
+                -->
             </div> <!-- .pagination -->
             <div class="ib-list videos-list small"> 
+                <?php foreach($this->videos as $v): ?>
                 <div class="ib-block">
-                    <a href="#" class="link-video">
-                        <img src="<?= $this->baseUrl() ?>/images/clipart/video-1.jpg" alt="" />
+                    <a href="<?= $this->lurl('videos/'.$v->id) ?>" class="link-video">
+                        <?= $v->getThumbnail('thumbmed', 201, 115) ?>
                         <span class="play-icon-middle"></span>
-                        <span class="video-duration">4:05</span>
+                        <span class="video-duration"><?= $v->duration ?></span>
                     </a>
                     <div class="video-item-text">
-                        <a href="#" class="video-item-ttl">Up Close</a>
-                        <div class="video-item-date">5 Months Ago</div>
+                        <a href="#" class="video-item-ttl"><?= $v->title ?></a>
+                        <div class="video-item-date"><?= $v->getDate('ago') ?></div>
                     </div>
                 </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <a href="#" class="link-video">
-                        <img src="<?= $this->baseUrl() ?>/images/clipart/video-2.jpg" alt="" />
-                        <span class="play-icon-middle"></span>
-                        <span class="video-duration">4:05</span>
-                    </a>
-                    <div class="video-item-text">
-                        <a href="#" class="video-item-ttl">Up Close</a>
-                        <div class="video-item-date">5 Months Ago</div>
-                    </div>
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <a href="#" class="link-video">
-                        <img src="<?= $this->baseUrl() ?>/images/clipart/video-3.jpg" alt="" />
-                        <span class="play-icon-middle"></span>
-                        <span class="video-duration">4:05</span>
-                    </a>
-                    <div class="video-item-text">
-                        <a href="#" class="video-item-ttl">Up Close</a>
-                        <div class="video-item-date">5 Months Ago</div>
-                    </div>
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <a href="#" class="link-video">
-                        <img src="<?= $this->baseUrl() ?>/images/clipart/video-4.jpg" alt="" />
-                        <span class="play-icon-middle"></span>
-                        <span class="video-duration">4:05</span>
-                    </a>
-                    <div class="video-item-text">
-                        <a href="#" class="video-item-ttl">Up Close</a>
-                        <div class="video-item-date">5 Months Ago</div>
-                    </div>
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <a href="#" class="link-video">
-                        <img src="<?= $this->baseUrl() ?>/images/clipart/video-5.jpg" alt="" />
-                        <span class="play-icon-middle"></span>
-                        <span class="video-duration">4:05</span>
-                    </a>
-                    <div class="video-item-text">
-                        <a href="#" class="video-item-ttl">Up Close</a>
-                        <div class="video-item-date">5 Months Ago</div>
-                    </div>
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <a href="#" class="link-video">
-                        <img src="<?= $this->baseUrl() ?>/images/clipart/video-6.jpg" alt="" />
-                        <span class="play-icon-middle"></span>
-                        <span class="video-duration">4:05</span>
-                    </a>
-                    <div class="video-item-text">
-                        <a href="#" class="video-item-ttl">Up Close</a>
-                        <div class="video-item-date">5 Months Ago</div>
-                    </div>
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <a href="#" class="link-video">
-                        <img src="<?= $this->baseUrl() ?>/images/clipart/video-7.jpg" alt="" />
-                        <span class="play-icon-middle"></span>
-                        <span class="video-duration">4:05</span>
-                    </a>
-                    <div class="video-item-text">
-                        <a href="#" class="video-item-ttl">Up Close</a>
-                        <div class="video-item-date">5 Months Ago</div>
-                    </div>
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <a href="#" class="link-video">
-                        <img src="<?= $this->baseUrl() ?>/images/clipart/video-8.jpg" alt="" />
-                        <span class="play-icon-middle"></span>
-                        <span class="video-duration">4:05</span>
-                    </a>
-                    <div class="video-item-text">
-                        <a href="#" class="video-item-ttl">Up Close</a>
-                        <div class="video-item-date">5 Months Ago</div>
-                    </div>
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <a href="#" class="link-video">
-                        <img src="<?= $this->baseUrl() ?>/images/clipart/video-9.jpg" alt="" />
-                        <span class="play-icon-middle"></span>
-                        <span class="video-duration">4:05</span>
-                    </a>
-                    <div class="video-item-text">
-                        <a href="#" class="video-item-ttl">Up Close</a>
-                        <div class="video-item-date">5 Months Ago</div>
-                    </div>
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <a href="#" class="link-video">
-                        <img src="<?= $this->baseUrl() ?>/images/clipart/video-10.jpg" alt="" />
-                        <span class="play-icon-middle"></span>
-                        <span class="video-duration">4:05</span>
-                    </a>
-                    <div class="video-item-text">
-                        <a href="#" class="video-item-ttl">Up Close</a>
-                        <div class="video-item-date">5 Months Ago</div>
-                    </div>
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <a href="#" class="link-video">
-                        <img src="<?= $this->baseUrl() ?>/images/clipart/video-11.jpg" alt="" />
-                        <span class="play-icon-middle"></span>
-                        <span class="video-duration">4:05</span>
-                    </a>
-                    <div class="video-item-text">
-                        <a href="#" class="video-item-ttl">Up Close</a>
-                        <div class="video-item-date">5 Months Ago</div>
-                    </div>
-                </div> <!-- .ib-block -->
-                <div class="ib-block">
-                    <a href="#" class="link-video">
-                        <img src="<?= $this->baseUrl() ?>/images/clipart/video-12.jpg" alt="" />
-                        <span class="play-icon-middle"></span>
-                        <span class="video-duration">4:05</span>
-                    </a>
-                    <div class="video-item-text">
-                        <a href="#" class="video-item-ttl">Up Close</a>
-                        <div class="video-item-date">5 Months Ago</div>
-                    </div>
-                </div> <!-- .ib-block -->
+                <?php endforeach ?>
             </div> <!-- .videos-list -->
             <div class="pagination clearfix no-border">
+                <!--
                 <div class="ld">Showing 1-9 of 56 Videos</div>
                 <div class="ib-list rd">
                     <a href="#" class="page active">1</a>
                     <a href="#" class="page">2</a>
                     <a href="#" class="page">3</a>
                 </div>
+                -->
             </div> <!-- .pagination -->
         </div> <!-- .video-category-content -->
     </div> <!-- .white-box-1 -->

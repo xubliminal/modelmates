@@ -15,13 +15,31 @@ class MM_Service_Videos extends MM_Service {
         return self::$_instance;
     }
     
-    public static function getAll($type = null) {
+    public static function getCategories() {
+        $categories = new Zend_Db_Table('video_categories');
+        return $categories->fetchAll();
+    }
+    
+    public static function getCategory($slug) {
+        $categories = new Zend_Db_Table('video_categories');
+        $select = $categories->select();
+        $select->where('permalink = ?', $slug);
+        
+        return $categories->fetchRow($select);
+    }
+    
+    public static function getAll($type = null, $category = 'all') {
         $inst = self::getInstance();
         $select = $inst->select();
         if($type === null)
             $select->where('object_type is null');
         else {
             $select->where('object_type = ?', $type);
+        }
+        if($category != 'all') {
+            $category = self::getCategory($category);
+            if($category !== null) 
+                $select->where('category_id = ?', $category->id);                
         }
         return $inst->fetchAll($select);
     }
@@ -73,8 +91,28 @@ class MM_Service_Videos extends MM_Service {
         return $this->fetchRow($select);
     }
     
-    public function getCategory() {
-        return '--';
+    public static function get($id) {
+        $inst = self::getInstance();
+        return $inst->getByID($id);
     }
     
+    public static function remove($id) {
+        $video = self::get($id);
+        $video->delete();
+    }
+    
+    public static function getNext($id) {
+        $inst = self::getInstance();
+        $select = $inst->select();
+        $select->where('id > ?', $id);
+        
+        $next = $inst->fetchRow($select);
+        if($next === null) {
+            $select = $inst->select();
+            $select->order('id ASC');
+            
+            $next = $inst->fetchRow($select);
+        }
+        return $next;
+    }
 }

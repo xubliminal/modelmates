@@ -29,13 +29,13 @@
                                         <label for="video" class="col-sm-3 control-label">Video</label>
                                         <div class="col-sm-6">
                                             <?php if($this->video): ?>
-                                            
+                                            <div id="video-player"></div>
                                             <?php else: ?>
-                                            <div id="file_upload2">Upload</div>
-                                            <?php endif ?>
+                                            <div id="file_upload2">Upload</div>                                            
                                             <div id='uploaded-videos'>
                                                 
                                             </div>
+                                            <?php endif ?>
                                         </div>
                                     </div>
                                     
@@ -50,11 +50,13 @@
                                                 <?php foreach($this->pictures as $pic): ?>
                                                 <div class="img-thumbnail-conrainer">
                                                     <div class="img-thumbnail"  style="margin: 5px 5px 10px; float: left; width: 170px; height: 140px;">
-                                                        <?= $pic->getImage('', 150, 120) ?>
+                                                        <?= $pic->getImage('thumbsmall', 150, 120) ?>
                                                         <a href="#" class="icon-delete js-delete-image"></a>
                                                     </div>
-                                                    <input type="hidden" name="image[<?= $pic->file_id ?>]" value="<?= $pic->file_id ?>" />
-                                                    <input type="radio" name="thumb" value="<?= $pic->file_id ?>" /> Use this as a thumbnail
+                                                    <div class='clearfix'>
+                                                        <input type="hidden" name="image[<?= $pic->file_id ?>]" value="<?= $pic->file_id ?>" />
+                                                        <input type="radio" name="thumb" <?= ($pic->file_id === $this->data['thumb']) ? 'checked' : '' ?> value="<?= $pic->file_id ?>" /> Use this as a thumbnail
+                                                    </div>
                                                 </div>
                                                 <?php endforeach; endif ?>
                                             </div>
@@ -64,8 +66,10 @@
                                                         <div class="loading"></div>
                                                         <a href="#" class="icon-delete qq-upload-cancel"></a>
                                                     </div>
+                                                    <div class='clearfix'>
                                                     <input type="hidden" class="js-file-id" />
                                                     <input type="radio" class='js-thumb' /> Use this as a thumbnail
+                                                    </div>
                                                     <div class="hide">
                                                         <span class="qq-upload-file"></span>
                                                         <span class="qq-upload-spinner"></span>
@@ -78,9 +82,9 @@
                                     </div>
                                     
                                     <div class="form-group">
-                                        <label for="username" class="col-sm-3 control-label">Attached to User:</label>
+                                        <label for="username" class="col-sm-3 control-label">Attached to Hot100:</label>
                                         <div class="col-sm-6">
-                                            <input name="usernmae" id="username" placeholder="Type in the user's username" class="form-control required" value="<?= $this->data['username'] ?>" />
+                                            <input name="usernmae" id="username" placeholder="Type in the hot100's username" class="form-control required" value="<?= $this->data['username'] ?>" />
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -89,7 +93,7 @@
                                             <select class='form-control' name='category_id' i='category'>
                                                 <option value="">Select a Category</option>
                                                 <?php foreach($this->categories as $c): ?>
-                                                <option value="<?= $c->id ?>"><?= $c->name ?></option>
+                                                <option <?= $c->id == $this->data['category_id'] ? 'selected' : '' ?> value="<?= $c->id ?>"><?= $c->name ?></option>
                                                 <?php endforeach ?>
                                             </select>
                                         </div>
@@ -113,5 +117,16 @@
         </div> <!-- container -->
     </div> <!--wrap -->
 </div> <!-- page-content -->
-<?php $scripts = array('adm/js/videos.js') ?>
+<?php $scripts = array(
+    'scripts/jwplayer.js',
+    'adm/js/videos.js'
+) ?>
+<?php if(isset($this->video)): ?>
+<script type="text/javascript">
+var video = {
+    file: "<?= $this->video->getUrl() ?>",
+    image: "<?= $this->video->getThumbUrl() ?>"
+};
+</script>
+<?php endif ?>
 <?= $this->partial('partials/admin/footer.phtml', array('scripts' => $scripts)) ?>
