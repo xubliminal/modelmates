@@ -53,7 +53,6 @@ $(function(){
         return false;
     });
     
-    console.log(video);
     if(video.file) {
         jwplayer('video-player').setup({
             file:video.file,
